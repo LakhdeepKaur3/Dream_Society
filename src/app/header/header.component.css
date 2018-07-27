@@ -1,3 +1,17 @@
+#headernav{max-height: 70px;}
 #headernav div li {padding-left: 25px;}
 
-#headernav div ul li :hover{border-bottom:2px skyblue solid;}
+#headernav div ul li :hover{border-top:2px skyblue solid;}
+#firstslider{background-image: url('apartments-architectural-design-architecture-534233.jpg')}
+#secondslider{background-image: url('architecture-building-business-284257.jpg')}
+#thirdslider{background-image: url('apartment-architectural-design-architecture-379940.jpg')}
+
+#slider{margin-top: 56.45px;}
+#slider h5{font-family: cursive; color: white;font-size: 20px; font-weight: bolder;}
+#slider p{font-family: 'Times New Roman', Times, serif;color: black;font-size: 20px;}
+#contact{background-image: url('../../image/action-architecture-blurred-background-386007.jpg');
+    position: cover;background-repeat: no-repeat;background-size: cover;padding-top: 30px;}
+#contact h1{text-align: center;color: white;font-weight: bold;}
+#contac{text-align: center;color: white;}
+    #queryform{padding-top:40px;opacity: 0.6;}
+    #queryform:hover{opacity: 1;}    

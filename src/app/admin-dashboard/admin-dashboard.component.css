@@ -2,10 +2,11 @@
     margin: 0px;
     padding: 0px;
 }
-#admin-main{margin-top: 60px;background-color: tomato}
+#admin-main{margin-top: 60px;}
 #admin-main ul{list-style: none; background: blue;text-align: center;color: white;}
+#admin-main a{text-decoration: none;color: white; }
 #admin-main li{ padding: 20px;font-weight: bold;}
 #admin-main li:hover{border-left: skyblue 5px solid;background-color: black;}
 
 /* admin-data */
-#admin-data{background: orange;}
+#admin-data{background: orange;max-width: 100%;opacity:.1;}
