@@ -9,6 +9,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { QueryformComponent } from './queryform/queryform.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+// import { LightboxModule } from "angular2-lightbox";
+import { LightboxComponent } from './lightbox/lightbox.component';
 const routes : Routes =[
   {path : ' ' ,component : HeaderComponent},
   {path : 'admin-dashboard' ,component : AdminDashboardComponent},
@@ -25,6 +27,7 @@ const routes : Routes =[
     AdminDashboardComponent,
     UserDashboardComponent,
     QueryformComponent,
+    LightboxComponent,
     
   ],
   imports: [
@@ -32,7 +35,8 @@ const routes : Routes =[
     FormsModule,
     ReactiveFormsModule,
     AngularFontAwesomeModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    // LightboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

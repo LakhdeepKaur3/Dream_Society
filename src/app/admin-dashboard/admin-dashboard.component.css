@@ -9,4 +9,4 @@
 #admin-main li:hover{border-left: skyblue 5px solid;background-color: black;}
 
 /* admin-data */
-#admin-data{background: orange;max-width: 100%;opacity:.1;}
+#admin-data{background: orange;max-width: 100%;opacity:1;}
