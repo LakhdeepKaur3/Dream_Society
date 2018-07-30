@@ -7,15 +7,15 @@
           <label>First Name <span style="color: red">*</span></label>
           <input type="text" class="form-control" placeholder="Enter first name" formControlName="FirstName">
           <div class="alert" *ngIf="!AccConForm.controls['FirstName'].valid && (AccConForm.controls['FirstName'].touched)">
-            <div [hidden]="!AccConForm.controls['FirstName'].errors.required">
+            <p [hidden]="!AccConForm.controls['FirstName'].errors.required">
               First name is required.
-            </div>
-            <div [hidden]="!AccConForm.controls['FirstName'].errors.minlength">
+            </p>
+            <p [hidden]="!AccConForm.controls['FirstName'].errors.minlength">
               First name must have 3 characters length.
-            </div>
-            <div [hidden]="!AccConForm.controls['FirstName'].errors.maxlength">
+            </p>
+            <p [hidden]="!AccConForm.controls['FirstName'].errors.maxlength">
               First name with in 1500 characters length.
-            </div>
+            </p>
           </div>
         </div>
         <div class="form-group">

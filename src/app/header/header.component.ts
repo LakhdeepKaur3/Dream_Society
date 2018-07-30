@@ -5,9 +5,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-firstslider="apartments-architectural-design-architecture-534233.jpg";
-secondslider="architecture-building-business-284257.jpg";
-thirdslider="apartment-architectural-design-architecture-379940.jpg";
+firstslider="assets/images/apartments-architectural-design-architecture-534233.jpg";
+secondslider="assets/images/architecture-building-business-284257.jpg";
+thirdslider="assets/images/apartment-architectural-design-architecture-379940.jpg";
   constructor() { }
 
   ngOnInit() {
