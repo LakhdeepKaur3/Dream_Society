@@ -11,10 +11,20 @@ import { QueryformComponent } from './queryform/queryform.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 // import { LightboxModule } from "angular2-lightbox";
 import { LightboxComponent } from './lightbox/lightbox.component';
+
+import { CommonFormComponent } from './common-form/common-form.component';
+import { EventManagementComponent } from './event-management/event-management.component';
+import { AdminPersonalFormComponent } from './admin-personal-form/admin-personal-form.component';
+import { OwnerEventFormComponent } from './owner-event-form/owner-event-form.component';
+
 const routes : Routes =[
   {path : ' ' ,component : HeaderComponent},
   {path : 'admin-dashboard' ,component : AdminDashboardComponent},
-  {path : 'user-dashboard' ,component : UserDashboardComponent}
+  {path : 'user-dashboard' ,component : UserDashboardComponent},
+  {path:'common-form', component:CommonFormComponent},
+  {path:'event-management', component:EventManagementComponent},
+  {path:'admin-personal-form', component:AdminPersonalFormComponent},
+  {path:'owner-event-form', component:OwnerEventFormComponent}
 
 ]
 
@@ -28,6 +38,10 @@ const routes : Routes =[
     UserDashboardComponent,
     QueryformComponent,
     LightboxComponent,
+    CommonFormComponent,
+    EventManagementComponent,
+    AdminPersonalFormComponent,
+    OwnerEventFormComponent,
     
   ],
   imports: [
