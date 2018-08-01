@@ -1,0 +1,15 @@
+#headernav{max-height: 70px;opacity: .8;
+   
+}
+#headernav:hover{background-color: black}
+#headernav div li {
+    padding-left: 12.5px;
+    padding-right:12.5px;
+}
+.nav-item{
+    border-top:2px transparent solid;
+}
+.nav-item:hover{border-top:2px skyblue solid}
+/* #firstslider{background-image: url('/apartments-architectural-design-architecture-534233.jpg')}
+#secondslider{background-image: url('/apartments-architectural-design-architecture-534233.jpg')}
+#thirdslider{background-image: url('/apartment-architectural-design-architecture-379940.jpg')} */

@@ -1,0 +1,125 @@
+<div class="container-fluid ">
+  <h1>Add Vendor</h1>
+  <form #vendorForm="ngForm" (ngSubmit)="onSubmit(vendorForm)">
+    <!-- {{_form | json}} -->
+<input type="text" name="id" hidden key="ngModel" [(ngModel)]="_form.id">
+    <hr />
+
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" required #fname="ngModel" [class.is-invalid]="fname.invalid && fname.touched" class="form-control" name="firstname"
+        [(ngModel)]="_form.firstname">
+      <!-- <div *ngIf="fname.errors.pattern">Doesnot match the pattern</div> -->
+      <small class="text-danger" [class.d-none]="fname.valid || fname.untouched">First Name is Required</small>
+
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" required #lname="ngModel" [class.is-invalid]="lname.invalid&& lname.touched" class="form-control" name="lastname"
+        [(ngModel)]="_form.lastname">
+      <small class="text-danger" [class.d-none]="lname.valid || lname.untouched">Last Name is Required</small>
+    </div>
+
+    <div class="mb-3">
+      <label>Gender</label>
+      <div class="form-check">
+        <input class="form-check-input" [(ngModel)]="_form.gender" type="radio" value="Male" name="gender">
+        <label class="form-check-label">Male</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" [(ngModel)]="_form.gender" type="radio" value="Female" name="gender">
+        <label class="form-check-label">female</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label>Services</label>
+      <select (blur)="validateService(serviceControl.value)" (change)="validateService(serviceControl.value)" #serviceControl="ngModel"
+        [class.is-invalid]="serviceHasError && serviceControl.touched" class="custom-select" name="services" [(ngModel)]="_form.services">
+        <option value="default">Services</option>
+        <option *ngFor="let service of services">
+          {{service}}
+        </option>
+      </select>
+      <small class="text-danger" [class.d-none]="!serviceHasError || serviceControl.untouched">Please choose a service</small>
+    </div>
+
+    <div class="form-group">
+      <label>Address</label>
+      <input type="text" required #address="ngModel" [class.is-invalid]="address.invalid && address.touched" class="form-control"
+        name="address" [(ngModel)]="_form.address">
+      <small class="text-danger" [class.d-none]="address.valid || address.untouched">Address is Required</small>
+    </div>
+
+
+    <div class="form-group">
+      <label>Aadhar No</label>
+      <input type="text" required #aadhar="ngModel" [class.is-invalid]="aadhar.invalid&& aadhar.touched" class="form-control" name="aadharNo"
+        [(ngModel)]="_form.aadharNo">
+      <small class="text-danger" [class.d-none]="aadhar.valid || aadhar.untouched">Aadhar is Required</small>
+    </div>
+
+    <div class="form-group">
+      <label>Mobile No</label>
+      <input type="tel" required #mobile="ngModel" [class.is-invalid]="mobile.invalid&& mobile.touched" class="form-control" name="mobileNo"
+        [(ngModel)]="_form.mobileNo">
+      <small class="text-danger" [class.d-none]="mobile.valid || mobile.untouched">Mobile No is Required</small>
+    </div>
+
+    <div class="form-group">
+      <label>UserName</label>
+      <input type="text" required #username="ngModel" [class.is-invalid]="username.invalid&& username.touched" class="form-control"
+        name="userName" [(ngModel)]="_form.username">
+      <small class="text-danger" [class.d-none]="username.valid || username.untouched">Username is Required</small>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" required #email="ngModel" [class.is-invalid]="email.invalid&& email.touched" class="form-control" name="email"
+        [(ngModel)]="_form.email">
+      <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is Required</small>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" required #password="ngModel" [class.is-invalid]="password.invalid&& password.touched" class="form-control"
+        name="password" [(ngModel)]="_form.password">
+      <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is Required</small>
+    </div>
+
+    <div class="form-group">
+      <label>Confirm Password</label>
+      <input type="password" required #cpassword="ngModel" [class.is-invalid]="cpassword.invalid && cpassword.touched" class="form-control"
+        name="confirmPassword" [(ngModel)]="_form.confirmPassword">
+      <small class="text-danger" [class.d-none]="cpassword.valid || cpassword.untouched">Confirm Password is Required</small>
+    </div>
+
+    <!-- <div class="form-group">
+      <label> Image</label>
+      <input type="file" required #image="ngModel" [class.is-invalid]="image.invalid && image.touched" class="form-control" name="image" [(ngModel)]="_form.image">
+      <small class="text-danger" [class.d-none]="image.valid || image.untouched">Image is Required</small>
+    </div>  -->
+    <div class=form-group>
+      <label>Charges</label>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-dollar"></i>
+        </div>
+        <input type="text" required #charges="ngModel" [class.is-invalid]="charges.invalid&& charges.touched" class="form-control"
+          name="charges" [(ngModel)]="_form.charges">
+        <small class="text-danger" [class.d-none]="charges.valid || charges.untouched">Charges is Required</small>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!vendorForm.valid">
+      <i class="fa fa-floppy-o"></i>
+      Add Vendor</button>
+    <button type="button" class="btn btn-primary" *ngIf="_form.id!=null" (click)="onDelete(vendorForm)">
+      <i class="fa fa-trash-o"></i>
+      Delete</button>
+    <button type="button" class="btn btn-primary" (click)=resetForm()>
+      <i class="fa fa-repeat"></i>
+      Reset</button>
+  </form>
+
+  <!-- *ngIf="_form.$key!=null" -->

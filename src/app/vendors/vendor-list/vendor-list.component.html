@@ -1,0 +1,25 @@
+
+<!-- <ul class="list-group hover">
+<li class="list-group-item" *ngFor="let vendor of vendors" (click)="onItemClick(vendor)">
+  {{vendor.firstname}}- {{vendor.services}}-{{vendor.mobileNo}}
+</li>
+</ul> -->
+<table class="table table-hover">
+
+  <thead>
+    <tr >
+      <th scope="col">ID</th>
+      <th scope="col">NAME</th>
+      <th scope="col">SERVICE</th>
+      <th scope="col">CONTACT NO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vendor of vendors" (click)="onItemClick(vendor)">
+      <th scope="row">{{vendor.id}}</th>
+      <td>{{vendor.firstname}}</td>
+      <td>{{vendor.services}}</td>
+      <td>{{vendor.mobileNo}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,27 @@
+<button (click)='clickMe()'>Api Call</button>
+<div class="table">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>aadhar no</th>
+        <th>mobile</th>
+        <th>profession</th>  
+    </tr>
+    <tr *ngFor = "let data of datas">
+        <td >{{ data.vendor_id }}</td>
+        <td >{{ data.vendor_name }}</td>
+        <td >{{ data.vendor_email }}</td>
+        <td >{{ data.vendor_aadhar }}</td>
+        <td >{{ data.vendor_mobile }}</td>
+        <td >{{ data.vendor_type }}</td>
+    
+        <button routerLink='/user-vendor-form'>Book</button>
+        <!-- <button (click)='editVendor()'>Edit</button>
+        <button (click)='deleteVendor()'>Delete</button> -->
+        
+        
+    </tr>
+    <button (click)='clickMe()'>Add Vendor</button>
+
+</div>
