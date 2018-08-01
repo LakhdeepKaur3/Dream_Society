@@ -8,7 +8,6 @@ import { Vendor } from '../shared/vendor.model';
   styleUrls: ['./vendor.component.css']
 })
 export class VendorComponent implements OnInit {
-
   services = ['Plumber', 'Electrician', 'Milkman', 'Grocer', 'Vegetable Seller', 'Carpenter', 'Painter',
     'Maid', 'Sweeper', 'Laundary', 'Guard', 'Beautician', 'Other'];
   serviceHasError = true;

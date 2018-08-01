@@ -54,37 +54,40 @@
 
     <div class="form-group">
       <label>Aadhar No</label>
-      <input type="text" required #aadhar="ngModel" [class.is-invalid]="aadhar.invalid&& aadhar.touched" class="form-control" name="aadharNo"
+      <input type="text" maxlength="12" required #aadhar="ngModel" [class.is-invalid]="aadhar.invalid&& aadhar.touched" class="form-control" name="aadharNo"
         [(ngModel)]="_form.aadharNo">
       <small class="text-danger" [class.d-none]="aadhar.valid || aadhar.untouched">Aadhar is Required</small>
     </div>
 
     <div class="form-group">
       <label>Mobile No</label>
-      <input type="tel" required #mobile="ngModel" [class.is-invalid]="mobile.invalid&& mobile.touched" class="form-control" name="mobileNo"
+      <input type="tel" maxlength="10" required #mobile="ngModel" [class.is-invalid]="mobile.invalid&& mobile.touched" class="form-control" name="mobileNo"
         [(ngModel)]="_form.mobileNo">
       <small class="text-danger" [class.d-none]="mobile.valid || mobile.untouched">Mobile No is Required</small>
     </div>
 
     <div class="form-group">
       <label>UserName</label>
-      <input type="text" required #username="ngModel" [class.is-invalid]="username.invalid&& username.touched" class="form-control"
+      <input type="text" minlength="5" maxlength="8" required #username="ngModel" [class.is-invalid]="username.invalid&& username.touched" class="form-control"
         name="userName" [(ngModel)]="_form.username">
-      <small class="text-danger" [class.d-none]="username.valid || username.untouched">Username is Required</small>
+      <small class="text-danger" [class.d-none]="username.valid || username.untouched">Username is Required (minimum 5 characters).</small>
     </div>
 
     <div class="form-group">
       <label>Email</label>
-      <input type="email" required #email="ngModel" [class.is-invalid]="email.invalid&& email.touched" class="form-control" name="email"
-        [(ngModel)]="_form.email">
-      <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is Required</small>
+      <input type="email" required #email="ngModel" [class.is-invalid]="email.invalid && email.touched" class="form-control" name="email"
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title=" Must be type proper mail address"  [(ngModel)]="_form.email">
+      <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is Required (eg:abc123@john.com)</small>
     </div>
 
     <div class="form-group">
       <label>Password</label>
-      <input type="password" required #password="ngModel" [class.is-invalid]="password.invalid&& password.touched" class="form-control"
+      <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+      title="" required #password="ngModel" [class.is-invalid]="password.invalid && password.touched" class="form-control"
         name="password" [(ngModel)]="_form.password">
-      <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is Required</small>
+      <small *ngIf="password.touched"class="text-danger" [class.d-none]="password.valid || password.touched">Password is Required</small>
+      <small *ngIf="password.dirty" class="text-danger" [class.d-none]="password.valid || password.untouched">Must contain at least one number and one uppercase and lowercase letter,
+        and at least 8 or more characters</small>
     </div>
 
     <div class="form-group">
