@@ -27,6 +27,9 @@ import { SocietyComponent } from './society/society.component';
 import { OwnerFormComponent } from './society/owner-form/owner-form.component';
 import { AdminFormComponent } from './society/admin-form/admin-form.component';
 import { TenantFormComponent } from './society/tenant-form/tenant-form.component';
+import { AssetsComponent } from './assets/assets/assets.component';
+import { AddAssetComponent } from './assets/add-asset/add-asset.component';
+import { AssetDetailComponent } from './assets/asset-detail/asset-detail.component';
 
 const routes: Routes = [
   //   { path: ' ', component: HeaderComponent },
@@ -64,6 +67,13 @@ const routes: Routes = [
         { path: 'tenant', component:TenantFormComponent },
       ]
     },
+    { path: 'assets', component: AssetsComponent,
+    children: [
+      { path: '', redirectTo: 'assets', pathMatch: 'full' },
+      { path: 'add-assets', component:AddAssetComponent},
+      { path: 'view-assets', component: AssetDetailComponent },
+    ]
+  },
       {
         path: 'event-management', component: EventManagementComponent,
         children: [
@@ -121,7 +131,10 @@ const routes: Routes = [
     SocietyComponent,
     OwnerFormComponent,
     TenantFormComponent,
-    AdminFormComponent
+    AdminFormComponent,
+    AddAssetComponent,
+    AssetsComponent,
+    AssetDetailComponent
 
   ],
   imports: [
