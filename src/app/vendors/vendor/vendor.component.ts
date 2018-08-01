@@ -45,22 +45,23 @@ export class VendorComponent implements OnInit {
     }
   }
   onSubmit(form: NgForm) {
-    if(form.value.key == ''){
+    // if(form.value.key== ''){
     console.log(form.value);
     this.vendorservice.addVendor(form.value)
       .subscribe((data) => {
         console.log(data);
      })
-    }
-     else{
-    console.log(form.value);
-     this.vendorservice.updateVendor(form.value,form.value.id)
-     .subscribe((data)=>{
-      console.log(data);
-    });
-    }
+    // }
     // this.resetForm(form);
   }
+  onUpdate(form: NgForm){
+    console.log(form.value);
+    this.vendorservice.updateVendor(form.value,form.value.id)
+    .subscribe((data)=>{
+     console.log(data);
+   });
+  }
+
   resetForm(form?: NgForm) {
 
     if (form != null)
