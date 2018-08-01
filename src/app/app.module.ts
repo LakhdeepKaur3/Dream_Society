@@ -23,6 +23,10 @@ import { HeaderContentComponent } from './home-page/header-content/header-conten
 import { LightboxComponent } from './home-page/lightbox/lightbox.component';
 import { LoginComponent } from './login/login.component';
 import { ParkingComponent } from './parking/parking.component';
+import { SocietyComponent } from './society/society.component';
+import { OwnerFormComponent } from './society/owner-form/owner-form.component';
+import { AdminFormComponent } from './society/admin-form/admin-form.component';
+import { TenantFormComponent } from './society/tenant-form/tenant-form.component';
 
 const routes: Routes = [
   //   { path: ' ', component: HeaderComponent },
@@ -52,6 +56,14 @@ const routes: Routes = [
       { path: '', redirectTo: 'vendors', pathMatch: 'full' },
       { path: 'vendors', component: VendorsComponent },
       { path: 'parking', component: ParkingComponent},
+      { path: 'society', component: SocietyComponent,
+      children: [
+        { path: '', redirectTo: 'owner', pathMatch: 'full' },
+        { path: 'owner', component: OwnerFormComponent},
+        { path: 'admin', component: AdminFormComponent },
+        { path: 'tenant', component:TenantFormComponent },
+      ]
+    },
       {
         path: 'event-management', component: EventManagementComponent,
         children: [
@@ -105,7 +117,11 @@ const routes: Routes = [
     UserVendorListComponent,
     LightboxComponent,
     LoginComponent,
-    ParkingComponent
+    ParkingComponent,
+    SocietyComponent,
+    OwnerFormComponent,
+    TenantFormComponent,
+    AdminFormComponent
 
   ],
   imports: [
