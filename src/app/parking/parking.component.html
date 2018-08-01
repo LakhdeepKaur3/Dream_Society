@@ -1,9 +1,99 @@
+      <div class="container-fluid">
+          <h1>Parking</h1>
       <form [formGroup]="parkingForm" (ngSubmit)="submit()">
-        <table>
+            <div class="form-group">
+                    <label for="username">Username</label>
+                    <input 
+                         formControlName="username"
+                        id="username" 
+                        type="text" 
+                        class="form-control">
+                        <div *ngIf="parkingForm.get('username').touched">
+                                <div *ngIf="parkingForm.hasError('required', ['username'])">
+                                    This field is required.
+                                </div>
+                                <div *ngIf="parkingForm.hasError('minlength', ['username'])">
+                                    Please enter at least 3 characters.
+                                </div>
+                                <div *ngIf="parkingForm.hasError('maxlength', ['username'])">
+                                    Please enter no more than 10 characters.
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="vehicleno">Vehicle Type</label>
+                            <input 
+                                 formControlName="vehicleno"
+                                                            type="text" 
+                                class="form-control">
+                                <div *ngIf="parkingForm.get('vehicleno').touched">
+                                        <div *ngIf="parkingForm.hasError('required', ['vehicleno'])">
+                                            This field is required.
+                                        </div>
+                                        
+                                        <div *ngIf="parkingForm.hasError('maxlength', ['vehicleno'])">
+                                            Please enter no more than 12 characters.
+                                        </div>
+                                    </div>
+                            </div>
+                    
+                    <div class="form-group">
+                            <label for="flatno">Flat No</label>
+                            <input 
+                                 formControlName="flatno"
+                             
+                                type="text" 
+                                class="form-control">
+                                <div *ngIf="parkingForm.get('flatno').touched">
+                                        <div *ngIf="parkingForm.hasError('required', ['flatno'])">
+                                            This field is required.
+                                        </div>
+                                        <div *ngIf="parkingForm.hasError('minlength', ['username'])">
+                                                Please enter no more than 5 characters.
+                                            </div>
+                    
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                    <label for="contactno">Contact No</label>
+                                    <input 
+                                         formControlName="contactno"
+                                     
+                                        type="text" 
+                                        class="form-control">
+                                        <div *ngIf="parkingForm.get('contactno').touched">
+                                                <div *ngIf="parkingForm.hasError('required', ['contactno'])">
+                                                    This field is required.
+                                                </div>
+                                                <div *ngIf="parkingForm.hasError('pattern', ['contactno'])">
+                                                    Please enter a valid contactno .
+                                                </div>
+                                            </div>
+                                    </div>
+        
+                                    <div class="form-group">
+                                            <label for="wheelertype">Wheeler Type</label>
+                                            <input 
+                                                 formControlName="wheelertype"
+                                             
+                                                type="text" 
+                                                class="form-control">
+                                                <div *ngIf="parkingForm.get('wheelertype').touched && parkingForm.get('wheelertype').invalid">
+                                                        <div *ngIf="parkingForm.hasError('required', ['wheelertype'])">
+                                                                This field is required.
+                                                            </div>
+                                                            <div *ngIf="parkingForm.hasError('maxlength', ['wheelertype'])">
+                                                                   Invalid length
+                                                             </div>
+                                                    </div>
+                                            </div>
+                                            <div style="text-align: center"><button class="btn btn-outline-success" type="submit">Submit</button> </div>
+        <!-- <table>
             <tr>
                 <td>Username</td>
                 <td>
-                    <input type="text" formControlName="username">
+                    <input class="form-control" type="text" formControlName="username">
                 </td>
                 <td>
                     <div *ngIf="parkingForm.get('username').touched">
@@ -20,9 +110,16 @@
                 </td>
             </tr>
             <tr>
+
+                    
+        
+
+
+
+
                 <td>Flat No</td>
                 <td>
-                    <input type="text" formControlName="flatno">
+                    <input class="form-control" type="text" formControlName="flatno">
                 </td>
                 <td>
                     <div *ngIf="parkingForm.get('flatno').touched">
@@ -37,9 +134,13 @@
                 </td>
             </tr>
             <tr>
+
+
+                   
+        
                 <td>Contact No</td>
                 <td>
-                    <input type="number" formControlName="contactno">
+                    <input class="form-control" type="text" formControlName="contactno">
                 </td>
                 <td>
                     <div *ngIf="parkingForm.get('contactno').touched">
@@ -53,9 +154,25 @@
                 </td>
             </tr>
             <tr>
+
+
+                    <div class="form-group">
+                            <label for="wheelertype">Wheeler Type</label>
+                            <input 
+                                 formControlName="wheelertype"
+                             
+                                type="text" 
+                                class="form-control">
+                                <div *ngIf="parkingForm.get('wheelertype').touched">
+                                        <div *ngIf="parkingForm.hasError('pattern', ['wheelertype'])">
+                                            Please enter a valid URL.
+                                        </div>
+                                    </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Submit</button> 
                 <td>Wheeler Type</td>
                 <td>
-                    <input type="text" formControlName="wheelertype">
+                    <input class="form-control" type="text" formControlName="wheelertype">
                 </td>
                 <td>
                     <div *ngIf="parkingForm.get('wheelertype').touched">
@@ -68,8 +185,10 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="submit" value="Submit">
-                </td>
+                    <button class="btn btn-primary" type="submit">Submit</button>  -->
+                    <!-- <input type="submit" value="Submit"> -->
+                <!-- </td>
             </tr>
-        </table>
+        </table> -->
     </form>
+</div>

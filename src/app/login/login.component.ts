@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validator, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,21 +9,29 @@ import {FormBuilder, FormGroup, Validator, Validators} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
  
-  loginForm: FormGroup;
+  constructor(private router: Router){
 
-  constructor(private formBuilder: FormBuilder) { }
-
+  }
   ngOnInit() {
     // this.loginForm = this.formBuilder.group({
     //    username : [ '', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
     //    password : [ '', [Validators.required, Validators.pattern('^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$')]]
     // });
   }
-
-  submit(): void {
+  
+  doLogin(data): void {
     console.log('Login Info');
-    console.log('Username' + this.loginForm.value.username);
-    console.log('Password' + this.loginForm.value.password);
+    console.log(data);
+    if(data.Username == '1' && data.Password == '1'){
+      this.router.navigate(['admin-dashboard']);
+      console.log("here");
+      $('#myModal').modal('toggle');
+    }
+    else{
+      this.router.navigate(['user-dashboard']);
+      console.log("user here");
+      $('#myModal').modal('toggle');
+    }
   }
 
 }

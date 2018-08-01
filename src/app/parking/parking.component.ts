@@ -16,8 +16,8 @@ export class ParkingComponent implements OnInit {
        username : [ '', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
        vehicleno : [ '', [Validators.required, Validators.maxLength(12), Validators.pattern('(?=.*\d)(?=.*[a-z])(?=.*[A-Z])')]],
        flatno : [ '', [Validators.required, Validators.minLength(5), Validators.pattern('(?=.*\d)(?=.*[a-z])(?=.*[A-Z])')]],
-       contactno: ['',[Validators.maxLength(10), Validators.pattern('[0-9]')]],
-       wheelertype: ['',[Validators.pattern('2|4')]]
+       contactno: ['',[Validators.required,Validators.maxLength(10), Validators.pattern('[0-9]')]],
+       wheelertype: ['',[Validators.required,Validators.maxLength(1), Validators.pattern('[2 | 4]')]]
     });
   }
 
@@ -28,6 +28,7 @@ export class ParkingComponent implements OnInit {
     console.log('Flat No' + this.parkingForm.value.flatno);
     console.log('Contact No' + this.parkingForm.value.contactno);
     console.log('Wheeler Type' + this.parkingForm.value.wheelertype);
+    console.log(this.parkingForm);
 
   }
 }

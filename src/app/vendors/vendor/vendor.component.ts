@@ -45,7 +45,7 @@ export class VendorComponent implements OnInit {
     }
   }
   onSubmit(form: NgForm) {
-    if(form.value.key== ''){
+    if(form.value.key == ''){
     console.log(form.value);
     this.vendorservice.addVendor(form.value)
       .subscribe((data) => {
