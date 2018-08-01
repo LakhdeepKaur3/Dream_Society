@@ -21,6 +21,8 @@ import { AdminPersonalFormComponent } from './events/admin-personal-form/admin-p
 import { OwnerEventFormComponent } from './events/owner-event-form/owner-event-form.component';
 import { HeaderContentComponent } from './home-page/header-content/header-content.component';
 import { LightboxComponent } from './home-page/lightbox/lightbox.component';
+import { LoginComponent } from './login/login.component';
+import { ParkingComponent } from './parking/parking.component';
 
 const routes: Routes = [
   //   { path: ' ', component: HeaderComponent },
@@ -43,17 +45,19 @@ const routes: Routes = [
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HeaderContentComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: 'admin-dashboard', component: AdminDashboardComponent,
     children: [
       { path: '', redirectTo: 'vendors', pathMatch: 'full' },
       { path: 'vendors', component: VendorsComponent },
+      { path: 'parking', component: ParkingComponent},
       {
         path: 'event-management', component: EventManagementComponent,
         children: [
           { path: '', redirectTo: 'common-form', pathMatch: 'full' },
           { path: 'common-form', component: CommonFormComponent },
-          { path: 'admin-personal-form', component: AdminPersonalFormComponent }
+          { path: 'admin-personal-form', component: AdminPersonalFormComponent },
         ]
       }
     ]
@@ -64,7 +68,8 @@ const routes: Routes = [
       { path: '',redirectTo:'view-vendor', pathMatch: 'full' },
       {path : 'view-vendor' ,component : ViewVendorComponent},
       {path : 'user-vendor-form' ,component : UserVendorListComponent},
-      {path:'owner-event-form', component:OwnerEventFormComponent}
+      {path:'owner-event-form', component:OwnerEventFormComponent},
+
     ]
   }
 ];
@@ -98,7 +103,9 @@ const routes: Routes = [
     HeaderContentComponent,
     ViewVendorComponent,
     UserVendorListComponent,
-    LightboxComponent
+    LightboxComponent,
+    LoginComponent,
+    ParkingComponent
 
   ],
   imports: [

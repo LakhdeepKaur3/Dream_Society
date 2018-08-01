@@ -1,0 +1,67 @@
+<div class="container">
+  <h1>UserLogin</h1>
+      <form (submit)="submit()">
+       
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="abc@mail.com" required name="email">
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="password" required name="password">
+        </div>
+        
+        
+        <div style="text-align: center">
+         <input type="submit" value="Submit" />
+      </div>      
+      </form></div> 
+
+      <!-- <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <table>
+            <tr>
+                <td>Username</td>
+                <td>
+                    <input type="text" formControlName="username"/>
+                </td>
+                <td>
+                    <div *ngIf="loginForm.get('username').touched">
+                        <div *ngIf="loginForm.hasError('required', ['username'])">
+                            This field is required.
+                        </div>
+                        <div *ngIf="loginForm.hasError('minlength', ['username'])">
+                            Please enter at least 3 characters.
+                        </div>
+                        <div *ngIf="loginForm.hasError('maxlength', ['username'])">
+                            Please enter no more than 10 characters.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    <input type="password" formControlName="password"/>
+                </td>
+                <td>
+                    <div *ngIf="loginForm.get('password').touched">
+                        <div *ngIf="loginForm.hasError('required', ['password'])">
+                            This field is required.
+                        </div>
+                        <div *ngIf="loginForm.hasError('pattern', ['password'])">
+                            Your password does not meet complexity requirements.
+                        </div>
+    
+                    </div>
+                </td>
+            </tr>
+           
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="Submit" [disabled]="loginForm.invalid"/>
+                </td>
+            </tr>
+        </table>
+    </form> -->

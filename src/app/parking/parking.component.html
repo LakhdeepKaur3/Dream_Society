@@ -1,0 +1,75 @@
+      <form [formGroup]="parkingForm" (ngSubmit)="submit()">
+        <table>
+            <tr>
+                <td>Username</td>
+                <td>
+                    <input type="text" formControlName="username">
+                </td>
+                <td>
+                    <div *ngIf="parkingForm.get('username').touched">
+                        <div *ngIf="parkingForm.hasError('required', ['username'])">
+                            This field is required.
+                        </div>
+                        <div *ngIf="parkingForm.hasError('minlength', ['username'])">
+                            Please enter at least 3 characters.
+                        </div>
+                        <div *ngIf="parkingForm.hasError('maxlength', ['username'])">
+                            Please enter no more than 10 characters.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Flat No</td>
+                <td>
+                    <input type="text" formControlName="flatno">
+                </td>
+                <td>
+                    <div *ngIf="parkingForm.get('flatno').touched">
+                        <div *ngIf="parkingForm.hasError('required', ['flatno'])">
+                            This field is required.
+                        </div>
+                        <div *ngIf="parkingForm.hasError('pattern', ['flatno'])">
+                            Your flatno does not meet complexity requirements.
+                        </div>
+    
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Contact No</td>
+                <td>
+                    <input type="number" formControlName="contactno">
+                </td>
+                <td>
+                    <div *ngIf="parkingForm.get('contactno').touched">
+                        <div *ngIf="parkingForm.hasError('required', ['contactno'])">
+                            This field is required.
+                        </div>
+                        <div *ngIf="parkingForm.hasError('pattern', ['contactno'])">
+                            Please enter a valid contactno .
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Wheeler Type</td>
+                <td>
+                    <input type="text" formControlName="wheelertype">
+                </td>
+                <td>
+                    <div *ngIf="parkingForm.get('wheelertype').touched">
+                        <div *ngIf="parkingForm.hasError('pattern', ['wheelertype'])">
+                            Please enter a valid URL.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
