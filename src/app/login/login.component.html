@@ -37,8 +37,8 @@
                 <div class="modal-body">
                     <form #form="ngForm" (ngSubmit)="doLogin(form.value)" data-toggle="validator" role="form">
                         <input type="email" name="Username" ngModel placeholder="Username" class="form-control validate" required/>
-                        <input type="password" name="Password" ngModel placeholder="Password" class="form-control validate" required/>
-                        <input type="submit" name="login" 
+                        <br><input type="password" name="Password" ngModel placeholder="Password" class="form-control validate" required/>
+                        <br><input type="submit" name="login" 
                         class="btn btn-outline-success my-2 my-sm-0" value="Login" />
                     </form>
 

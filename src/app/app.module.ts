@@ -54,10 +54,12 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HeaderContentComponent },
   { path: 'login', component: LoginComponent },
+  {path: 'gallery', component: LightboxComponent},
+  
   {
     path: 'admin-dashboard', component: AdminDashboardComponent,
     children: [
-      { path: '', redirectTo: 'vendors', pathMatch: 'full' },
+      { path: '', redirectTo: 'admin-dashboard', pathMatch: 'full' },
       { path: 'vendors', component: VendorsComponent },
       { path: 'parking', component: ParkingComponent},
       { path: 'society', component: SocietyComponent,
