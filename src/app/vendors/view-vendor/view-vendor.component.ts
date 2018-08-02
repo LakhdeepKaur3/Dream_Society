@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClientModule  } from "@angular/common/http";
 import { UserVendorService} from '../shared/uservendor'
 import { UserVendorListComponent } from "../user-vendor-list/user-vendor-list.component";
 
@@ -32,9 +31,13 @@ export class ViewVendorComponent implements OnInit {
     }
 
   ngOnInit(){
-      this.httpService.getData().subscribe(data => {
-        this.datas = data;
-
-        console.log("a",this.datas)});
+      // this.httpService.getData().subscribe(data => {
+      //   this.datas = data;
+      //   console.log("a",this.datas)});
+      this.httpService.getData()
+    .subscribe((data)=>{
+      this.datas=(JSON.parse(data["_body"]));
+      console.log(this.datas);
+    });
   }
 }

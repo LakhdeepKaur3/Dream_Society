@@ -5,11 +5,20 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './owner-form.component.html',
   styleUrls: ['./owner-form.component.css']
 })
-export class OwnerFormComponent implements OnInit {
+export class OwnerFormComponent  {
+  model={
+    
+    name:'',
+    age:'',
+    address:'',
+    phone_no:'',
+    password:'',
+    confirm_password:'',
+    aadhar_card:'',
+    gender:''
 
+  }
   constructor( ) { }
 
-  ngOnInit() {
-  }
 
 }

@@ -1,83 +1,98 @@
 <div class="container">
 
-        <p>Complete and submit this form to register with dream society. All individuals residing in an apartment shall complete a owner registration form.</p>
-          <h1>OWNER INFORMATION FORM</h1>
+        <p> All members loving in this Society should Fill and Submit this form to register with Dream society.</p>
+          <h1> Owner  APPLICATION FORM</h1>
               <form>
         
-                <!-- name -->
+                 
                 <div class="form-group">
                   <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" required name="title">
-                </div>
+                  <input type="text" class="form-control" id="name" required   
+                  pattern="[a-zA-Z]+" 
+                  name="name" [(ngModel)]="model.name"  #name="ngModel">
+      
+                  <div *ngIf= "name.errors && (name.dirty || name.touched) "
+                  class="alert alert-danger">
+                  <div [hidden]="!name.hasError('required')">Name is required</div>
+                  <div [hidden]="!name.hasError('pattern')">Only alphabets allowed</div>
+                  </div>
+                </div> 
         
-                <!-- age -->
                 <div class="form-group">
                     <label for="age">Age</label>
-                    <input type="number" class="form-control" maxlength="3" id="age" required name="age">
-                </div>
+                    <input type="text" [(ngModel)]="model.age" class="form-control" pattern="[0-9]*" id="age" required 
+                    maxlength="2" name="age" #age="ngModel">
+                    <div *ngIf= "age.errors && (age.dirty || age.touched) "
+                    class="alert alert-danger">
+                    <div [hidden]="!age.hasError('required')"> Age is required</div>
+                    <div [hidden]="!age.hasError('pattern')">Age should be only numbers</div>
+                    </div>
+                    </div>
+      
+          
       
                  <!-- phone_no -->
                  <div class="form-group">
-                    <label for="phone_no">Phone No.</label>
-                    <input type="number" class="form-control" maxlength="10" id="phone_no" required name="phone_no">
-                </div>
-        
+                    <label for="phone_no">Phone_No</label>
+                    <input type="text" [(ngModel)]="model.phone_no" class="form-control" pattern="[0-9]*" id="phone_no" required name="phone_no" #phone_no="ngModel" minlength="10"
+                    maxlength="10" >
+                    <div *ngIf= "phone_no.errors && (phone_no.dirty || phone_no.touched) "
+                    class="alert alert-danger">
+                    <div [hidden]="!phone_no.hasError('minlength')">phone_no should be 10digit</div>
+                    <div [hidden]="!phone_no.hasError('required')"> Phone_No is required</div>
+                    <div [hidden]="!phone_no.hasError('pattern')">Phone_No should be only numbers</div>
+                    </div>
+                    </div>
         
                 <!-- address -->
-        
                 <div class="form-group">
-                      <label for="address">Address</label>
-                      <input type="text" class="form-control" id="address" required name="address">
-                </div>
+                    <label for="address">address</label>
+                    <input type="text" [(ngModel)]="model.address" class="form-control" id="address1" required name="address" #address="ngModel" >
+                    <div *ngIf= "address.errors && (address.dirty || address.touched) "
+                    class="alert alert-danger">
+                    <div [hidden]="!address.hasError('required')">Address is required</div>
+                    </div>
+                    </div>
         
                
                 <!-- email -->
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" required name="email">
-              
+                    <label>Email</label>
+                    <input
+                    id="contactemail" class ="form-control"
+                    type="text" 
+                    #contactemail="ngModel"
+                    [(ngModel)]="model.email"
+                    required
+                    pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" #email="ngModel">
+                    <div *ngIf= "email.errors && (email.dirty || email.touched) "
+                    class="alert alert-danger">
+                    <div [hidden]="!email.hasError('required')">email is required</div>
                     </div>
-      
-                <!-- password -->
-                <div class="form-group">
+                    </div>
+                    <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" required name="password"
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                    title="must be contain atleast 8 chracter one be capital one be a number and one be a symbol"/>
-               </div>
-        
-                <!-- confirm_password -->
-                <div class="form-group">
-                    <label for="confirm_password">Confirm Password</label>
-                    <input type="password" class="form-control " id="password" required name="password">
-                </div>
-
-                <!--apartments -->
-                <div class="form-group">
-                        <label for="apartments">Apartments</label><br/>
-                        <select id="apartments">
-                          <option value="1bhk">1BHK</option>
-                          <option value="2bhk">2BHK</option>
-                          
-                        </select>
+                    <input type="password" class="form-control" id="password" required [(ngModel)]="model.password" name="password" #password="ngModel" >
+                    <div *ngIf= "password.errors && (password.dirty || password.touched) "
+                    class="alert alert-danger">
+                    <div [hidden]="!password.hasError('required')">Password is required</div>
                     </div>
-            
-
-                
+                    </div>
+                    <div class="form-group">
+                    <label for="confirm_password">Confirm_Password</label>
+                    <input type="password" class="form-control" id="Confirm_password" validateEqual="password" required [(ngModel)]="model.Confirm_password" name="Confirm_password" #Confirm_password="ngModel" >
+                    <div *ngIf= "Confirm_password.errors && (Confirm_password.dirty || Confirm_password.touched) "
+                    class="alert alert-danger">
+                    <div [hidden]="!Confirm_password.hasError('required')"> Confirm Password is required</div>
+                    </div>
+                    <div [hidden]="Confirm_password.valid || Confirm_password.pristine"
+                    class="alert alert-danger">
+                    Passwords did not match
+                 </div>
       
-
-                 <!-- tenant/occupant status -->
-                 <div class="form-group">
-                    <label for="tenant/occupant status">Tenant/Occupant Status</label><br/>
-                    <select id="tenant/occupant status">
-                      <option value="additional space">Additional Space</option>
-                      <option value="primary tenant">Primary Tenant</option>
-                      <option value="minor occupant tenant">Minor Occupant Tenant</option>
-                      <option value="dependent occupant tenant">Dependent Occupant Tenant</option>
-                    </select>
-                </div>
-        
-                 <!-- Vehicles -->
+           
+      
+                 
                  <div class="form-group">
                     <label for="vehicles">Vehicles</label><br/>
                     <select id="vehicle">
@@ -85,13 +100,38 @@
                       <option value="two">Two</option>
                       <option value="none">None</option>
                     </select>
-                </div>
+                </div> 
+      
+                <!--apartments -->
+                 <div class="form-group">
+                    <label for="apartments">Apartments</label><br/>
+                    <select id="apartments">
+                      <option value="1bhk">1BHK</option>
+                      <option value="2bhk">2BHK</option>
+                      
+                    </select>
+                </div> 
         
-                <!-- Aadhar card no -->
-                <div class="form-group">
-                    <label for="aadhar_card_no">Aadhar Card No.</label>
-                    <input type="number" class="form-control" id="aadhar_card_no" required name="aadhar_card_no">
+                 <!-- tenant/occupant status -->
+                 <div class="form-group">
+                    <label for="tenant/occupant status">Tenant/Occupant Status</label><br/>
+                    <select id="tenant/occupant status">
+                      <option value="additional tenant">Additional Tenent</option>
+                      <option value="primary tenant">Primary Tenant</option>
+                      <option value="minor occupant tenant">Minor Occupant Tenant</option>
+                      <option value="dependent occupant tenant">Dependent Occupant Tenant</option>
+                    </select>
+                </div> 
+        
+        
+                <label for="aadhar_card_no">Aadhar_Card_No</label>
+                <input type="text" class="form-control" id="aadhar_card_no" maxlength="12"  pattern="[0-9]*" required [(ngModel)]="model.aadhar_card_no" name="aadhar_card_no" patter ="^\d{4}\s\d{4}\s\d{4}$" name="aadhar_card_no" #aadhar_Card_No="ngModel">
+                <div *ngIf= "aadhar_Card_No.errors && (aadhar_Card_No.dirty || aadhar_Card_No.touched) "
+                class="alert alert-danger">
+                <div [hidden]="!aadhar_Card_No.hasError('required')">aadhar_Card_No is required</div>
+                <div [hidden]="!aadhar_Card_No.hasError('pattern')">Aadhar number should be only numbers </div>
                 </div>
+                </div> 
             
                     
                   <!-- gender -->
@@ -106,7 +146,7 @@
       
                 
               <!-- submit button -->
-                 <input type="submit" value="Submit" />
+                 <input type="submit" value="Submit"  class="btn btn-default" />
                        
               </form>
             </div>        

@@ -1,10 +1,21 @@
-<div>
-  <ul>
-    <a routerLink="./owner">Owner</a>
-    <a routerLink="./admin">Admin</a>
-    <a routerLink="./tenant">Tenant</a>
-  </ul>
-</div>
-<div class="col-12 col-md-12" id="event-data">
-  <router-outlet></router-outlet>
+<div class="container-fluid" id="event-main">
+  <div class="row">
+    <div class="col-12 col-md-12">
+      <ul class="bg-dark row">
+        <li class="col-md-4">
+          <a routerLink="./admin">Admin</a>
+        </li>
+        <li class="col-md-4">
+          <a routerLink="./owner">Owner</a>
+        </li>
+        <li class="col-md-4">
+          <a routerLink="./tenant">Tenant</a>
+        </li>
+      </ul>
+    </div>
+    <!-- side data -->
+    <div class="col-12 col-md-12" id="event-data">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TenantFormComponent {
   model={
-    admin_id:'',
+    
     name:'',
     age:'',
     address:'',
@@ -16,7 +16,9 @@ export class TenantFormComponent {
     password:'',
     confirm_password:'',
     aadhar_card:'',
-    gender:''
+    gender:'',
+    state: '',
+    zip :''
 
   }
 
