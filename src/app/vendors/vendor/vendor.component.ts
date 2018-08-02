@@ -51,6 +51,8 @@ export class VendorComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
      })
+     alert(form.value.userName+' has been added');
+     this.resetForm(form);
     // }
     // this.resetForm(form);
   }
@@ -60,6 +62,7 @@ export class VendorComponent implements OnInit {
     .subscribe((data)=>{
      console.log(data);
    });
+   alert(form.value.userName+' has been updated');
   }
 
   resetForm(form?: NgForm) {

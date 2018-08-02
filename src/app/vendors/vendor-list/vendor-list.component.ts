@@ -12,9 +12,9 @@ constructor(private vendorService:VendorService) {
 this.vendors=[];
 }
   ngOnInit() {
-    this.fetchVendors();
+    this.refetchVendors();
   }
-  fetchVendors(){
+  refetchVendors(){
     this.vendorService.getVendor()
     .subscribe((data)=>{
       this.vendors=(JSON.parse(data["_body"]));

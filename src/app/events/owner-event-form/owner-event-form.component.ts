@@ -16,6 +16,13 @@ export class OwnerEventFormComponent implements OnInit {
       //Select hall type
       commonHalls=["Hall 1, Block A","Hall 2, Block B","Hall 3, Block C","Hall 4, Block D"]
 
+      model={
+
+        name:'',
+        phone:'',
+        email:''
+      }
+
   ngOnInit() {
   }
 

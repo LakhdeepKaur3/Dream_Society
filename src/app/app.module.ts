@@ -30,6 +30,7 @@ import { TenantFormComponent } from './society/tenant-form/tenant-form.component
 import { AssetsComponent } from './assets/assets/assets.component';
 import { AddAssetComponent } from './assets/add-asset/add-asset.component';
 import { AssetDetailComponent } from './assets/asset-detail/asset-detail.component';
+import { MembersListComponent } from './events/members-list/members-list.component';
 
 const routes: Routes = [
   //   { path: ' ', component: HeaderComponent },
@@ -79,9 +80,11 @@ const routes: Routes = [
         children: [
           { path: '', redirectTo: 'common-form', pathMatch: 'full' },
           { path: 'common-form', component: CommonFormComponent },
+          { path: 'members-list', component: MembersListComponent},
           { path: 'admin-personal-form', component: AdminPersonalFormComponent },
         ]
       }
+    
     ]
   },
   {
@@ -134,7 +137,8 @@ const routes: Routes = [
     AdminFormComponent,
     AddAssetComponent,
     AssetsComponent,
-    AssetDetailComponent
+    AssetDetailComponent,
+    MembersListComponent
 
   ],
   imports: [
