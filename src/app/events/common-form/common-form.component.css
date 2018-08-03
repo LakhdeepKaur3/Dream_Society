@@ -4,5 +4,18 @@
 
 #proceed-button{
     float: right;
-    margin-right: 15px;
+    margin-right: 100px;
+    margin-bottom: 11px;
+}
+
+#common-container{
+    border: 2px solid black;
+    height:100%;
+    width: 93%;
+    margin-left: 50px;
+    background-color: aqua;
+}
+
+#common{
+    margin-left: 1px;
 }

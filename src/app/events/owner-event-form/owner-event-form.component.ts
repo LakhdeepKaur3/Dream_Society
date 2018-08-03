@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class OwnerEventFormComponent implements OnInit {
 
       //Select event type
-      commonEvents=["Holi","Diwali","Durga Puja","Dussehra","Christmas","New Year","Independence Day","Republic Day","Janmashtmi","Eid","Baisakhi","Lohri","Makar Sankaranti"];
+      personalEvents=["Birthday Party","Anniversary Party","Family Get Together","House Warming","Kitty Party","Family Funciton","Baby Shower"];
 
       //Select society members
       commonMembers=["Ajay Srivastava","Shankar Mahanjan","Sanjay Dutt","Sunil Kumar","Angad Negi"];

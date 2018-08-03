@@ -1,13 +1,52 @@
-
-<div>
-
-<div class="form-group row">
-  <label for="example-tel-input" class="col-2 col-form-label">Event Type</label>
-  <div class="col-4">
+<div id="common-container">
+  <!-- Event Type -->
+  <div class="form-group row" id="common" style="margin-left: -13px">
+    <label for="example-tel-input" class="col-2 col-form-label">Event Type</label>
+    <div class="col-4">
       <select class="custom-select">
-          <option value="default">Select an Event</option>
-          <option *ngFor="let events of commonEvents">{{events}}</option>
+        <option value="default">Select an Event</option>
+        <option *ngFor="let events of commonEvents">{{events}}</option>
       </select>
+    </div>
+  </div>
+
+  <!-- Date -->
+  <div id="common">
+  <label >Please select a Date</label>
+  <div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">From:</label>
+    <div class="col-2">
+      <input class="form-control" type="date" id="example-date-input">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">To:</label>
+    <div class="col-2">
+      <input class="form-control" type="date" id="example-date-input">
+    </div>
+  </div>
+</div>
+
+  <!-- Time -->
+  <div id="common">
+  <label id="common">Please select a Time</label>
+  <div class="form-group row">
+    <label for="example-time-input" class="col-2 col-form-label">Start:</label>
+    <div class="col-2">
+      <input class="form-control" type="time" id="example-time-input">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="example-time-input" class="col-2 col-form-label">End:</label>
+    <div class="col-2">
+      <input class="form-control" type="time" id="example-time-input">
+    </div>
+  </div>
+</div>
+
+  <!-- Proceed -->
+  <div>
+    <button type="submit" class="btn btn-success btn-lg" id="proceed-button" routerLink="../members-list">Proceed</button>
   </div>
 </div>
 
@@ -31,24 +70,4 @@
           <a  class="list-group-item">Sanjay Dutt <input type="checkbox" class="pull-right" id="members-checkbox"></a>
           <a  class="list-group-item">Sunil Kumar <input type="checkbox" class="pull-right" id="members-checkbox"></a>
           </div>
-  </div>
-</div> -->
-
-<div class="form-group row">
-  <label for="example-date-input" class="col-2 col-form-label">Date</label>
-  <div class="col-2">
-    <input class="form-control" type="date"  id="example-date-input">
-  </div>
-</div>
-
-<div class="form-group row">
-  <label for="example-time-input" class="col-2 col-form-label">Time</label>
-  <div class="col-2">
-    <input class="form-control" type="time"  id="example-time-input">
-  </div>
-</div>
-
-<div>
-  <button type="submit" class="btn btn-success btn-lg" id="proceed-button" routerLink="../members-list">Proceed</button>
-</div>
-</div>
+  </div> </div> -->

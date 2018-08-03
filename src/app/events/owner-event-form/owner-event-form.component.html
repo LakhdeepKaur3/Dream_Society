@@ -1,39 +1,92 @@
-<div>
-  <div class="form-group row">
+<div id="common-container">
+  <!-- Name -->
+  <div class="form-group row" id="common" style="margin-left: -13px">
     <label for="example-text-input" class="col-2 col-form-label">Name</label>
     <div class="col-4">
-      <input class="form-control" type="text" placeholder="Enter your name" id="example-text-input" required name="name" [(ngModel)]="model.name" #name="ngModel" pattern="[a-zA-Z]+" [class.is-invalid]="name.invalid && name.touched">
-      <small class="text-danger" [class.d-none]="name.valid || name.untouched"> Name is Required</small>
+      <input class="form-control" type="text" placeholder="Enter your name" id="example-text-input" required name="name" [(ngModel)]="model.name"
+        #name="ngModel" pattern="[a-zA-Z]+" maxlength="20" minlength="5">
+      <div *ngIf="name.errors && (name.dirty || name.touched) " class="text-danger">
+        <small [hidden]="!name.hasError('required')">Name is required</small>
+        <small [hidden]="!name.hasError('pattern')">Only alphabets allowed</small><br/>
+        <small [hidden]="!name.hasError('minlength')">Minimum 5 characters allowed</small>
+      </div>
     </div>
   </div>
 
-  <div class="form-group row">
-    <label for="example-search-input" class="col-2 col-form-label">Phone</label>
-    <div class="col-4">
-      <input class="form-control" type="search" placeholder="Enter your Phone number" id="example-search-input" maxlength="10" minlength="10" required name="phone" [(ngModel)]="model.phone" #phone="ngModel" pattern="[0-9]*" [class.is-invalid]="phone.invalid && phone.touched">
-      <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">Phone Number is Required</small>
-    </div>
-  </div>
-  
-  <div class="form-group row">
-    <label for="example-email-input" class="col-2 col-form-label">Email</label>
-    <div class="col-4">
-      <input class="form-control" type="email" placeholder="Enter your E-mail id" id="example-email-input" #email="ngModel" [(ngModel)]="model.email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
-      <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is Required (eg:abc123@john.com)</small>
-    </div>
-  </div>
 
+  <!-- Event Type -->
+  <div id="common">
   <div class="form-group row">
     <label for="example-tel-input" class="col-2 col-form-label">Event Type</label>
     <div class="col-4">
-        <select class="custom-select">
-            <option value="default">Select an Event</option>
-            <option *ngFor="let events of commonEvents">{{events}}</option>
-        </select>
+      <select class="custom-select">
+        <option value="default">Select an Event</option>
+        <option *ngFor="let events of personalEvents">{{events}}</option>
+      </select>
     </div>
   </div>
-  
-  <!-- <div class="form-group row">
+</div>
+
+  <!-- Date -->
+  <div id="common">
+  <label>Please select a Date</label>
+  <div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">From:</label>
+    <div class="col-2">
+      <input class="form-control" type="date" id="example-date-input">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">To:</label>
+    <div class="col-2">
+      <input class="form-control" type="date" id="example-date-input">
+    </div>
+  </div>
+</div>
+
+<!-- Time -->
+<div id="common">
+  <label>Please select a Time</label>
+  <div class="form-group row">
+    <label for="example-time-input" class="col-2 col-form-label">Start:</label>
+    <div class="col-2">
+      <input class="form-control" type="time" id="example-time-input">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="example-time-input" class="col-2 col-form-label">End:</label>
+    <div class="col-2">
+      <input class="form-control" type="time" id="example-time-input">
+    </div>
+  </div>
+</div>
+
+<!-- Proceed -->
+  <div>
+    <button type="button" class="btn btn-success btn-lg" id="proceed-button" routerLink="../members-list">Proceed</button>
+  </div>
+</div>
+
+
+<!-- <div class="form-group row">
+    <label for="example-search-input" class="col-2 col-form-label">Phone</label>
+    <div class="col-4">
+      <input class="form-control" type="search" placeholder="Enter your Phone number" id="example-search-input" maxlength="10"
+        minlength="10" required name="phone" [(ngModel)]="model.phone" #phone="ngModel" pattern="[0-9]*" [class.is-invalid]="phone.invalid && phone.touched">
+      <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">Phone Number is Required</small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="example-email-input" class="col-2 col-form-label">Email</label>
+    <div class="col-4">
+      <input class="form-control" type="email" placeholder="Enter your E-mail id" id="example-email-input" #email="ngModel" [(ngModel)]="model.email"
+        required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
+      <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is Required (eg:abc123@john.com)</small>
+    </div>
+  </div> -->
+
+<!-- <div class="form-group row">
     <label for="example-password-input" class="col-2 col-form-label">Hall Type</label>
     <div class="col-3">
         <select class="custom-select">
@@ -53,25 +106,4 @@
             <a  class="list-group-item">Sanjay Dutt <input type="checkbox" class="pull-right" id="members-checkbox"></a>
             <a  class="list-group-item">Sunil Kumar <input type="checkbox" class="pull-right" id="members-checkbox"></a>
             </div>
-    </div>
-  </div> -->
-  
-  <div class="form-group row">
-    <label for="example-date-input" class="col-2 col-form-label">Date</label>
-    <div class="col-2">
-      <input class="form-control" type="date"  id="example-date-input">
-    </div>
-  </div>
-  
-  <div class="form-group row">
-    <label for="example-time-input" class="col-2 col-form-label">Time</label>
-    <div class="col-2">
-      <input class="form-control" type="time"  id="example-time-input">
-    </div>
-  </div>
-  
-
-  <div>
-    <button type="button" class="btn btn-success btn-lg" id="proceed-button">Proceed</button>
-  </div>
-</div>
+    </div> </div> -->

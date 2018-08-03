@@ -31,6 +31,8 @@ import { AssetsComponent } from './assets/assets/assets.component';
 import { AddAssetComponent } from './assets/add-asset/add-asset.component';
 import { AssetDetailComponent } from './assets/asset-detail/asset-detail.component';
 import { MembersListComponent } from './events/members-list/members-list.component';
+import { ViewEventComponent } from './events/view-event/view-event.component';
+import { ViewEventPersonalComponent } from './events/view-event-personal/view-event-personal.component';
 
 const routes: Routes = [
   //   { path: ' ', component: HeaderComponent },
@@ -80,14 +82,15 @@ const routes: Routes = [
       {
         path: 'event-management', component: EventManagementComponent,
         children: [
-          { path: '', redirectTo: 'common-form', pathMatch: 'full' },
-          { path: 'common-form', component: CommonFormComponent },
-          { path: 'members-list', component: MembersListComponent},
-          { path: 'admin-personal-form', component: AdminPersonalFormComponent },
-        ]
-      }
-    
-    ]
+          { path: '', redirectTo: 'view-event', pathMatch: 'full' },
+          {path:'view-event', component:ViewEventComponent , 
+        children: [
+            { path: 'common-form', component: CommonFormComponent },
+            { path: 'members-list', component: MembersListComponent},
+          ]},  
+            // { path: 'admin-personal-form', component: AdminPersonalFormComponent },
+        ]}
+      ]
   },
   {
     path: 'user-dashboard', component: UserDashboardComponent,
@@ -95,7 +98,18 @@ const routes: Routes = [
       { path: '',redirectTo:'view-vendor', pathMatch: 'full' },
       {path : 'view-vendor' ,component : ViewVendorComponent},
       {path : 'user-vendor-form' ,component : UserVendorListComponent},
-      {path:'owner-event-form', component:OwnerEventFormComponent},
+      {
+        path: 'event-management', component: EventManagementComponent,
+        children: [
+          { path: '', redirectTo: 'view-event-personal', pathMatch: 'full' },
+          {path:'view-event-personal', component:ViewEventPersonalComponent , 
+        children: [
+            { path: 'owner-event-form', component: CommonFormComponent },
+            { path: 'members-list', component: MembersListComponent},
+          ]},  
+            // { path: 'admin-personal-form', component: AdminPersonalFormComponent },
+        ]}
+      //{path:'owner-event-form', component:OwnerEventFormComponent},
 
     ]
   }
@@ -140,7 +154,9 @@ const routes: Routes = [
     AddAssetComponent,
     AssetsComponent,
     AssetDetailComponent,
-    MembersListComponent
+    MembersListComponent,
+    ViewEventComponent,
+    ViewEventPersonalComponent
 
   ],
   imports: [

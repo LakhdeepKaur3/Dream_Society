@@ -6,3 +6,15 @@
     float: right;
     margin-right: 15px;
 }
+
+#common-container{
+    border: 2px solid black;
+    height:102%;
+    width: 93%;
+    margin-left: 50px;
+    background-color: aqua;
+}
+
+#common{
+    margin-left: 1px;
+}
