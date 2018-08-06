@@ -1,9 +1,22 @@
 /* #event-main{margin-top: 60px;background-color: tomato} */
-#event-main ul{list-style: none; background: blue;text-align: center;color: white;}
-#event-main li{ padding: 20px;font-weight: bold;}
-#event-main li:hover{border-left: skyblue 5px solid;background-color: black;}
+#event-main ul{
+    list-style: none; 
+    background: blue;
+    text-align: center;
+    color: white;
+    padding-left: 0px;
+}
+
+#event-main li{
+     padding: 20px;
+     font-weight: bold;
+}
+
+#event-main li:hover{
+    border-left: skyblue 5px solid;
+    background-color: lightgray;
+}
 
 *{
-    margin: 0px;
-    padding: 0px;
+    margin: 0px;    
 }

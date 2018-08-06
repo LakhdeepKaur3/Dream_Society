@@ -33,6 +33,7 @@ import { AssetDetailComponent } from './assets/asset-detail/asset-detail.compone
 import { MembersListComponent } from './events/members-list/members-list.component';
 import { ViewEventComponent } from './events/view-event/view-event.component';
 import { ViewEventPersonalComponent } from './events/view-event-personal/view-event-personal.component';
+import {VenuesComponent} from './events/venues/venues.component'
 
 const routes: Routes = [
   //   { path: ' ', component: HeaderComponent },
@@ -87,6 +88,7 @@ const routes: Routes = [
         children: [
             { path: 'common-form', component: CommonFormComponent },
             { path: 'members-list', component: MembersListComponent},
+            { path:'venues', component:VenuesComponent}
           ]},  
             // { path: 'admin-personal-form', component: AdminPersonalFormComponent },
         ]}
@@ -104,8 +106,9 @@ const routes: Routes = [
           { path: '', redirectTo: 'view-event-personal', pathMatch: 'full' },
           {path:'view-event-personal', component:ViewEventPersonalComponent , 
         children: [
-            { path: 'owner-event-form', component: CommonFormComponent },
+            { path: 'owner-event-form', component: OwnerEventFormComponent },
             { path: 'members-list', component: MembersListComponent},
+            { path:'venues', component:VenuesComponent}
           ]},  
             // { path: 'admin-personal-form', component: AdminPersonalFormComponent },
         ]}
@@ -156,7 +159,8 @@ const routes: Routes = [
     AssetDetailComponent,
     MembersListComponent,
     ViewEventComponent,
-    ViewEventPersonalComponent
+    ViewEventPersonalComponent,
+    VenuesComponent
 
   ],
   imports: [

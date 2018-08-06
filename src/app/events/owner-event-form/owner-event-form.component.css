@@ -8,11 +8,13 @@
 }
 
 #common-container{
-    border: 2px solid black;
+    border: 1px solid grey;
     height:102%;
     width: 93%;
     margin-left: 50px;
-    background-color: aqua;
+    background-color:aliceblue;
+    margin-top: 10px;
+    padding-top: 16px;
 }
 
 #common{
