@@ -33,7 +33,8 @@ import { AssetDetailComponent } from './assets/asset-detail/asset-detail.compone
 import { MembersListComponent } from './events/members-list/members-list.component';
 import { ViewEventComponent } from './events/view-event/view-event.component';
 import { ViewEventPersonalComponent } from './events/view-event-personal/view-event-personal.component';
-import {VenuesComponent} from './events/venues/venues.component'
+import {VenuesComponent} from './events/venues/venues.component';
+import { SuperAdminProfileComponent } from './super-admin-profile/super-admin-profile.component'
 
 const routes: Routes = [
   //   { path: ' ', component: HeaderComponent },
@@ -63,6 +64,7 @@ const routes: Routes = [
     path: 'admin-dashboard', component: AdminDashboardComponent,
     children: [
       { path: '', redirectTo: 'admin-dashboard', pathMatch: 'full' },
+      { path:'superProfile', component:SuperAdminProfileComponent },
       { path: 'vendors', component: VendorsComponent },
       { path: 'parking', component: ParkingComponent},
       { path: 'society', component: SocietyComponent,
@@ -160,7 +162,8 @@ const routes: Routes = [
     MembersListComponent,
     ViewEventComponent,
     ViewEventPersonalComponent,
-    VenuesComponent
+    VenuesComponent,
+    SuperAdminProfileComponent
 
   ],
   imports: [

@@ -9,4 +9,7 @@
 .nav-item{
     border-top:2px transparent solid;
 }
-.nav-item:hover{border-top:2px skyblue solid}
+.nav-item:hover{border-bottom:2px skyblue solid}
+#login{
+    position: relative;
+}
