@@ -8,6 +8,11 @@
     margin-bottom: 11px;
 }
 
+#proceed-button, #submit-button, #reset-button{
+    float: right;
+    margin-right: 15px;
+}
+
 #common-container{
     border: 1px solid grey;
     height:100%;

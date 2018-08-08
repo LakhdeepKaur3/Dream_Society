@@ -2,7 +2,7 @@
     float: right;
 }
 
-#proceed-button{
+#proceed-button, #submit-button, #reset-button{
     float: right;
     margin-right: 15px;
 }
