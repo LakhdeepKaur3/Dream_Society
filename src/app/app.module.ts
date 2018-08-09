@@ -34,7 +34,8 @@ import { MembersListComponent } from './events/members-list/members-list.compone
 import { ViewEventComponent } from './events/view-event/view-event.component';
 import { ViewEventPersonalComponent } from './events/view-event-personal/view-event-personal.component';
 import {VenuesComponent} from './events/venues/venues.component';
-import { SuperAdminProfileComponent } from './super-admin-profile/super-admin-profile.component'
+import { SuperAdminProfileComponent } from './super-admin-profile/super-admin-profile.component';
+import { ViewBookedEventsComponent } from './events/view-booked-events/view-booked-events.component';
 
 const routes: Routes = [
   //   { path: ' ', component: HeaderComponent },
@@ -90,7 +91,8 @@ const routes: Routes = [
         children: [
             { path: 'common-form', component: CommonFormComponent },
             { path: 'members-list', component: MembersListComponent},
-            { path:'venues', component:VenuesComponent}
+            { path:'venues', component:VenuesComponent},
+            {path:'view-booked-events', component:ViewBookedEventsComponent}
           ]},  
             // { path: 'admin-personal-form', component: AdminPersonalFormComponent },
         ]}
@@ -163,7 +165,8 @@ const routes: Routes = [
     ViewEventComponent,
     ViewEventPersonalComponent,
     VenuesComponent,
-    SuperAdminProfileComponent
+    SuperAdminProfileComponent,
+    ViewBookedEventsComponent
 
   ],
   imports: [

@@ -1,74 +1,47 @@
 <div class="container">
-    <h2>List of Venues</h2>
-    
-    <table class="table">
-      <thead>
-        <tr>
-          <th><button type="button" class="btn btn-info btn-lg" id="select-button">Venue</button></th>
-          <th><button type="button" class="btn btn-info btn-lg" id="select-button">Venue Type</button></th>
-          <th><button type="button" class="btn btn-info btn-lg" id="select-button">Location</button></th>
-          <th><button type="button" class="btn btn-info btn-lg" id="select-button">Capacity</button></th>
-          <th><button type="button" class="btn btn-info btn-lg" id="select-button">Availability</button></th>
-          
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="info">
-          <td>The Rangeela</td>
-          <td>Festive Grand Theatre</td>
-          <td>Block A</td>
-          <td>5000</td>
-          <td><button type="button" class="btn btn-inactive btn-lg" id="proceed-button">Booked</button></td>
-          
-        </tr>      
-        <tr class="info">
-          <td>Kingdom of Jehovah</td>
-          <td>Christian Auditoriam</td>
-          <td>Block B</td>
-          <td>1000</td>
-          <td><button type="button" class="btn btn-inactive btn-lg" id="proceed-button">Booked</button></td>
-          
-        </tr>
-        <tr class="info">
-          <td>NOOR</td>
-          <td>Festive Hall</td>
-          <td>Block A</td>
-          <td>500</td>
-          <td><button type="button" class="btn btn-active btn-lg" id="proceed-button">Available</button></td>
-          
-        </tr>
-        <tr class="info">
-          <td>Purple Shadows</td>
-          <td>Concert Hall</td>
-          <td>Block D</td>
-          <td>800</td>
-          <td><button type="button" class="btn btn-active btn-lg" id="proceed-button">Available</button></td>
-          
-        </tr>
-        <tr class="info">
-          <td>Black Daimond</td>
-          <td>Music Theatre</td>
-          <td>No. 5,Block D</td>
-          <td>5000</td>
-          <td><button type="button" class="btn btn-active btn-lg" id="proceed-button">Available</button></td>
-          
-        </tr>
-        <tr class="info">
-          <td>The Helix</td>
-          <td>Kitty Parties</td>
-          <td>No. 10,Block B</td>
-          <td>1000</td>
-          <td><button type="button" class="btn btn-active btn-lg" id="proceed-button">Available</button></td>
-          
-        </tr>     
-      </tbody>
-    </table>
-  </div>
-  <div>
-      <button type="button" class="btn btn-default btn-lg" id="back-button"><a routerLink="/">Back</a></button>
-  </div>
+  <table class="table-danger">
+  <h3 >{{venueHead}}</h3>
+  </table>
 
-  <div>
-      <button type="button" class="btn btn-success btn-lg" id="proceed-button"><a routerLink="/">Proceed</a></button>
-  </div>
+  <table class="table">
+    <thead>
+      <tr class="table-info">
+        <td>
+          Venue
+        </td>
+        <td>
+          Venue Type
+        </td>
+        <td>
+          Location
+        </td>
+        <td>
+         Capacity
+        </td>
+        <td>
+          Availability
+        </td>
 
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let venue of venueList'>
+        <td>{{venue.vname}}</td>
+        <td>{{venue.vtype}}</td>
+        <td>{{venue.vlocation}}</td>
+        <td>{{venue.capacity}}</td>
+        <td >
+            <!-- Single Button -->
+              <button type="button" class="btn btn-success "  >available
+              </button>
+          </td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+    <!-- <p style="padding-top:80px"></p> -->
+        <button routerLink="/"  class="btn btn-default btn-lg" id="back-button">Back</button>
+        <button class='btn btn-success btn-lg' routerLink="/" id="proceed-button">Proceed</button>
+  </div>
