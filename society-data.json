@@ -59,14 +59,66 @@
       "timeStart": "02:01",
       "timeEnd": "13:00",
       "id": 2
+    }
+  ],
+  "register": [
+    {
+      "id": 1,
+      "first_name": "ritu",
+      "last_name": "chauhan",
+      "age": "25",
+      "flat_id": "111",
+      "phone_no": "9716637614",
+      "user_name": "rituc",
+      "email": "rituchauhan526@gmail.com",
+      "password": "111111",
+      "aadharcardno": "121212121212",
+      "gender": "female",
+      "user_type": "admin"
     },
     {
-      "commonEvents": "Holi",
-      "dateFrom": "2018-08-22",
-      "dateTo": "2018-08-31",
-      "timeStart": "03:00",
-      "timeEnd": "13:00",
+      "first_name": "kunal",
+      "last_name": "dawra",
+      "age": "24",
+      "flat_id": "201",
+      "phone_no": "9876543211",
+      "user_name": "kunald",
+      "email": "kunal.dawra1994@gmail.com",
+      "password": "Qwerty@123",
+      "id": 2
+    },
+    {
+      "first_name": "kunal",
+      "last_name": "dawra",
+      "age": "24",
+      "flat_id": "201",
+      "phone_no": "9876543211",
+      "user_name": "kunald",
+      "email": "kunal.dawra1994@gmail.com",
+      "password": "Qwerty@123",
       "id": 3
+    },
+    {
+      "first_name": "Ritu",
+      "last_name": "Chauhan",
+      "age": "25",
+      "flat_id": "404",
+      "phone_no": "9876543211",
+      "user_name": "RituCH",
+      "email": "kunal.dawra1994@gmail.com",
+      "password": "Qwerty@123",
+      "id": 4
+    },
+    {
+      "first_name": "Shanu",
+      "last_name": "Jaitly",
+      "age": "24",
+      "flat_id": "201",
+      "phone_no": "1234543634",
+      "user_name": "shanuj",
+      "email": "shanvivatz@gmail.com",
+      "password": "Qwerty@123",
+      "id": 5
     }
   ]
 }

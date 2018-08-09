@@ -24,9 +24,6 @@ import { LightboxComponent } from './home-page/lightbox/lightbox.component';
 import { LoginComponent } from './login/login.component';
 import { ParkingComponent } from './parking/parking.component';
 import { SocietyComponent } from './society/society.component';
-import { OwnerFormComponent } from './society/owner-form/owner-form.component';
-import { AdminFormComponent } from './society/admin-form/admin-form.component';
-import { TenantFormComponent } from './society/tenant-form/tenant-form.component';
 import { AssetsComponent } from './assets/assets/assets.component';
 import { AddAssetComponent } from './assets/add-asset/add-asset.component';
 import { AssetDetailComponent } from './assets/asset-detail/asset-detail.component';
@@ -36,7 +33,8 @@ import { ViewEventPersonalComponent } from './events/view-event-personal/view-ev
 import {VenuesComponent} from './events/venues/venues.component';
 import { SuperAdminProfileComponent } from './super-admin-profile/super-admin-profile.component';
 import { ViewBookedEventsComponent } from './events/view-booked-events/view-booked-events.component';
-
+import {RegistrationFormComponent} from './society/registration-form/registration-form.component'
+ 
 const routes: Routes = [
   //   { path: ' ', component: HeaderComponent },
   //   {
@@ -71,9 +69,8 @@ const routes: Routes = [
       { path: 'society', component: SocietyComponent,
       children: [
         { path: '', redirectTo: 'owner', pathMatch: 'full' },
-        { path: 'owner', component: OwnerFormComponent},
-        { path: 'admin', component: AdminFormComponent },
-        { path: 'tenant', component:TenantFormComponent },
+        { path: 'registration', component: RegistrationFormComponent},
+    
       ]
     },
     { path: 'assets', component: AssetsComponent,
@@ -155,9 +152,6 @@ const routes: Routes = [
     LoginComponent,
     ParkingComponent,
     SocietyComponent,
-    OwnerFormComponent,
-    TenantFormComponent,
-    AdminFormComponent,
     AddAssetComponent,
     AssetsComponent,
     AssetDetailComponent,
@@ -166,7 +160,8 @@ const routes: Routes = [
     ViewEventPersonalComponent,
     VenuesComponent,
     SuperAdminProfileComponent,
-    ViewBookedEventsComponent
+    ViewBookedEventsComponent,
+    RegistrationFormComponent
 
   ],
   imports: [
