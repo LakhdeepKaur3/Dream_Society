@@ -33,7 +33,12 @@ import { ViewEventPersonalComponent } from './events/view-event-personal/view-ev
 import {VenuesComponent} from './events/venues/venues.component';
 import { SuperAdminProfileComponent } from './super-admin-profile/super-admin-profile.component';
 import { ViewBookedEventsComponent } from './events/view-booked-events/view-booked-events.component';
-import {RegistrationFormComponent} from './society/registration-form/registration-form.component'
+import {RegistrationFormComponent} from './society/registration-form/registration-form.component';
+import { DashboardComponent } from './home-page/dashboard/dashboard.component';
+import { ChartsModule } from 'ng2-charts';
+import { PiechartComponent } from './home-page/dashboard/charts/piechart/piechart.component';
+import { DynamicChartComponent } from './home-page/dashboard/charts/dynamic-chart/dynamic-chart.component';
+import { DoughnutChartComponent } from './home-page/dashboard/charts/doughnut-chart/doughnut-chart.component';
  
 const routes: Routes = [
   //   { path: ' ', component: HeaderComponent },
@@ -62,7 +67,8 @@ const routes: Routes = [
   {
     path: 'admin-dashboard', component: AdminDashboardComponent,
     children: [
-      { path: '', redirectTo: 'admin-dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path:'dashboard', component:DashboardComponent },
       { path:'superProfile', component:SuperAdminProfileComponent },
       { path: 'vendors', component: VendorsComponent },
       { path: 'parking', component: ParkingComponent},
@@ -161,13 +167,18 @@ const routes: Routes = [
     VenuesComponent,
     SuperAdminProfileComponent,
     ViewBookedEventsComponent,
-    RegistrationFormComponent
+    RegistrationFormComponent,
+    DashboardComponent,
+    PiechartComponent,
+    DynamicChartComponent,
+    DoughnutChartComponent
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    ChartsModule,
     ReactiveFormsModule,
     AngularFontAwesomeModule,
     RouterModule.forRoot(routes),

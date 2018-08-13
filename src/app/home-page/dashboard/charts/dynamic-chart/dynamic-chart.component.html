@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row">
+
+<div class=" col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 " id="dymaticChart1">
+ <h4> Monthly Money Collection </h4>
+    <canvas baseChart
+                [data]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+  </div>
+  <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 offset-md-2 offset-lg-2 offset-xl-2" id="dymaticChart2">
+   <h4>Rent Monthly Collection</h4>
+    <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="pieChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+  </div>
+  
+ 
+</div>
+</div>
