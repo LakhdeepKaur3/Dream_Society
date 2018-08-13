@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class DoughnutChartComponent {
 
   //Doughnut
-  public doughnutChartLabels:string[] = ['Allotted Flats', 'Available Flats', 'On Maintenance','On Construction'];
-  public doughnutChartData:number[] = [450, 200, 30,300];
+  public doughnutChartLabels:string[] = ['Allotted Flats', 'Available Flats', 'Flats on Maintenance',' Flats on Construction',' Planing of New Flats '];
+  public doughnutChartData:number[] = [450, 200, 30,300,100];
   public doughnutChartType:string = 'doughnut';
  
   // events
