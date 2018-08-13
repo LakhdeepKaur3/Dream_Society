@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0px;
     padding: 0px;
 }
@@ -9,4 +9,21 @@
 #admin-main li:hover{border-left: skyblue 5px solid;background-color: black;}
 
 /* admin-data */
-#admin-data{max-width: 100%;opacity:1;}
+/* #admin-data{max-width: 100%;opacity:1;} */ 
+
+#desh{height: 55px;background-color: #3d3780;}
+  #data{background-color: #3d3780;}
+  #data a{padding: 0px;padding-top: 22px;padding-bottom: 22px;}
+  a{color: white;}
+  .profilepic{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    border-color: white;
+    border-style: solid;
+    top: -50px;
+    left: calc(50% - 50px) ;
+    
+    
+}
