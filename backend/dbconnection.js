@@ -2,7 +2,7 @@
 var connection=mysql.createConnection({
     host:'localhost',
     user:'root',
-    password:'1234',
+    password:'root',
     database:'security'
 })
-module.exports=connection;
+module.exports=connection; 

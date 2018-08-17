@@ -5,6 +5,7 @@ var app=express();
 var bodyParser=require('body-parser');
 var urlencodedParser=bodyParser.urlencoded({extended:false})
 app.use(bodyParser.json());
+
 // Add headers
 db.connect((err)=>{
     if(err){
@@ -155,3 +156,21 @@ app.put('/api/updateVendor/:id',urlencodedParser,function(req,res){
 //       console.log(result.affectedRows + " record(s) updated");
 //     });
 //   });
+
+
+//COMMON-EVENT-FORM
+app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
+    var commonEvents=req.body.commonEvents;
+    var dateFrom=req.body.dateFrom;
+    var dateTo=req.body.dateTo;
+    var timeStart=req.body.timeStart;
+    var timeEnd=req.body.timeEnd;
+     
+    console.log(req.body);
+    db.query("INSERT INTO `bookcommonevents` (`commonEvents`,`dateFrom`,`dateTo`,`timeStart`,`timeEnd`) VALUES ('"+commonEvents+"','"+dateFrom+"','"+dateTo+"','"+timeStart+"','"+timeEnd+"')", function(err, result){
+        //db.query("INSERT INTO `bookcommonevents` (`commonEvents`) VALUES ('"+commonEvents+"')", function(err, result){
+     if(err) throw err;
+     console.log("1 record added")
+     })
+     res.send(commonEvents +'Added')
+ })
