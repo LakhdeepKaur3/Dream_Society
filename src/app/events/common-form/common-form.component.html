@@ -1,8 +1,9 @@
 <form id="common-container" name="id" #commonEventForm="ngForm" (ngSubmit)="onSubmit(commonEventForm)">
-  <h4>Add Event</h4>
+  <h4 id="heading">Add Event</h4>
   <input type="text" name="id" hidden key="ngModel" [(ngModel)]="_form.id">
   <hr />
 
+  <div style="padding-left: 20px;">
   <!-- Event Type -->  
   <div class="form-group row" id="common" style="margin-left: -13px">
     <label class="col-2 col-form-label">Event Type</label>
@@ -51,6 +52,7 @@
       required name="timeEnd" [(ngModel)]="_form.timeend" #timeend="ngModel" ngModel>
     </div>
   </div>
+</div>
 </div>
 
   <!-- Proceed -->

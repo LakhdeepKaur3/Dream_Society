@@ -104,6 +104,7 @@
         <div *ngIf= "email.errors && (email.dirty || email.touched) "
         class="alert alert-danger">
         <div [hidden]="!email.hasError('required')">email is required</div>
+        <div [hidden]="!email.hasError('pattern')">should be valid email </div>
         </div>
         </div>
 
@@ -122,11 +123,11 @@
     <div class="form-group">
     <label for="aadharcardno">Aadhar Number</label>    
      <input type="text" class="form-control" id="aadharcardno" maxlength="12" 
-      pattern="[0-9]*" required [(ngModel)]="model.aadharcardno" name="aadharcardno"  pattern ="^\d{4}\s\d{4}\s\d{4}$" name="aadharcardno" #aadharCardNo="ngModel">
+      pattern="[0-9]*" required [(ngModel)]="model.aadharcardno" name="aadharcardno" #aadharCardNo="ngModel">
                 <div *ngIf= "aadharCardNo.errors && (aadharCardNo.dirty || aadharCardNo.touched) "
                 class="alert alert-danger">
                 <div [hidden]="!aadharCardNo.hasError('required')">aadhar_Card_No is required</div>
-                <!-- <div [hidden]="!aadharCardNo.hasError('pattern')">Aadhar number should be only numbers </div> -->
+                 <div [hidden]="!aadharCardNo.hasError('pattern')">Aadhar number should be only numbers </div>
                 </div>
                 </div> 
             
