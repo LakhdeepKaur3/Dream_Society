@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Http, Response, Headers} from '@angular/http'
 import  {NgForm} from '@angular/forms';
-import {EventType} from '../event-shared/eventType.model';
+import {PersonalEventService} from '../event-shared/personal-event.service'
  
 
 @Component({
@@ -11,8 +11,8 @@ import {EventType} from '../event-shared/eventType.model';
 })
 export class OwnerEventFormComponent implements OnInit {
   
-  model={
-
+  _form={
+    key:0,
     name:'',
     personalevents:'',
     datefrom:'',
@@ -53,37 +53,62 @@ export class OwnerEventFormComponent implements OnInit {
         }
       ];
 
-      //Select society members
-      // commonMembers=["Ajay Srivastava","Shankar Mahanjan","Sanjay Dutt","Sunil Kumar","Angad Negi"];
-    
-      //Select hall type
-      // commonHalls=["Hall 1, Block A","Hall 2, Block B","Hall 3, Block C","Hall 4, Block D"]
+      personalevent:any;
+      constructor(private personalEventService:PersonalEventService){
+        this.personalevent=[];
 
-      // personaleventsHasError=true;
-
-      constructor(private http:Http){}
-
-      eventobj:object={};
-
-      addNewEvent= function(event){
-        this.eventobj={
-          "name":event.name,
-          "personalEvents":event.personalEvents,
-          "dateFrom":event.dateFrom,
-          "dateTo":event.dateTo,
-          "timeStart":event.timeStart,
-          "timeEnd":event.timeEnd
-        }
-        this.http.post("http://localhost:3000/events", this.eventobj).subscribe(
-          (res:Response)=>{
-            console.log(res);
-            // this.isAdded=true;
-          }
-        )
       }
+
+//---------------------------------POST DATA TO JSON---------------------------------
+      // constructor(private http:Http){}
+
+      // eventobj:object={};
+
+      // addNewEvent= function(event){
+      //   this.eventobj={
+      //     "name":event.name,
+      //     "personalEvents":event.personalEvents,
+      //     "dateFrom":event.dateFrom,
+      //     "dateTo":event.dateTo,
+      //     "timeStart":event.timeStart,
+      //     "timeEnd":event.timeEnd
+      //   }
+      //   this.http.post("http://localhost:3000/events", this.eventobj).subscribe(
+      //     (res:Response)=>{
+      //       console.log(res);
+      //       // this.isAdded=true;
+      //     }
+      //   )
+      // }
+//-------------------------------------------------------------------------------------      
 
   ngOnInit() {
     
+  }
+
+  onSubmit(form:NgForm){
+    console.log(form.value);
+    this.personalEventService.addPersonalEvent(form.value)
+    .subscribe((data)=>{
+      console.log(data);
+    })
+    alert(form.value.userName+'has been added');
+    this.resetForm(form);
+  }
+
+  resetForm(form?:NgForm){
+    if(form !=null)
+    form.reset();
+
+    this.personalEventService.selectedPersonalEvent.emit({
+    key:0,
+    name:'',
+    personalevents:'',
+    datefrom:'2018-08-14',
+    dateto:'2018-08-15',
+    timestart:'12:30',
+    timeend:'2:30'
+    })
   }
 
 }

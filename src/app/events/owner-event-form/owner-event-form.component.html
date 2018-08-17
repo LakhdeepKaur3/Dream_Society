@@ -1,10 +1,15 @@
-<form id="common-container" name="id" #eventData="ngForm" (ngSubmit)="addNewEvent(eventData.value)">
+<form id="common-container" name="id" #ownerEventForm="ngForm" (ngSubmit)="onSubmit(ownerEventForm)">
+  
+  <h4>Add Event</h4>
+  <input type="text" name="id" hidden key="ngModel" [(ngModel)]="_form.id">
+  <hr />
+
   <!-- Name -->
   <div class="form-group row" id="common" style="margin-left: -13px">
-    <label for="example-text-input" class="col-2 col-form-label">Name</label>
+    <label class="col-2 col-form-label">Name</label>
     <div class="col-4">
       <input class="form-control" type="text" placeholder="Enter your name" id="example-text-input" required name="name" 
-      [(ngModel)]="model.name" #name="ngModel" pattern="[a-z A-Z]+" maxlength="20" minlength="5" ngModel>
+      [(ngModel)]="_form.name" #name="ngModel" pattern="[a-z A-Z]+" maxlength="20" minlength="5" ngModel>
       <div *ngIf="name.errors && (name.dirty || name.touched) " class="text-danger">
         <small [hidden]="!name.hasError('required')">Name is required</small>
         <small [hidden]="!name.hasError('pattern')">Only alphabets allowed</small><br/>
@@ -17,10 +22,10 @@
   <!-- Event Type -->
   <div id="common">
   <div class="form-group row">
-    <label for="example-tel-input" class="col-2 col-form-label">Event Type</label>
+    <label class="col-2 col-form-label">Event Type</label>
     <div class="col-4">
       <select class="custom-select" 
-      name="personalEvents" [(ngModel)]="model.personalevents" #personalevents="ngModel" ngModel> 
+      name="personalEvents" [(ngModel)]="_form.personalevents" #personalevents="ngModel" ngModel> 
         <option value="default">Please select an Event</option>
         <option *ngFor="let personalevents of personalEvents">{{personalevents.name}}</option>
       </select>
@@ -36,14 +41,14 @@
     <label for="example-date-input" class="col-2 col-form-label">From:</label>
     <div class="col-3">
       <input class="form-control" type="date" 
-      required name="dateFrom" [(ngModel)]="model.datefrom" #datefrom="ngModel" ngModel>
+      required name="dateFrom" [(ngModel)]="_form.datefrom" #datefrom="ngModel" ngModel>
     </div>
   </div>
   <div class="form-group row">
     <label for="example-date-input" class="col-2 col-form-label">To:</label>
     <div class="col-3">
       <input class="form-control" type="date" 
-      required name="dateTo" [(ngModel)]="model.dateto" #dateto="ngModel" ngModel>
+      required name="dateTo" [(ngModel)]="_form.dateto" #dateto="ngModel" ngModel>
     </div>
   </div>
 </div>
@@ -55,14 +60,14 @@
     <label for="example-time-input" class="col-2 col-form-label">Start:</label>
     <div class="col-2">
       <input class="form-control" type="time" 
-      required name="timeStart" [(ngModel)]="model.timestart" #timestart="ngModel" ngModel>
+      required name="timeStart" [(ngModel)]="_form.timestart" #timestart="ngModel" ngModel>
     </div>
   </div>
   <div class="form-group row">
     <label for="example-time-input" class="col-2 col-form-label">End:</label>
     <div class="col-2">
       <input class="form-control" type="time"
-      required name="timeEnd" [(ngModel)]="model.timeend" #timeend="ngModel" ngModel>
+      required name="timeEnd" [(ngModel)]="_form.timeend" #timeend="ngModel" ngModel>
     </div>
   </div>
 </div>

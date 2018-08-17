@@ -1,11 +1,14 @@
-<div class="container-fluid">
-<form id="common-container" name="id" #commonEventData="ngForm" (ngSubmit)="addCommonEvent(commonEventData.value)">
-  <!-- Event Type -->
+<form id="common-container" name="id" #commonEventForm="ngForm" (ngSubmit)="onSubmit(commonEventForm)">
+  <h4>Add Event</h4>
+  <input type="text" name="id" hidden key="ngModel" [(ngModel)]="_form.id">
+  <hr />
+
+  <!-- Event Type -->  
   <div class="form-group row" id="common" style="margin-left: -13px">
-    <label for="example-tel-input" class="col-2 col-form-label">Event Type</label>
+    <label class="col-2 col-form-label">Event Type</label>
     <div class="col-4">
       <select class="custom-select"
-      name="commonEvents" [(ngModel)]="model.commonevents" #commonevents="ngModel" ngModel>
+      name="commonEvents" [(ngModel)]="_form.commonevents" #commonevents="ngModel" ngModel>
         <option value="default">Select an Event</option>
         <option *ngFor="let commonevents of commonEvents">{{commonevents.name}}</option>
       </select>
@@ -16,17 +19,17 @@
   <div id="common">
   <label >Please select a Date</label>
   <div class="form-group row">
-    <label for="example-date-input" class="col-2 col-form-label">From:</label>
+    <label class="col-2 col-form-label">From:</label>
     <div class="col-3">
       <input class="form-control" type="date" 
-      required name="dateFrom" [(ngModel)]="model.datefrom" #datefrom="ngModel" ngModel>
+      required name="dateFrom" [(ngModel)]="_form.datefrom" #datefrom="ngModel" ngModel>
     </div>
   </div>
   <div class="form-group row">
-    <label for="example-date-input" class="col-2 col-form-label">To:</label>
+    <label class="col-2 col-form-label">To:</label>
     <div class="col-3">
       <input class="form-control" type="date" 
-      required name="dateTo" [(ngModel)]="model.dateto" #dateto="ngModel" ngModel>
+      required name="dateTo" [(ngModel)]="_form.dateto" #dateto="ngModel" ngModel>
     </div>
   </div>
 </div>
@@ -35,31 +38,30 @@
   <div id="common">
   <label id="common">Please select a Time</label>
   <div class="form-group row">
-    <label for="example-time-input" class="col-2 col-form-label">Start:</label>
+    <label class="col-2 col-form-label">Start:</label>
     <div class="col-2">
       <input class="form-control" type="time"
-      required name="timeStart" [(ngModel)]="model.timestart" #timestart="ngModel" ngModel>
+      required name="timeStart" [(ngModel)]="_form.timestart" #timestart="ngModel" ngModel>
     </div>
   </div>
   <div class="form-group row">
-    <label for="example-time-input" class="col-2 col-form-label">End:</label>
+    <label class="col-2 col-form-label">End:</label>
     <div class="col-2">
       <input class="form-control" type="time"
-      required name="timeEnd" [(ngModel)]="model.timeend" #timeend="ngModel" ngModel>
+      required name="timeEnd" [(ngModel)]="_form.timeend" #timeend="ngModel" ngModel>
     </div>
   </div>
 </div>
 
   <!-- Proceed -->
   <div>
-    <button type="submit" class="btn btn-success btn-lg" id="proceed-button" routerLink="../members-list">Proceed</button>
-    <button type="submit" class="btn btn-success btn-lg" id="submit-button">Save</button>
+    <button type="submit" class="btn btn-success btn-lg" id="proceed-button"  routerLink="../members-list">Proceed</button>
+    <button type="submit" class="btn btn-success btn-lg" id="submit-button" >Save</button>
     <button type="reset" class="btn btn-primary btn-lg"  id="reset-button" value="reset">
         <i class="fa fa-repeat"></i>
         Reset</button>
   </div>
 </form>
-</div>
 
 <!-- <div class="form-group row">
   <label for="example-password-input" class="col-2 col-form-label">Hall Type</label>
