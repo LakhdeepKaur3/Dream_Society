@@ -5,32 +5,83 @@
     <input type="text" name="id" hidden key="ngModel" [(ngModel)]="_form.id">
     <hr />
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label>First Name</label>
       <input type="text" required #fname="ngModel" [class.is-invalid]="fname.invalid && fname.touched" class="form-control" name="firstname"
         [(ngModel)]="_form.firstname">
       <!-- <div *ngIf="fname.errors.pattern">Doesnot match the pattern</div> -->
-      <small class="text-danger" [class.d-none]="fname.valid || fname.untouched">First Name is Required</small>
+      <!-- <small class="text-danger" [class.d-none]="fname.valid || fname.untouched">First Name is Required</small> --> 
 
-    </div>
     <div class="form-group">
+      <label for="first name">First Name</label>
+      <input type="text" class="form-control" id="firstname"
+      required
+      pattern="[a-zA-Z]+"
+      name="firstname" [(ngModel)]="_form.firstname"
+      #fname="ngModel">
+      <div *ngIf= "fname.errors && (fname.dirty || fname.touched) "
+      class="text-danger">
+      <small [hidden]="!fname.hasError('required')">First Name is required</small>
+      <small [hidden]="!fname.hasError('pattern')">Only alphabets allowed</small>
+      </div>
+      </div>
+
+    <!-- <div class="form-group">
       <label>Last Name</label>
       <input type="text" required #lname="ngModel" [class.is-invalid]="lname.invalid&& lname.touched" class="form-control" name="lastname"
         [(ngModel)]="_form.lastname">
       <small class="text-danger" [class.d-none]="lname.valid || lname.untouched">Last Name is Required</small>
-    </div>
+    </div> -->
 
+    
+    <div class="form-group">
+      <label for="last name">Last Name</label>
+      <input type="text" class="form-control" id="lastname"
+      required
+      pattern="[a-zA-Z]+"
+      name="lastname" [(ngModel)]="_form.lastname"
+      #lname="ngModel">
+      <div *ngIf= "lname.errors && (lname.dirty || lname.touched) "
+      class="text-danger">
+      <small [hidden]="!lname.hasError('required')">Last Name is required</small>
+      <small [hidden]="!lname.hasError('pattern')">Only alphabets allowed</small>
+      </div>
+      </div>
+
+<!-- 
     <div class="mb-3">
       <label>Gender</label>
       <div class="form-check">
-        <input class="form-check-input" [(ngModel)]="_form.gender" type="radio" value="Male" name="gender">
+        <input class="form-check-input" required [(ngModel)]="_form.gender" type="radio" value="Male" name="gender">
         <label class="form-check-label">Male</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" [(ngModel)]="_form.gender" type="radio" value="Female" name="gender">
+        <input class="form-check-input" required [(ngModel)]="_form.gender" type="radio" value="Female" name="gender">
         <label class="form-check-label">female</label>
+        </div>
+    </div> -->
+
+    <div class="mb-3">
+        <label for="gender">Gender</label>
+        <div class="form-check">
+        <input type="radio" class="form-check-input" id="gender"
+        required
+        value="Male" name="gender" [(ngModel)]="_form.gender"
+        #gender="ngModel">
+        <label class="form-check-label">Male</label>
       </div>
-    </div>
+      <div class="form-check">
+          <input type="radio" class="form-check-input" id="gender"
+          required
+          value="Female" name="gender" [(ngModel)]="_form.gender"
+          #gender="ngModel">
+          <label class="form-check-label">Female</label>
+        </div>
+        <div *ngIf= "gender.errors && (gender.dirty || gender.touched) "
+        class="text-danger">
+        <small [hidden]="!lname.hasError('required')">Gender is required</small>
+        </div>
+        </div>
 
     <div class="form-group">
       <label>Services</label>
@@ -41,60 +92,113 @@
           {{service}}
         </option>
       </select>
-      <small class="text-danger" [class.d-none]="!serviceHasError || serviceControl.untouched">Please choose a service</small>
+      <small class="text-danger" [class.d-none]="!!serviceHasError || serviceControl.dirty">Please choose a service</small>
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label>Address</label>
       <input type="text" required #address="ngModel" [class.is-invalid]="address.invalid && address.touched" class="form-control"
         name="address" [(ngModel)]="_form.address">
       <small class="text-danger" [class.d-none]="address.valid || address.untouched">Address is Required</small>
-    </div>
+    </div> -->
 
-
+    <div class="form-group">
+        <label for="Address">Address</label>
+        <input type="text" class="form-control" id="Address"
+        required
+       
+        name="Address" [(ngModel)]="_form.Address"
+        #Address="ngModel">
+        <div *ngIf= "Address.errors && (Address.dirty || Address.touched) "
+        class="text-danger">
+        <small [hidden]="!Address.hasError('required')">Address is required</small>
+       
+        </div>
+        </div>
+<!-- 
     <div class="form-group">
       <label>Aadhar No</label>
       <input type="text" maxlength="12" required #aadhar="ngModel" [class.is-invalid]="aadhar.invalid&& aadhar.touched" class="form-control"
         name="aadharNo" [(ngModel)]="_form.aadharNo">
       <small class="text-danger" [class.d-none]="aadhar.valid || aadhar.untouched">Aadhar is Required</small>
-    </div>
+    </div> -->
 
     <div class="form-group">
+        <label for="Aadhar No">Aadhar No</label>
+        <input type="text" class="form-control" id="Aadhar No"
+        required
+        pattern="[0-9]+" maxlength="12"
+        name="aadharNo" [(ngModel)]="_form.aadharNo"
+        #aadharNo="ngModel">
+        <div *ngIf= "aadharNo.errors && (aadharNo.dirty || aadharNo.touched) "
+        class="text-danger">
+        <small [hidden]="!aadharNo.hasError('required')">Aadhar No is required</small>
+        <small [hidden]="!aadharNo.hasError('pattern')">Only Numbers allowed</small>
+        </div>
+        </div>
+
+    <!-- <div class="form-group">
       <label>Mobile No</label>
       <input type="tel" maxlength="10" required #mobile="ngModel" [class.is-invalid]="mobile.invalid&& mobile.touched" class="form-control"
         name="mobileNo" [(ngModel)]="_form.mobileNo">
       <small class="text-danger" [class.d-none]="mobile.valid || mobile.untouched">Mobile No is Required</small>
-    </div>
+    </div> -->
 
     <div class="form-group">
+        <label for="mobileNo">Mobile No</label>
+        <input type="text" class="form-control" id="Mobile No"
+        required
+        pattern="[0-9]+" maxlength="10"
+        name="mobileNo" [(ngModel)]="_form.mobileNo"
+        #mobileNo="ngModel">
+        <div *ngIf= "mobileNo.errors && (mobileNo.dirty || mobileNo.touched) "
+        class="text-danger">
+        <small [hidden]="!mobileNo.hasError('required')">Mobile No is required</small>
+        <small [hidden]="!mobileNo.hasError('pattern')">Only Numbers allowed</small>
+        </div>
+        </div>
+
+    <!-- <div class="form-group">
       <label>UserName</label>
       <input type="text" minlength="5" maxlength="8" required #username="ngModel" [class.is-invalid]="username.invalid&& username.touched"
         class="form-control" name="userName" [(ngModel)]="_form.username">
       <small class="text-danger" [class.d-none]="username.valid || username.untouched">Username is Required (minimum 5 characters).</small>
-    </div>
+    </div> -->
 
     <div class="form-group">
+        <label for="username">UserName</label>
+        <input type="text" class="form-control" id="username"
+        required
+        name="username" [(ngModel)]="_form.username"
+        #username="ngModel">
+        <div *ngIf= "username.errors && (username.dirty || username.touched) "
+        class="text-danger">
+        <small [hidden]="!username.hasError('required')">username is required (minimum 5 characters)</small>
+       </div>
+        </div>
+
+    <!-- <div class="form-group">
       <label>Email</label>
       <input type="email" required #email="ngModel" [class.is-invalid]="email.invalid && email.touched" class="form-control" name="email"
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title=" Must be type proper mail address" [(ngModel)]="_form.email">
       <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is Required (eg:abc123@john.com)</small>
-    </div>
-
+    </div> -->
+    
     <div class="form-group">
-      <label>Password</label>
-      <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="" required #password="ngModel" [class.is-invalid]="password.invalid && password.touched"
-        class="form-control" name="password" [(ngModel)]="_form.password">
-      <small *ngIf="password.touched" class="text-danger" [class.d-none]="password.valid || password.touched">Password is Required</small>
-      <small *ngIf="password.dirty" class="text-danger" [class.d-none]="password.valid || password.untouched">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</small>
-    </div>
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="Email"
+        required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
+        name="email" [(ngModel)]="_form.email"
+        #email="ngModel">
+        <div *ngIf= "email.errors && (email.dirty || email.touched) "
+        class="text-danger">
+        <small [hidden]="!email.hasError('required')">Email is Required (eg:abc123@john.com)</small>
+        <small [hidden]="!email.hasError('pattern')">Must be type proper email addres</small>
+        </div>
+        </div>
 
-    <div class="form-group">
-      <label>Confirm Password</label>
-      <input type="password" required #cpassword="ngModel" [class.is-invalid]="cpassword.invalid && cpassword.touched" class="form-control"
-        name="confirmPassword" [(ngModel)]="_form.confirmPassword">
-      <small class="text-danger" [class.d-none]="cpassword.valid || cpassword.untouched">Confirm Password is Required</small>
-    </div>
-
+    
     <!-- <div class="form-group">
       <label> Image</label>
       <input type="file" required #image="ngModel" [class.is-invalid]="image.invalid && image.touched" class="form-control" name="image" [(ngModel)]="_form.image">
@@ -104,7 +208,7 @@
       <label>Charges</label>
       <div class="input-group">
         <div class="input-group-addon">
-          <i class="fa fa-dollar"></i>
+          <i class="fa fa-rupee"></i>
         </div>
         <input type="text" required #charges="ngModel" [class.is-invalid]="charges.invalid&& charges.touched" class="form-control"
           name="charges" [(ngModel)]="_form.charges">

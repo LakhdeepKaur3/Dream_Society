@@ -21,12 +21,10 @@ export class VendorComponent implements OnInit {
     gender: '',
     services: '',
     address: '',
-    aadharNo:0 ,
-    mobileNo: 0,
+    aadharNo:'' ,
+    mobileNo: '',
     userName: '',
     email: '',
-    password: '',
-    confirmPassword: '',
     charges: 0
   };
 
@@ -77,12 +75,11 @@ export class VendorComponent implements OnInit {
       gender: '',
       services: '',
       address: '',
-      aadharNo:0 ,
-      mobileNo: 0,
+      aadharNo:'' ,
+      mobileNo: '',
       userName: '',
       email: '',
-      password: '',
-      confirmPassword: '',
+     
       charges: 0
     });
   }
