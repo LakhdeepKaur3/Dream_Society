@@ -174,3 +174,21 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
      })
      res.send(commonEvents +'Added')
  })
+
+ //PERSONAL-EVENT-FORM
+ app.post('/api/addPersonalEvent',urlencodedParser,function(req,res){
+    var name=req.body.name;
+    var personalEvents=req.body.personalEvents;
+    var dateFrom=req.body.dateFrom;
+    var dateTo=req.body.dateTo;
+    var timeStart=req.body.timeStart;
+    var timeEnd=req.body.timeEnd;
+     
+    console.log(req.body);
+    db.query("INSERT INTO `bookpersonalevents` (`name`,`personalEvents`,`dateFrom`,`dateTo`,`timeStart`,`timeEnd`) VALUES ('"+name+"','"+personalEvents+"','"+dateFrom+"','"+dateTo+"','"+timeStart+"','"+timeEnd+"')", function(err, result){
+        //db.query("INSERT INTO `bookcommonevents` (`commonEvents`) VALUES ('"+commonEvents+"')", function(err, result){
+     if(err) throw err;
+     console.log("1 record added")
+     })
+     res.send(name +'Added')
+ })
