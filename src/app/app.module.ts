@@ -39,6 +39,7 @@ import { ChartsModule } from 'ng2-charts';
 import { PiechartComponent } from './home-page/dashboard/charts/piechart/piechart.component';
 import { DynamicChartComponent } from './home-page/dashboard/charts/dynamic-chart/dynamic-chart.component';
 import { DoughnutChartComponent } from './home-page/dashboard/charts/doughnut-chart/doughnut-chart.component';
+import { DashboardService } from './home-page/dashboard/dashboard.service';
  
 const routes: Routes = [
   //   { path: ' ', component: HeaderComponent },
@@ -184,7 +185,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     // LightboxModule
   ],
-  providers: [UserVendorService],
+  providers: [UserVendorService,DashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -20,7 +20,7 @@ export class DynamicChartComponent  {
  
   // Pie
   public pieChartLabels:string[] = ['Pending Rent', 'Paid Rent', 'Adavance Rent'];
-  public pieChartData:number[] = [200, 500, 100];
+  public pieChartData:number[] = [900, 500, 100];
  
   public randomizeType():void {
     this.lineChartType = this.lineChartType === 'line' ? 'bar' : 'line';
