@@ -79,7 +79,6 @@ export class VendorComponent implements OnInit {
       mobileNo: '',
       userName: '',
       email: '',
-     
       charges: 0
     });
   }
