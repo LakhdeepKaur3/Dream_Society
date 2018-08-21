@@ -159,6 +159,8 @@ app.put('/api/updateVendor/:id',urlencodedParser,function(req,res){
 
 
 //COMMON-EVENT-FORM
+
+
 app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
     var commonEvents=req.body.commonEvents;
     var dateFrom=req.body.dateFrom;
@@ -174,6 +176,77 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
      })
      res.send(commonEvents +'Added')
  })
+
+ app.get('/api/getCommonEvent',function(req,res){
+    db.query('SELECT * FROM bookcommonevents',function(error,rows){
+    if(error){
+        console.log('Error in the query')
+    }
+    else{
+        console.log('Successful query')
+        console.log(rows);
+        // res.send('Hello ' +rows[1].firstname);
+        res.json(rows);
+    }
+    })
+    });
+    
+    // app.get('/api/UserVendor',function(req,res){
+    //     db.query('SELECT * FROM vendors',function(error,rows){
+    //     if(error){
+    //         console.log('Error in the query')
+    //     }
+    //     else{
+    //         console.log('Successful query')
+    //         console.log(rows);
+    //         // res.send('Hello ' +rows[1].firstname);
+    //         res.json(rows);
+    //     }
+    //     })
+    //     });
+    
+    app.get('/api/UserCommonEvent',function(req,res){
+        db.query(`select * from CommonEvent`,function(err,result){
+            if (err) throw(err);
+            res.json(result);
+        })
+    })
+    
+    app.delete('/api/deleteCommonEvent/:id',function(req,res){
+        var id=req.params.id;
+    console.log(req.body);
+    const query = "delete from `CommonEvent` where id="+id;
+    console.log(query);
+    db.query(query,function(error, rows){
+        if(error){
+            console.log('Error in query');
+        }
+        else{
+            res.send('Record has been deleted');
+        }
+    })
+    })
+    
+    app.put('/api/updateCommonEvent/:id',urlencodedParser,function(req,res){
+        var commonEvents=req.body.event.commonEvents;
+        var dateFrom=req.body.event.dateFrom;
+        var dateTo=req.body.event.dateTo;
+        var timeStart=req.body.event.timeStart;
+        var timeEnd=req.body.event.timeEnd;
+        console.log("dfd",req.body);
+        console.log("commonEvents",commonEvents);
+        var sql="update commonevents set commonEvents='"+commonEvents+"',ateFrom='"+dateFrom+"',dateTo='"+dateTo+"',imeStart='"+timeStart+"',timeEnd='"+timeEnd+"' where id="+req.params.id;
+        db.query(sql,function(err,result){
+            if(err){
+                console.log(err);
+                console.log(sql);
+                console.log('Error in query');
+            }
+            else{
+                res.send('Record has been updated');
+            }
+        });
+    })
 
  //PERSONAL-EVENT-FORM
  app.post('/api/addPersonalEvent',urlencodedParser,function(req,res){
@@ -192,3 +265,74 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
      })
      res.send(name +'Added')
  })
+ app.get('/api/getPersonalEvent',function(req,res){
+    db.query('SELECT * FROM PersonalEvent',function(error,rows){
+    if(error){
+        console.log('Error in the query')
+    }
+    else{
+        console.log('Successful query')
+        console.log(rows);
+        // res.send('Hello ' +rows[1].firstname);
+        res.json(rows);
+    }
+    })
+    });
+    
+    // app.get('/api/UserVendor',function(req,res){
+    //     db.query('SELECT * FROM vendors',function(error,rows){
+    //     if(error){
+    //         console.log('Error in the query')
+    //     }
+    //     else{
+    //         console.log('Successful query')
+    //         console.log(rows);
+    //         // res.send('Hello ' +rows[1].firstname);
+    //         res.json(rows);
+    //     }
+    //     })
+    //     });
+    
+    app.get('/api/UserPersonalEvent',function(req,res){
+        db.query(`select * from PersonalEvent`,function(err,result){
+            if (err) throw(err);
+            res.json(result);
+        })
+    })
+    
+    app.delete('/api/deletePersonalEvent/:id',function(req,res){
+        var id=req.params.id;
+    console.log(req.body);
+    const query = "delete from `PersonalEvent` where id="+id;
+    console.log(query);
+    db.query(query,function(error, rows){
+        if(error){
+            console.log('Error in query');
+        }
+        else{
+            res.send('Record has been deleted');
+        }
+    })
+    })
+    
+    app.put('/api/updatePersonalEvent/:id',urlencodedParser,function(req,res){
+        var commonEvents=req.body.event.commonEvents;
+        var dateFrom=req.body.event.dateFrom;
+        var dateTo=req.body.event.dateTo;
+        var timeStart=req.body.event.timeStart;
+        var timeEnd=req.body.event.timeEnd;
+
+        console.log("dfd",req.body);
+        console.log("Name",name);
+        var sql="update personalevents set name='"+name+"',personalEvents='"+personalEvents+"',dateFrom='"+dateFrom+"',dateTo='"+dateTo+"',timeStart='"+timeStart+"',timeEnd='"+timeEnd+"' where id="+req.params.id;
+        db.query(sql,function(err,result){
+            if(err){
+                console.log(err);
+                console.log(sql);
+                console.log('Error in query');
+            }
+            else{
+                res.send('Record has been updated');
+            }
+        });
+    })
