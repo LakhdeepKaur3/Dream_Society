@@ -134,10 +134,10 @@ export class CommonFormComponent implements OnInit {
     this.commonEventService.selectedCommonEvent.emit({
       key:0,
       commonevents:'',
-      datefrom:'2018-08-14',
-      dateto:'2018-08-15',
-      timestart:'12:30',
-      timeend:'2:30'
+      datefrom:'',
+      dateto:'',
+      timestart:'',
+      timeend:''
     });
   }
 //-----------------------------------------------------------------------  

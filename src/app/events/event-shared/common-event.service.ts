@@ -13,6 +13,19 @@ selectedCommonEvent=new EventEmitter<CommonEvent>();
   addCommonEvent(event){
     return this._http.post("http://localhost:3001/api/addCommonEvent",event);
   }
+  getCommonEvent(){
+    return this._http.get('http://localhost:3001/api/getCommonEvent')
+  }
+  updateCommonEvent(event:Event,key:number){
+    console.log(key);
+    return this._http.put('http://localhost:3001/api/updateCommonEvent/'+key,{
+      event
+    })
+  }
+  deleteCommonEvent(key:number){
+    console.log("key",key)
+    return this._http.delete('http://localhost:3001/api/deleteCommonEvent/'+key);
+  }
 }
 
 
