@@ -38,12 +38,12 @@
       <td></td>
       <td class="info">
         <!-- Single Button -->
-          <button type="button" class="btn btn-default "  >Edit History
+          <button type="button" class="btn btn-default " (click)="editHistory(event,event.id)" >Edit History
           </button>
       </td>
       <td class="info">
           <!-- Single Button -->
-            <button type="button" class="btn btn-default "  >Delete 
+            <button type="button" class="btn btn-default " (click)="onDelete(event.id)" >Delete 
             </button>
         </td>
     </tr>

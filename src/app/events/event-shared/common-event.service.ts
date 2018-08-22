@@ -17,7 +17,7 @@ selectedCommonEvent=new EventEmitter<CommonEvent>();
     return this._http.get('http://localhost:3001/api/getCommonEvent')
   }
   updateCommonEvent(event:Event,key:number){
-    console.log(key);
+    console.log("hejlkjdfk",event);
     return this._http.put('http://localhost:3001/api/updateCommonEvent/'+key,{
       event
     })

@@ -101,16 +101,23 @@ export class ViewBookedEventsComponent implements OnInit {
    alert(form.value.userName+' has been updated');
   }
 
-  onDelete(form:NgForm) {
+  onDelete(id) {
     if (confirm('Are you sure to delete this record ?') == true) {
-      console.log(form.value);
-      this.commoneventService.deleteCommonEvent(form.value.id).subscribe(response=>{
+      // console.log(form.value);
+      this.commoneventService.deleteCommonEvent(id).subscribe(response=>{
         console.log(response);
-      })
-      // this.resetForm(form);
+       this.fetchEvents();
+    })
     }
   }
 
+  editHistory(event,id){
+    this.commoneventService.updateCommonEvent(event,id)
+    .subscribe(res=>{
+      console.log(res);
+    })
+
+}
 }
 
  
