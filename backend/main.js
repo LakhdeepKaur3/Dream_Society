@@ -47,6 +47,8 @@ app.get('/api/',(req,res)=>{
     res.send('Welcome')
 })
 
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+
 app.post('/api/addVendor',urlencodedParser,function(req,res){
    var firstName=req.body.firstname;
    var lastName=req.body.lastname;
@@ -157,8 +159,11 @@ app.put('/api/updateVendor/:id',urlencodedParser,function(req,res){
 //     });
 //   });
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-//COMMON-EVENT-FORM
+//POST Common Event Form
 
 
 app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
@@ -177,6 +182,8 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
      res.send(commonEvents +'Added')
  })
 
+ // View Common Booked Events
+
  app.get('/api/getCommonEvent',function(req,res){
     db.query('SELECT * FROM bookcommonevents',function(error,rows){
     if(error){
@@ -191,19 +198,6 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
     })
     });
     
-    // app.get('/api/UserVendor',function(req,res){
-    //     db.query('SELECT * FROM vendors',function(error,rows){
-    //     if(error){
-    //         console.log('Error in the query')
-    //     }
-    //     else{
-    //         console.log('Successful query')
-    //         console.log(rows);
-    //         // res.send('Hello ' +rows[1].firstname);
-    //         res.json(rows);
-    //     }
-    //     })
-    //     });
     
     app.get('/api/UserCommonEvent',function(req,res){
         db.query(`select * from CommonEvent`,function(err,result){
@@ -211,6 +205,8 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
             res.json(result);
         })
     })
+
+// Delete Common Event
     
     app.delete('/api/deleteCommonEvent/:id',function(req,res){
         var id=req.params.id;
@@ -226,6 +222,8 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
         }
     })
     })
+
+// Update Common Event    
     
     app.put('/api/updateCommonEvent/:id',urlencodedParser,function(req,res){
         console.log('hello')
@@ -251,7 +249,8 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
         });
     })
 
- //PERSONAL-EVENT-FORM
+//POST Common Event Form
+
  app.post('/api/addPersonalEvent',urlencodedParser,function(req,res){
     var name=req.body.name;
     var personalEvents=req.body.personalEvents;
@@ -268,6 +267,9 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
      })
      res.send(name +'Added')
  })
+
+//View Personal Event
+
  app.get('/api/getPersonalEvent',function(req,res){
     db.query('SELECT * FROM PersonalEvent',function(error,rows){
     if(error){
@@ -282,19 +284,6 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
     })
     });
     
-    // app.get('/api/UserVendor',function(req,res){
-    //     db.query('SELECT * FROM vendors',function(error,rows){
-    //     if(error){
-    //         console.log('Error in the query')
-    //     }
-    //     else{
-    //         console.log('Successful query')
-    //         console.log(rows);
-    //         // res.send('Hello ' +rows[1].firstname);
-    //         res.json(rows);
-    //     }
-    //     })
-    //     });
     
     app.get('/api/UserPersonalEvent',function(req,res){
         db.query(`select * from PersonalEvent`,function(err,result){
@@ -302,6 +291,8 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
             res.json(result);
         })
     })
+
+// Delete Personal Event
     
     app.delete('/api/deletePersonalEvent/:id',function(req,res){
         var id=req.params.id;
@@ -317,6 +308,8 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
         }
     })
     })
+
+// Update Personal Event   
     
     app.put('/api/updatePersonalEvent/:id',urlencodedParser,function(req,res){
         var commonEvents=req.body.event.commonEvents;
@@ -339,3 +332,7 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
             }
         });
     })
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------
