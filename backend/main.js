@@ -215,7 +215,7 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
     app.delete('/api/deleteCommonEvent/:id',function(req,res){
         var id=req.params.id;
     console.log(req.body);
-    const query = "delete from `CommonEvent` where id="+id;
+    const query = "delete from `bookcommonevents` where id="+id;
     console.log(query);
     db.query(query,function(error, rows){
         if(error){
@@ -228,6 +228,7 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
     })
     
     app.put('/api/updateCommonEvent/:id',urlencodedParser,function(req,res){
+        console.log('hello')
         var commonEvents=req.body.event.commonEvents;
         var dateFrom=req.body.event.dateFrom;
         var dateTo=req.body.event.dateTo;
@@ -235,12 +236,14 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
         var timeEnd=req.body.event.timeEnd;
         console.log("dfd",req.body);
         console.log("commonEvents",commonEvents);
-        var sql="update commonevents set commonEvents='"+commonEvents+"',ateFrom='"+dateFrom+"',dateTo='"+dateTo+"',imeStart='"+timeStart+"',timeEnd='"+timeEnd+"' where id="+req.params.id;
+        var sql="update bookcommonevents set commonEvents='"+commonEvents+"',dateFrom='"+dateFrom+"',dateTo='"+dateTo+"',timeStart='"+timeStart+"',timeEnd='"+timeEnd+"' where id="+req.params.id;
         db.query(sql,function(err,result){
             if(err){
                 console.log(err);
                 console.log(sql);
+
                 console.log('Error in query');
+                console.log('query galat hai');
             }
             else{
                 res.send('Record has been updated');
