@@ -1,12 +1,47 @@
 #selectall{
     font-weight: bold;
     background-color: coral;
+
+}
+#list{padding-left: 80px;
+
 }
 
 #process-button{
     float:right;
 }
+.societymembers{margin-bottom: -16px;
+    width:400px;
+}
 
-#society-members{
-    margin: auto;
+.list-width{
+    width:300px;
+}
+
+#memberWholeList{
+    width: 100%;
+    margin-left: -77px;
+}
+
+#label-name{
+    font-weight: bold;
+    margin-right: 20%;
+
+}
+
+#label-flatno{
+    font-weight: bold;
+    margin-left: 65px;
+}
+
+table,tr,th,td {
+    padding: 5px;
+    border: 2px solid grey;
+    
+}
+
+#table{
+    width: 360px;
+    float: right;
+    background-color: aliceblue;
 }
