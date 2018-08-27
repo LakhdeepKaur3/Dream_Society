@@ -1,11 +1,17 @@
-*{
-    margin: 0px;
-    padding: 0px;
-}
-#user-main{margin-top: 60px;}
-#user-main ul{list-style: none; background: blue;text-align: center;color: white;}
-#user-main li{ padding: 20px;font-weight: bold;}
-#user-main a{text-decoration: none;color: white; }
-#user-main li:hover{border-left: skyblue 5px solid;background-color: black;}
+#user{position: relative;width: 100%;height: 793px;background-color:#3d3780;}
 
-/* user-data */
+#desh{height: 55px;background-color: #3d3780;}
+  #data{background-color: #3d3780;}
+  #data a{padding: 0px;padding-top: 22px;padding-bottom: 22px;}
+  a{color: white;}
+  .profilepic{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    border-color: white;
+    border-style: solid;
+    top: -50px;
+    left: calc(50% - 50px) ;
+    }
+   

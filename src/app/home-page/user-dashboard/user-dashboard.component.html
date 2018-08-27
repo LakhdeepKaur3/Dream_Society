@@ -1,4 +1,4 @@
-<div class="container-fluid" id="user-main">
+<!-- <div class="container-fluid" id="user-main">
     <div class="row">
       <div class="col-12 col-md-2">
     <ul class="bg-dark">
@@ -9,8 +9,94 @@
     </div>
 
     <!-- side data -->
-    <div class="col-12 col-md-10" id="user-data">
+
+
+    <!-- <div class="col-12 col-md-10" id="user-data">
      <router-outlet></router-outlet>
     </div>
   </div>
+  </div> --> -->
+
+
+  
+
+<div id="user">
+
+  <nav class="navbar navbar-expand  fixed-top  flex-md-nowrap p-0 shadow" id="desh">
+    <div style="padding-left: 10px;"> <a class="navbar-brand" href="#">DRE@M SOCIETY</a>
+  </div>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="navbar-collapse collapse"  >
+      <input class="form-control form-control-dark" type="text" placeholder="Search" aria-label="Search"  >
+      
+      <ul class="navbar-nav mr-auto"  >
+      
+        
+        <li class="nav-item message ">
+          
+          <a class="nav-link" href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+        </li>
+        <li class="nav-item message ">
+          <a class="nav-link" href="#"><i class="fa fa-bell-o" aria-hidden="true"></i></a>
+        </li>
+        
+        <li class="nav-item message ">
+            <a class="nav-link" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+            
+        
+         
+      </ul>
+      
+      </div>
+  
+      
+  </nav>
+  <div style="background-color:#2f296b; ">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="padding-top: 55px;"></div>
+  <div class="container-fluid" style="padding-top: 65px;">
+  <div class="row">
+  
+    <nav class="col-md-2 col-lg-2 d-none d-md-block  sidebar" id="data">
+        <img src="../../../assets/images/prerak.png" alt="" class="profilepic">
+      <div class="sidebar-sticky" id="navbarCollapse" style="padding-top: 30px;">
+        <ul class="nav flex-column" id="sidebar">
+         
+          
+          <li class="nav-item active" >
+            <a class="nav-link" routerLink="/user-dashboard/society"><i class="fa fa-users " aria-hidden="true">
+          </i> Resident Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/user-dashboard/event-management" ><i class="fa fa-grav " aria-hidden="true">
+            </i> Event Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/user-dashboard/view-vendor'><i class="fa fa-cart-plus " aria-hidden="true">
+            </i> Vendor Management</a>
+          </li>
+      
+          
+        </ul>
+  
+       
+      </div>
+    </nav>
+  
+     
+    <div class="col-md-9 col-lg-10 " style="background-color:#2f296b;height: 660px;">
+        <div class="container" style="background-color: #3d3780">
+      <router-outlet></router-outlet>
+      </div>
+  
+    </div>
+  </div>
+  
+  </div>
+  
+  </div>
+  
+  
   </div>
