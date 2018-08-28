@@ -1,9 +1,9 @@
-#confirm-button{
+/* #confirm-button{
     float: right;
-}
-.container{
+} */
+#bookedTable{
     background-color: aliceblue;
-   margin-top: 10px;
+    margin-top: 10px;
 }
 
 h4{

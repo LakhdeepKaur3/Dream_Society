@@ -1,3 +1,6 @@
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-6 col-lg-6">
 <form id="common-container" name="id" #commonEventForm="ngForm" (ngSubmit)="onSubmit(commonEventForm)">
   <h4 id="heading">Add Event</h4>
   <input type="text" name="id" hidden key="ngModel" [(ngModel)]="_form.id">
@@ -6,8 +9,8 @@
   <div style="padding-left: 20px;">
   <!-- Event Type -->  
   <div class="form-group row" id="common" style="margin-left: -13px">
-    <label class="col-2 col-form-label">Event Type</label>
-    <div class="col-4">
+    <label class="col-12 col-form-label">Event Type</label><br/>
+    <div class="col-8">
       <select class="custom-select"
       name="commonEvents" [(ngModel)]="_form.commonevents" #commonevents="ngModel" ngModel>
         <option value="default">Select an Event</option>
@@ -21,14 +24,14 @@
   <label >Please select a Date</label>
   <div class="form-group row">
     <label class="col-2 col-form-label">From:</label>
-    <div class="col-3">
+    <div class="col-6">
       <input class="form-control" type="date" 
       required name="dateFrom" [(ngModel)]="_form.datefrom" #datefrom="ngModel" ngModel>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-2 col-form-label">To:</label>
-    <div class="col-3">
+    <div class="col-6">
       <input class="form-control" type="date" 
       required name="dateTo" [(ngModel)]="_form.dateto" #dateto="ngModel" ngModel>
     </div>
@@ -40,14 +43,14 @@
   <label id="common">Please select a Time</label>
   <div class="form-group row">
     <label class="col-2 col-form-label">Start:</label>
-    <div class="col-2">
+    <div class="col-6">
       <input class="form-control" type="time"
       required name="timeStart" [(ngModel)]="_form.timestart" #timestart="ngModel" ngModel>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-2 col-form-label">End:</label>
-    <div class="col-2">
+    <div class="col-6">
       <input class="form-control" type="time"
       required name="timeEnd" [(ngModel)]="_form.timeend" #timeend="ngModel" ngModel>
     </div>
@@ -57,32 +60,35 @@
 
   <!-- Proceed -->
   <div>
-    <button type="submit" class="btn btn-success btn-lg" id="proceed-button"  routerLink="../members-list">Proceed</button>
-    <button type="submit" class="btn btn-success btn-lg" id="submit-button" >Save</button>
-    <button type="reset" class="btn btn-primary btn-lg"  id="reset-button" value="reset">
-        <i class="fa fa-repeat"></i>
-        Reset</button>
+    <button type="reset" class="btn btn-primary btn-md"  id="reset-button" value="reset">
+          <i class="fa fa-repeat"></i>
+          Reset</button>
+    <button type="submit" class="btn btn-success btn-md" id="submit-button" >Save</button>
+    <button type="submit" class="btn btn-success btn-md" id="proceed-button"  routerLink="../members-list">Proceed</button>
   </div>
 </form>
-
-<!-- <div class="form-group row">
-  <label for="example-password-input" class="col-2 col-form-label">Hall Type</label>
-  <div class="col-3">
-      <select class="custom-select">
-          <option value="default">Select a Hall</option>
-          <option *ngFor="let halls of commonHalls">{{halls}}</option>
-      </select>
-  </div>
 </div>
-
-<div class="form-group row">
-  <label for="example-number-input" class="col-2 col-form-label">Members</label>
-  <div class="col-2">
-      <div class="list-group" id="society-members">
-          <a  class="list-group-item active">Select Members</a>
-          <a  class="list-group-item">Ajay Srivastava <input type="checkbox" class="pull-right" id="members-checkbox"></a>
-          <a  class="list-group-item">Shankar Mahanjan <input type="checkbox" class="pull-right" id="members-checkbox"></a>
-          <a  class="list-group-item">Sanjay Dutt <input type="checkbox" class="pull-right" id="members-checkbox"></a>
-          <a  class="list-group-item">Sunil Kumar <input type="checkbox" class="pull-right" id="members-checkbox"></a>
-          </div>
-  </div> </div> -->
+<div class="col-md-6">
+        <table class="table table-hover" id="display-event">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Event Type</th>
+              <th scope="col">Date From</th>
+              <th scope="col">Time From</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let vendor of vendors" (click)="onItemClick(vendor)">
+              <th scope="row">{{vendor.id}}</th>
+              <td>{{vendor.firstname}}</td>
+              <td>{{vendor.services}}</td>
+              <td>{{vendor.mobileNo}}</td>
+            </tr>
+          </tbody>
+        </table>
+ 
+  
+</div>
+</div>
+</div>

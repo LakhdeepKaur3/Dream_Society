@@ -1,60 +1,63 @@
+<div   id="bookedTable">
+  <h4>
+      {{bookingHead}}
+  </h4>
+  <!-- <hr/> -->
+<table class='table table-stripped table-hover table-sm' id="bookedTable">
+<thead>
+  <tr>
+    <th scope="col">Event Name</th>
+    <th scope="col">Event Type</th>
+    <th scope="col">Venue Name</th>
+    <th scope="col">Location</th>
+    <th scope="col">Date From</th>
+    <th scope="col"> To</th>
+    <th scope="col">Time From</th>
+    <th scope="col">To</th>
+    <th scope="col">Member Type</th>
+    <th scope="col">User ID</th>
+    <!-- <th scope="col">Charges</th>-->
+    <th scope="col">Actions</th>
+    <!-- <th scope="col">Actions</th>  -->
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor='let event of events' >
 
-<h4 class="container">
-{{bookingHead}}
-</h4>
+    <td>{{event.commonEvents}}</td>
 
-<table class='table table-stripped table-hover'>
-  <thead>
-    <tr class="table-success">
-      <td>Event Name</td>
-      <td>Event Type</td>
-      <td>Venue Name</td>
-      <td>Location</td>
-      <td>Date From</td>
-      <td> To</td>
-      <td>Time From</td>
-      <td>To</td>
-      <td>Member Type</td>
-      <td>User ID</td>
-      <td>Charges</td>
-      <td>Actions</td>
-      <td>Actions</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor='let event of events' >
-
-      <td>{{event.commonEvents}}</td>
-  
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>{{event.dateFrom}}</td>
-      <td>{{event.dateTo}}</td>
-      <td>{{event.timeStart}}</td>
-      <td>{{event.timeEnd}}</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td class="info">
-        <!-- Single Button -->
-          <button type="button" class="btn btn-default " (click)="editHistory(event,event.id)" >Edit History
+    <td></td>
+    <td></td> 
+    <td></td>
+    <td>{{event.dateFrom}}</td>
+    <td>{{event.dateTo}}</td>
+    <td>{{event.timeStart}}</td>
+    <td>{{event.timeEnd}}</td>
+    <td></td>
+    <td></td>
+    <!-- <td></td> -->
+   
+    <!-- <td class="info">
+      
+        <button type="button" class="btn btn-default " (click)="onUpdate(event,event.id)" (click)="refetchCommonEvent()" (click)="onItemClick(event)" routerLink="../common-form" >Update
+        </button>
+    </td>-->
+    <td class="info">
+        
+          <button type="button" class="btn btn-default " (click)="onDelete(event.id)" >Delete 
           </button>
-      </td>
-      <td class="info">
-          <!-- Single Button -->
-            <button type="button" class="btn btn-default " (click)="onDelete(event.id)" >Delete 
-            </button>
-        </td>
-    </tr>
-    <tbody>
+      </td> 
+  </tr>
+  <tbody>
 </table>
-<button type="button" (click)="fetchEvents()">
-    <i class="fa fa-repeat"></i>
-    Refresh</button>
-<div>
-  
-  <!-- <p style="padding-top:80px"></p> -->
-      <button routerLink="/"  class="btn btn-default btn-lg" id="back-button">Back</button>
-      <button class='btn btn-success btn-lg' routerLink="/" id="confirm-button">Confirm & Pay</button>
-</div>
+
+<button type="button" class="btn btn-lg" (click)="fetchEvents()">
+  <!-- <i class="fa fa-repeat"></i> -->
+  Refresh</button>
+
+
+
+    <button routerLink="/"  class="btn btn-default btn-lg" id="back-button" style="margin-left:10px;">Back</button>
+    <button class='btn btn-success btn-lg' routerLink="/" id="confirm-button" style="float:right;">Confirm & Pay</button>
+
+</div> 

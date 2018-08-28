@@ -1,23 +1,23 @@
 #members-checkbox{
-    float: right;
+    float: left;
 }
 
 #proceed-button{
-    float: right;
+    float: left;
     margin-right: 100px;
     margin-bottom: 11px;
 }
 
 #proceed-button, #submit-button, #reset-button{
-    float: right;
+    float: left;
     margin-right: 15px;
 }
 
 #common-container{
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     height:100%;
-    width: 93%;
-    margin-left: 50px;
+    width: 100%;
+    /* margin-left: 50px; */
     background-color:aliceblue;
     margin-top: 10px;
     padding-top: 16px;
@@ -29,4 +29,12 @@
 
 #heading{
     text-align: center;
+}
+
+#display-event{
+    height: 100%;
+    width: 100%;
+    background-color: aliceblue;
+    margin-left: -17px;
+    margin-top: 2.1%;
 }
