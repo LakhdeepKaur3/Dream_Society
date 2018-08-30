@@ -40,6 +40,7 @@ import { PiechartComponent } from './home-page/dashboard/charts/piechart/piechar
 import { DynamicChartComponent } from './home-page/dashboard/charts/dynamic-chart/dynamic-chart.component';
 import { DoughnutChartComponent } from './home-page/dashboard/charts/doughnut-chart/doughnut-chart.component';
 import { DashboardService } from './home-page/dashboard/dashboard.service';
+import { CommonViewComponent } from './events/common-view/common-view.component';
  
 const routes: Routes = [
   //   { path: ' ', component: HeaderComponent },
@@ -172,7 +173,8 @@ const routes: Routes = [
     DashboardComponent,
     PiechartComponent,
     DynamicChartComponent,
-    DoughnutChartComponent
+    DoughnutChartComponent,
+    CommonViewComponent
 
   ],
   imports: [

@@ -1,10 +1,10 @@
-import { Time } from "../../../../node_modules/@angular/common";
+// import { Time } from "../../../../node_modules/@angular/common";
 
 export class CommonEvent{
-    public key:Number;
+    public key:number;
     public commonevents:string;
     public datefrom:any;
-    dateto:any;
-    timestart:any;
-    timeend:any;
+    public dateto:any;
+    public timestart:any;
+    public timeend:any;
 }

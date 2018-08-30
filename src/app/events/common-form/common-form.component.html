@@ -1,8 +1,10 @@
 <div class="container-fluid">
 <div class="row">
   <div class="col-md-6 col-lg-6">
+   <h4 id="heading">Add Event</h4>
 <form id="common-container" name="id" #commonEventForm="ngForm" (ngSubmit)="onSubmit(commonEventForm)">
-  <h4 id="heading">Add Event</h4>
+  
+
   <input type="text" name="id" hidden key="ngModel" [(ngModel)]="_form.id">
   <hr />
 
@@ -68,6 +70,10 @@
   </div>
 </form>
 </div>
+
+
+<!-- view-events-added -->
+
 <div class="col-md-6">
         <table class="table table-hover" id="display-event">
           <thead>
@@ -76,17 +82,44 @@
               <th scope="col">Event Type</th>
               <th scope="col">Date From</th>
               <th scope="col">Time From</th>
+             
+              <th ></th>
+             
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let vendor of vendors" (click)="onItemClick(vendor)">
-              <th scope="row">{{vendor.id}}</th>
-              <td>{{vendor.firstname}}</td>
-              <td>{{vendor.services}}</td>
-              <td>{{vendor.mobileNo}}</td>
+            <tr *ngFor="let commonevent of events" (click)="onItemClick(event)">
+              <td scope="row">{{commonevent.id}}</td>
+              <td>{{commonevent.commonEvents}}</td>
+
+              <td>{{commonevent.dateFrom}}</td>
+             
+              <td>{{commonevent.timeStart}}</td>
+             
+              
+              <td class="info">
+        
+                <button type="button" class="btn btn-info"  (click)="onUpdate(commonEventForm)">
+                    <i class="fa fa-edit"></i> Edit
+                </button>
+            </td> 
+            <td class="info">
+        
+              <button type="button" class="btn btn-danger " (click)="onDelete(commonevent.id)">
+                  <i class="fa fa-trash-o"></i>Delete
+              </button>
+          </td> 
+             
             </tr>
+            <div>
+              <button type="button" (click)="refetchEvents()">
+                <i class="fa fa-repeat"></i>
+                Refresh</button>
+              </div>
           </tbody>
+          
         </table>
+        
  
   
 </div>

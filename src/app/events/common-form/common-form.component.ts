@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Http} from '@angular/http';
 import {CommonEventService} from '../event-shared/common-event.service';
 import {NgForm} from '@angular/forms'; 
+import { CommonEvent } from '../event-shared/commonEvent.model';
 
 
 
@@ -79,9 +80,9 @@ export class CommonFormComponent implements OnInit {
 
   
   
-  commonevent:any;
+  events:any;
   constructor(private commonEventService:CommonEventService){
-    this.commonevent=[];
+    this.events=[];
   }
 
 //-----------------------------POST DATA TO JSON------------------------------------
@@ -111,6 +112,8 @@ export class CommonFormComponent implements OnInit {
   //-----------------------------------------------------------------------------------
 
   ngOnInit() {
+    this.refetchEvents();
+   
   }
 
   onSubmit(form: NgForm) {
@@ -150,7 +153,37 @@ export class CommonFormComponent implements OnInit {
 
 // }
 //------------------------------------------------------------------------
- 
+
+refetchEvents(){
+  this.commonEventService.getCommonEvent()
+  .subscribe((event)=>{
+    this.events=(JSON.parse(event["_body"]));
+    console.log(this.events);
+  });
+}
+onDelete(id) {
+  if (confirm('Are you sure to delete this record ?') == true) {
+    // console.log(form.value);
+    this.commonEventService.deleteCommonEvent(id).subscribe(response=>{
+      console.log(response);
+     this.refetchEvents();
+  })
+  }
+}
+onUpdate(form: NgForm){
+  console.log(form.value);
+  this.commonEventService.updateCommonEvent(form.value,form.value.id)
+  .subscribe((data)=>{
+   console.log(data);
+ });
+ alert(form.value.commonevents+' has been updated');
+}
+onItemClick(event:CommonEvent){
+  // this.vendorService.selectedVendor=vendor;
+  console.log("Event",event);
+  console.log(event);
+  this.commonEventService.selectedCommonEvent.emit(event);
+}
 }
 
 
