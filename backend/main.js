@@ -234,7 +234,7 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
         var timeEnd=req.body.event.timeEnd;
         console.log("dfd",req.body);
         console.log("commonEvents",commonEvents);
-        var sql="update bookcommonevents set commonEvents='"+commonEvents+"',dateFrom='"+dateFrom+"',dateTo='"+dateTo+"',timeStart='"+timeStart+"',timeEnd='"+timeEnd+"' where id="+req.params.id;
+        var sql="update bookcommonevents set commonevents='"+commonEvents+"',datefrom='"+dateFrom+"',dateto='"+dateTo+"',timestart='"+timeStart+"',timeend='"+timeEnd+"' where id="+req.params.id;
         db.query(sql,function(err,result){
             if(err){
                 console.log(err);
@@ -334,5 +334,24 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
     })
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Venues List
+
+app.get('/api/getVenues',function(req,res){
+    db.query('SELECT * FROM venues',function(error,rows){
+    if(error){
+        console.log('Error in the query')
+    }
+    else{
+        console.log('Successful query')
+        console.log(rows);
+        // res.send('Hello ' +rows[1].firstname);
+        res.json(rows);
+    }
+    })
+    });
+    
+
+
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
