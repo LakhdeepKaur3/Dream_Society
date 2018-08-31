@@ -26,6 +26,8 @@ selectedCommonEvent=new EventEmitter<CommonEvent>();
     console.log("key",key)
     return this._http.delete('http://localhost:3001/api/deleteCommonEvent/'+key);
   }
+
+  
 }
 
 

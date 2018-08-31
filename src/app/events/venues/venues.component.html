@@ -4,17 +4,23 @@
   <table class="table">
     <thead>
       <tr class="table-info">
+         <td>
+          Hall ID
+        </td>
+        <td>
+            Hall Number
+        </td>
+        <td>
+            Hall Name
+        </td>
         <td>
           Venue
         </td>
         <td>
-          Venue Type
-        </td>
-        <td>
-          Location
-        </td>
-        <td>
          Capacity
+        </td>
+        <td>
+          Charges
         </td>
         <td>
           Availability
@@ -23,14 +29,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor='let venue of venueList'>
-        <td>{{venue.vname}}</td>
-        <td>{{venue.vtype}}</td>
-        <td>{{venue.vlocation}}</td>
-        <td>{{venue.capacity}}</td>
+      <tr *ngFor='let venue of venuesList'>
+         <td>{{venue.hall_id}}</td>
+         <td>{{venue.hall_number}}</td>
+         <td>{{venue.hall_name}}</td>
+         <td>{{venue.hall_location}}</td>
+         <td>{{venue.hall_capacity}}</td>
+         <td>{{venue.hall_charges}}</td>
+         
         <td >
             <!-- Single Button -->
-              <button type="button" class="btn btn-success "  >available
+              <button type="button" class="btn btn-success "  >{{venue.availability}}
               </button>
           </td>
         
