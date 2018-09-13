@@ -336,4 +336,74 @@ app.get('/api/getVenues',function(req,res){
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  //                              SOCIETY
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+app.get('/api/getData', (req, res)=>{
+    db.query('select * from registration_details', (err, result)=>{
+        if(err) throw err;
+        else{
+            console.log(result);
+           res.json(result)
+        }
+    })
+})
+///////////////post society
+
+app.post('/api/addUser',urlencodedParser,function(req,res){
+    var first_name=req.body.first_name;
+    var last_name=req.body.last_name;
+    var age=req.body.age;
+    var flat_id=req.body.flat_id;
+    var phone_no=req.body.phone_no;
+    var user_name=req.body.user_name;
+    var email=req.body.email;
+    var password=req.body.password;
+    var aadharcardno=req.body.aadharcardno;
+    var gender=req.body.gender;
+    var user_type=req.body.user_type;
+     
+     console.log(req.body);
+     db.query("INSERT INTO `registration_details` (`first_name`,`last_name`,`age`,`flat_id`,`phone_no`,`user_name`,`email`,`password`,`aadharcardno`,`gender`,`user_type`) VALUES ('"+first_name+"','"+last_name+"','"+age+"','"+flat_id+"','"+phone_no+"','"+user_name+"','"+email+"','"+password+"','"+aadharcardno+"','"+gender+"','"+user_type+"')", function(err, result){
+     if(err) throw err;
+     console.log("1 record added");
+     })
+     res.send(user_name +'Added')
+ })
+
+
+ // delete society
+
+
+ app.delete('/api/deleteUser/:id',function(req,res){
+    var id=req.params.id;
+console.log(req.body);
+const query = "delete from `registration_details` where id="+id;
+console.log(query);
+db.query(query,function(error, rows){
+    if(error){
+        console.log('Error in query');
+    }
+    else{
+        res.send('Record has been deleted');
+    }
+})
+})
+
+
+app.get('/api/getUser',function(req,res){
+    db.query('SELECT * FROM registration_details',function(error,rows){
+    if(error){
+        console.log('Error in the query')
+    }
+    else{
+        console.log('Successful query')
+        console.log(rows);
+        // res.send('Hello ' +rows[1].firstname);
+        res.json(rows);
+    }
+    })
+    });
+    
