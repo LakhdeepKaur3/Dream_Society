@@ -87,20 +87,19 @@
     <!-- view-events-added -->
 
     <div class="col-md-6">
-      <table class="table table-hover" id="display-event">
+      <table class="table table-hover table-sm" id="display-event">
         <thead>
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Event Type</th>
             <th scope="col">Date From</th>
             <th scope="col">Time From</th>
-
-            <th></th>
+            <th scope="col">Action</th>
 
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let commonevent of events" (click)="onItemClick(event)">
+          <tr *ngFor="let commonevent of events" (click)="onItemClick(commonevent)">
             <td scope="row">{{commonevent.id}}</td>
             <td>{{commonevent.commonevents}}</td>
 
@@ -110,19 +109,19 @@
            
 
 
-            <td class="info">
+            <td class="info" style="border:1px solid aliceblue">
 
-              <button type="button" class="btn btn-default" routerLink="/">
+              <!-- <button type="button" class="btn btn-default" routerLink="/"> -->
 
                 Edit
-              </button>
+              <!-- </button> -->
             </td>
-            <td class="info">
+            <!-- <td class="info">
 
               <button type="button" class="btn btn-danger " (click)="onDelete(commonevent.id)">
                 <i class="fa fa-trash-o"></i>Delete
               </button>
-            </td>
+            </td> -->
 
           </tr>
     </tbody>
@@ -131,8 +130,8 @@
 
   
       
-    <button type="button" (click)="refetchEvents()">
-        <i class="fa fa-repeat"></i>
+    <button type="button" class="btn btn-md" (click)="refetchEvents()">
+        <!-- <i class="fa fa-repeat"></i> -->
         Refresh</button>
 
       <button type="submit" class="btn btn-info btn-md" id="proceed-button" routerLink="../members-list">
