@@ -7,6 +7,8 @@ var urlencodedParser=bodyParser.urlencoded({extended:false})
 app.use(bodyParser.json());
 
 // Add headers
+
+
 db.connect((err)=>{
     if(err){
         throw err;
@@ -35,7 +37,7 @@ app.listen(3001,()=>{
 console.log('Server is running at port 3001')
 })
 app.get('/createdb',(req,res)=>{
-    let sql='CREATE DATABASE SECURITY';
+    let sql='CREATE DATABASE POONAM';
     db.query(sql,(err,result)=>{
         if(err) throw err;
         console.log(result);
@@ -79,25 +81,13 @@ if(error){
 else{
     console.log('Successful query')
     console.log(rows);
-    // res.send('Hello ' +rows[1].firstname);
+  
     res.json(rows);
 }
 })
 });
 
-// app.get('/api/UserVendor',function(req,res){
-//     db.query('SELECT * FROM vendors',function(error,rows){
-//     if(error){
-//         console.log('Error in the query')
-//     }
-//     else{
-//         console.log('Successful query')
-//         console.log(rows);
-//         // res.send('Hello ' +rows[1].firstname);
-//         res.json(rows);
-//     }
-//     })
-//     });
+
 
 app.get('/api/UserVendor',function(req,res){
     db.query(`select * from vendors`,function(err,result){
@@ -149,15 +139,7 @@ app.put('/api/updateVendor/:id',urlencodedParser,function(req,res){
     });
 })
 
-// app.put('/api/update',function(req,res){
-//     if (err) throw err;
-//     //Update the address field:
-//     var sql = "UPDATE admin SET address = 'Kalkaji' WHERE address = 'Noida'";
-//     db.query(sql, function (err, result) {
-//       if (err) throw err;
-//       console.log(result.affectedRows + " record(s) updated");
-//     });
-//   });
+
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -167,19 +149,19 @@ app.put('/api/updateVendor/:id',urlencodedParser,function(req,res){
 
 
 app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
-    var commonEvents=req.body.commonEvents;
-    var dateFrom=req.body.dateFrom;
-    var dateTo=req.body.dateTo;
-    var timeStart=req.body.timeStart;
-    var timeEnd=req.body.timeEnd;
+    var commonevents=req.body.commonevents;
+    var datefrom=req.body.datefrom;
+    var dateto=req.body.dateto;
+    var timestart=req.body.timestart;
+    var timeend=req.body.timeend;
      
     console.log(req.body);
-    db.query("INSERT INTO `bookcommonevents` (`commonEvents`,`dateFrom`,`dateTo`,`timeStart`,`timeEnd`) VALUES ('"+commonEvents+"','"+dateFrom+"','"+dateTo+"','"+timeStart+"','"+timeEnd+"')", function(err, result){
-        //db.query("INSERT INTO `bookcommonevents` (`commonEvents`) VALUES ('"+commonEvents+"')", function(err, result){
+    db.query("INSERT INTO `bookcommonevents` (`commonevents`,`datefrom`,`dateto`,`timestart`,`timeend`) VALUES ('"+commonevents+"','"+datefrom+"','"+dateto+"','"+timestart+"','"+timeend+"')", function(err, result){
+   
      if(err) throw err;
      console.log("1 record added")
      })
-     res.send(commonEvents +'Added')
+     res.send(commonevents +'Added')
  })
 
  // View Common Booked Events
@@ -227,11 +209,11 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
     
     app.put('/api/updateCommonEvent/:id',urlencodedParser,function(req,res){
         console.log('hello')
-        var commonEvents=req.body.event.commonEvents;
-        var dateFrom=req.body.event.dateFrom;
-        var dateTo=req.body.event.dateTo;
-        var timeStart=req.body.event.timeStart;
-        var timeEnd=req.body.event.timeEnd;
+        var commonEvents=req.body.event.commonevents;
+        var dateFrom=req.body.event.datefrom;
+        var dateTo=req.body.event.dateto;
+        var timeStart=req.body.event.timestart;
+        var timeEnd=req.body.event.timeend;
         console.log("dfd",req.body);
         console.log("commonEvents",commonEvents);
         var sql="update bookcommonevents set commonevents='"+commonEvents+"',datefrom='"+dateFrom+"',dateto='"+dateTo+"',timestart='"+timeStart+"',timeend='"+timeEnd+"' where id="+req.params.id;
@@ -261,7 +243,7 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
      
     console.log(req.body);
     db.query("INSERT INTO `bookpersonalevents` (`name`,`personalEvents`,`dateFrom`,`dateTo`,`timeStart`,`timeEnd`) VALUES ('"+name+"','"+personalEvents+"','"+dateFrom+"','"+dateTo+"','"+timeStart+"','"+timeEnd+"')", function(err, result){
-        //db.query("INSERT INTO `bookcommonevents` (`commonEvents`) VALUES ('"+commonEvents+"')", function(err, result){
+       
      if(err) throw err;
      console.log("1 record added")
      })
@@ -278,7 +260,7 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
     else{
         console.log('Successful query')
         console.log(rows);
-        // res.send('Hello ' +rows[1].firstname);
+      
         res.json(rows);
     }
     })
@@ -312,11 +294,11 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
 // Update Personal Event   
     
     app.put('/api/updatePersonalEvent/:id',urlencodedParser,function(req,res){
-        var commonEvents=req.body.event.commonEvents;
-        var dateFrom=req.body.event.dateFrom;
-        var dateTo=req.body.event.dateTo;
-        var timeStart=req.body.event.timeStart;
-        var timeEnd=req.body.event.timeEnd;
+        var commonEvents=req.body.event.commonevents;
+        var dateFrom=req.body.event.datefrom;
+        var dateTo=req.body.event.dateto;
+        var timeStart=req.body.event.timeetart;
+        var timeEnd=req.body.event.timeend;
 
         console.log("dfd",req.body);
         console.log("Name",name);
@@ -344,7 +326,7 @@ app.get('/api/getVenues',function(req,res){
     else{
         console.log('Successful query')
         console.log(rows);
-        // res.send('Hello ' +rows[1].firstname);
+      
         res.json(rows);
     }
     })
