@@ -4,20 +4,14 @@
   <table class="table">
     <thead>
       <tr class="table-info">
-         <td>
+        <td>
           Hall ID
-        </td>
-        <td>
-            Hall Number
-        </td>
-        <td>
-            Hall Name
         </td>
         <td>
           Venue
         </td>
         <td>
-         Capacity
+          Capacity
         </td>
         <td>
           Charges
@@ -30,25 +24,37 @@
     </thead>
     <tbody>
       <tr *ngFor='let venue of venuesList'>
-         <td>{{venue.hall_id}}</td>
-         <td>{{venue.hall_number}}</td>
-         <td>{{venue.hall_name}}</td>
-         <td>{{venue.hall_location}}</td>
-         <td>{{venue.hall_capacity}}</td>
-         <td>{{venue.hall_charges}}</td>
-         
-        <td >
-            <!-- Single Button -->
-              <button type="button" class="btn btn-success "  >{{venue.availability}}
-              </button>
-          </td>
-        
+        <td>{{venue.venue_id}}</td>
+        <td>{{venue.venue_name}}</td>
+        <td>{{venue.venue_capacity}}</td>
+        <td>{{venue.venue_charges}}</td>
+
+        <td>
+          <!-- Single Button -->
+          <button type="button" class="btn btn-success ">{{venue.availability}}
+          </button>
+        </td>
+
       </tr>
     </tbody>
   </table>
-<hr/>
+  <hr/>
 
-    <!-- <p style="padding-top:80px"></p> -->
-        <button routerLink="/"  class="btn btn-default btn-lg" id="back-button">Back</button>
-        <button class='btn btn-success btn-lg' routerLink="/" id="proceed-button">Proceed</button>
-      </div>
+</div>
+<!-- <p style="padding-top:80px"></p> -->
+
+
+<div>
+
+  <button routerLink="../members-list" class="btn btn-default btn-lg mr-1" id="back-button">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    Back</button>
+
+  <!-- <button type="submit" class="btn btn-success btn-lg mr-1" id="submit-button">
+
+    Save </button> -->
+
+  <button class='btn btn-info btn-lg' routerLink="../view-booked-events" id="proceed-button">
+    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    View FinalList</button>
+</div>

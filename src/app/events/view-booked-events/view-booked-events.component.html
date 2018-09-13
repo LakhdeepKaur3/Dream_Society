@@ -1,62 +1,53 @@
-<div   id="bookedTable">
+<div id="bookedTable">
   <h4>
-      {{bookingHead}}
+    {{bookingHead}}
   </h4>
   <!-- <hr/> -->
-<table class='table table-stripped table-hover table-sm' id="bookedTable">
-<thead>
-  <tr>
-    <th scope="col">Event Name</th>
-    
-    <th scope="col">Venue Name</th>
-    <th scope="col">Location</th>
-    <th scope="col">Date From</th>
-    <th scope="col"> To</th>
-    <th scope="col">Time From</th>
-    <th scope="col">To</th>
-    <th scope="col">Member Type</th>
-    <th scope="col">User ID</th>
-    <!-- <th scope="col">Charges</th>-->
-    <th scope="col">Action</th>
-    <!-- <th scope="col">Actions</th>  -->
-  </tr>
-</thead>
-<tbody>
-  <tr *ngFor='let event of events' >
-
-    <td>{{event.commonEvents}}</td>
-
-    <td></td>
-    <td></td>
-    <td>{{event.dateFrom}}</td>
-    <td>{{event.dateTo}}</td>
-    <td>{{event.timeStart}}</td>
-    <td>{{event.timeEnd}}</td>
-    <td></td>
-    <td></td>
-    <!-- <td></td> -->
-   
-    <!-- <td class="info">
+  <table class='table table-stripped table-hover table-sm' id="bookedTable">
+    <thead>
+      <tr>
+        <th scope="col">Event Name</th>
+        <th scope="col">Date From</th>
+        <th scope="col"> To</th>
+        <th scope="col">Time From</th>
+        <th scope="col">To</th>
+        <th scope="col">Venue</th>
+        <th scope="col">Member Type</th>
+        <th scope="col">Invited Guest</th>
+        <!-- <th scope="col">Charges</th>-->
+        <th scope="col">Action</th>
+        <!-- <th scope="col">Actions</th>  -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let event of events'>
+        <td>{{event.commonevents}}</td>
+        <td>{{event.datefrom}}</td>
+        <td>{{event.dateto}}</td>
+        <td>{{event.timestart}}</td>
+        <td>{{event.timeend}}</td>
+        <td></td>
+        <td></td>
+        <td></td>
       
-        <button type="button" class="btn btn-default " (click)="onUpdate(event,event.id)" (click)="refetchCommonEvent()" (click)="onItemClick(event)" routerLink="../common-form" >Update
-        </button>
-    </td>-->
-    <td class="info">
-        
-          <button type="button" class="btn btn-default " (click)="onDelete(event.id)" >Delete 
+        <td class="info">
+
+          <button type="button" class="btn btn-success " routerLink="/">Confirm
           </button>
-      </td> 
-  </tr>
-  <tbody>
-</table>
-
-<button type="button" class="btn btn-lg" (click)="fetchEvents()">
-  <!-- <i class="fa fa-repeat"></i> -->
-  Refresh</button>
+        </td>
+      </tr>
+      <tbody>
+  </table>
+</div>
+<div>
 
 
+  <button routerLink="../venues" class="btn btn-default btn-lg mr-1" id="back-button" >
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    Back
+  </button>
 
-    <button routerLink="/"  class="btn btn-default btn-lg" id="back-button" style="margin-left:10px;">Back</button>
-    <button class='btn btn-success btn-lg' routerLink="/" id="confirm-button" style="float:right;">Confirm & Pay</button>
-
-</div> 
+  <button type="button" class="btn btn-lg " (click)="fetchEvents()">
+    <i class="fa fa-repeat"></i>
+    Refresh</button>
+</div>

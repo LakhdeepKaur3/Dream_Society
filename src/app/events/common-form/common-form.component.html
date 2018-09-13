@@ -1,127 +1,144 @@
 <div class="container-fluid">
-<div class="row">
-  <div class="col-md-6 col-lg-6">
-   <h4 id="heading">Add Event</h4>
-<form id="common-container" name="id" #commonEventForm="ngForm" (ngSubmit)="onSubmit(commonEventForm)">
+  <div class="row">
+    <div class="col-md-6 col-lg-6">
   
+      <form id="common-container" name="id" #commonEventForm="ngForm" (ngSubmit)="onSubmit(commonEventForm)">
+          <h4 id="heading">Add Event</h4>
 
-  <input type="text" name="id" hidden key="ngModel" [(ngModel)]="_form.id">
-  <hr />
+        <input type="text" name="id" hidden key="ngModel" [(ngModel)]="_form.id">
+        <hr />
 
-  <div style="padding-left: 20px;">
-  <!-- Event Type -->  
-  <div class="form-group row" id="common" style="margin-left: -13px">
-    <label class="col-12 col-form-label">Event Type</label><br/>
-    <div class="col-8">
-      <select class="custom-select"
-      name="commonEvents" [(ngModel)]="_form.commonevents" #commonevents="ngModel" ngModel>
-        <option value="default">Select an Event</option>
-        <option *ngFor="let commonevents of commonEvents">{{commonevents.name}}</option>
-      </select>
-    </div>
-  </div>
+        <div style="padding-left: 20px;">
+          <!-- Event Type -->
+          <div class="form-group row" id="common" style="margin-left: -13px">
+            <label class="col-12 col-form-label">Event Type</label>
+            <br/>
+            <div class="col-8">
+              <select class="custom-select" name="commonevents" [(ngModel)]="_form.commonevents" #commonevents="ngModel">
+                <option value="default">Select an Event</option>
+                <option *ngFor="let commonevents of commonEvents">{{commonevents}}</option>
+              </select>
+            </div>
+          </div>
+          <!-- ---------------------------------------------------- -->
 
-  <!-- Date -->
-  <div id="common">
-  <label >Please select a Date</label>
-  <div class="form-group row">
-    <label class="col-2 col-form-label">From:</label>
-    <div class="col-6">
-      <input class="form-control" type="date" 
-      required name="dateFrom" [(ngModel)]="_form.datefrom" #datefrom="ngModel" ngModel>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-2 col-form-label">To:</label>
-    <div class="col-6">
-      <input class="form-control" type="date" 
-      required name="dateTo" [(ngModel)]="_form.dateto" #dateto="ngModel" ngModel>
-    </div>
-  </div>
-</div>
+          <!-- <div class="form-group">
+  <label>Services</label>
+  <select (blur)="validateService(serviceControl.value)" (change)="validateService(serviceControl.value)" #serviceControl="ngModel"
+    [class.is-invalid]="serviceHasError && serviceControl.touched" class="custom-select" name="services" [(ngModel)]="_form.services">
+    <option value="default">Services</option>
+    <option *ngFor="let service of services">
+      {{service}}
+    </option>
+  </select>
+  <small class="text-danger" [class.d-none]="!!serviceHasError || serviceControl.dirty">Please choose a service</small>
+</div> -->
 
-  <!-- Time -->
-  <div id="common">
-  <label id="common">Please select a Time</label>
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Start:</label>
-    <div class="col-6">
-      <input class="form-control" type="time"
-      required name="timeStart" [(ngModel)]="_form.timestart" #timestart="ngModel" ngModel>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-2 col-form-label">End:</label>
-    <div class="col-6">
-      <input class="form-control" type="time"
-      required name="timeEnd" [(ngModel)]="_form.timeend" #timeend="ngModel" ngModel>
-    </div>
-  </div>
-</div>
-</div>
-
-  <!-- Proceed -->
-  <div>
-    <button type="reset" class="btn btn-primary btn-md"  id="reset-button" value="reset">
-          <i class="fa fa-repeat"></i>
-          Reset</button>
-    <button type="submit" class="btn btn-success btn-md" id="submit-button" >Save</button>
-    <button type="submit" class="btn btn-success btn-md" id="proceed-button"  routerLink="../members-list">Proceed</button>
-  </div>
-</form>
-</div>
-
-
-<!-- view-events-added -->
-
-<div class="col-md-6">
-        <table class="table table-hover" id="display-event">
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Event Type</th>
-              <th scope="col">Date From</th>
-              <th scope="col">Time From</th>
-             
-              <th ></th>
-             
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let commonevent of events" (click)="onItemClick(event)">
-              <td scope="row">{{commonevent.id}}</td>
-              <td>{{commonevent.commonEvents}}</td>
-
-              <td>{{commonevent.dateFrom}}</td>
-             
-              <td>{{commonevent.timeStart}}</td>
-             
-              
-              <td class="info">
-        
-                <button type="button" class="btn btn-info"  (click)="onUpdate(commonEventForm)">
-                    <i class="fa fa-edit"></i> Edit
-                </button>
-            </td> 
-            <td class="info">
-        
-              <button type="button" class="btn btn-danger " (click)="onDelete(commonevent.id)">
-                  <i class="fa fa-trash-o"></i>Delete
-              </button>
-          </td> 
-             
-            </tr>
-            <div>
-              <button type="button" (click)="refetchEvents()">
-                <i class="fa fa-repeat"></i>
-                Refresh</button>
+          <!-- Date -->
+          <div id="common">
+            <label>Please select a Date</label>
+            <div class="form-group row">
+              <label class="col-2 col-form-label">From:</label>
+              <div class="col-6">
+                <input class="form-control" type="date" required name="datefrom" [(ngModel)]="_form.datefrom" #datefrom="ngModel">
               </div>
-          </tbody>
-          
-        </table>
-        
- 
+            </div>
+            <div class="form-group row">
+              <label class="col-2 col-form-label">To:</label>
+              <div class="col-6">
+                <input class="form-control" type="date" required name="dateto" [(ngModel)]="_form.dateto" #dateto="ngModel" ngModel>
+              </div>
+            </div>
+          </div>
+
+          <!-- Time -->
+          <div id="common">
+            <label id="common">Please select a Time</label>
+            <div class="form-group row">
+              <label class="col-2 col-form-label">Start:</label>
+              <div class="col-6">
+                <input class="form-control" type="time" required name="timestart" [(ngModel)]="_form.timestart" #timestart="ngModel">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-2 col-form-label">End:</label>
+              <div class="col-6">
+                <input class="form-control" type="time" required name="timeend" [(ngModel)]="_form.timeend" #timeend="ngModel">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proceed -->
+        <div>
+          <button type="reset" class="btn btn-primary btn-md" id="reset-button" value="reset">
+            <i class="fa fa-repeat"></i>
+            Reset</button>
+          <button type="submit" class="btn btn-success btn-md" id="submit-button">Submit</button>
+
+          <button type="submit" class="btn btn-success btn-md" id="submit-button">
+            Update</button>
+
+        </div>
+      </form>
+    </div>
+
+
+    <!-- view-events-added -->
+
+    <div class="col-md-6">
+      <table class="table table-hover" id="display-event">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Event Type</th>
+            <th scope="col">Date From</th>
+            <th scope="col">Time From</th>
+
+            <th></th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let commonevent of events" (click)="onItemClick(event)">
+            <td scope="row">{{commonevent.id}}</td>
+            <td>{{commonevent.commonevents}}</td>
+
+            <td>{{commonevent.datefrom}}</td>
+
+            <td>{{commonevent.timestart}}</td>
+           
+
+
+            <td class="info">
+
+              <button type="button" class="btn btn-default" routerLink="/">
+
+                Edit
+              </button>
+            </td>
+            <td class="info">
+
+              <button type="button" class="btn btn-danger " (click)="onDelete(commonevent.id)">
+                <i class="fa fa-trash-o"></i>Delete
+              </button>
+            </td>
+
+          </tr>
+    </tbody>
+
+    </table>
+
   
+      
+    <button type="button" (click)="refetchEvents()">
+        <i class="fa fa-repeat"></i>
+        Refresh</button>
+
+      <button type="submit" class="btn btn-info btn-md" id="proceed-button" routerLink="../members-list">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        Invite Guests</button>
+  </div>
 </div>
-</div>
+
 </div>

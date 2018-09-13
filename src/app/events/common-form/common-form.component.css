@@ -3,12 +3,12 @@
 }
 
 #proceed-button{
-    float: left;
-    margin-right: 100px;
+    float: right;
+    margin-right:0px;
     margin-bottom: 11px;
 }
 
-#proceed-button, #submit-button, #reset-button{
+#update-button, #submit-button, #reset-button{
     float: left;
     margin-right: 15px;
 }
