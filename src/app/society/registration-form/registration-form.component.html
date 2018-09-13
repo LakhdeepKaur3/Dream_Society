@@ -1,6 +1,6 @@
-<div class="container">
+<div class= "container">
     <h1>REGISTRATION FORM</h1> 
-    <form #registrationForm="ngForm" (ngSubmit)="saveRegistration(registrationForm.value)">
+    <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
    
     
         <!-- first name -->
@@ -13,8 +13,8 @@
     #first_name="ngModel">
     <div *ngIf= "first_name.errors && (first_name.dirty || first_name.touched) "
     class="alert alert-danger">
-    <div [hidden]="!first_name.hasError('required')">First Name is required</div>
-    <div [hidden]="!first_name.hasError('pattern')">Only alphabets allowed</div>
+    <small [hidden]="!first_name.hasError('required')">First Name is required</small>
+    <small [hidden]="!first_name.hasError('pattern')">Only alphabets allowed</small>
     </div>
     </div>
 
@@ -28,8 +28,8 @@
         #last_name="ngModel">
         <div *ngIf= "last_name.errors && (last_name.dirty || last_name.touched) "
         class="alert alert-danger">
-        <div [hidden]="!last_name.hasError('required')">Last Name is required</div>
-        <div [hidden]="!last_name.hasError('pattern')">Only alphabets allowed</div>
+        <small [hidden]="!last_name.hasError('required')">Last Name is required</small>
+        <small [hidden]="!last_name.hasError('pattern')">Only alphabets allowed</small>
         </div>
         </div>
     
@@ -37,12 +37,12 @@
         <!-- Age -->
     <div class="form-group">
     <label for="age">Age</label>
-    <input type="text" [(ngModel)]="model.age" class="form-control" pattern="[0-9]*" id="age" required 
-    maxlength="2" name="age" #age="ngModel">
-    <div *ngIf= "age.error && (age.dirty || age.touched) "
+    <input type="text"  class="form-control" id="age" pattern="[0-9]*"  required 
+    maxlength="2" name="age" [(ngModel)]="model.age"  #age="ngModel" >
+    <div *ngIf= "age.errors && (age.dirty || age.touched) "
     class="alert alert-danger">
-    <div [hidden]="!age.hasError('required')"> Age is required</div>
-    <div [hidden]="!age.hasError('pattern')">Age should be only numbers</div>
+    <small [hidden]="!age.hasError('required')"> Age is required</small>
+    <small [hidden]="!age.hasError('pattern')">Age should be only numbers</small>
     </div>
     </div>
 
@@ -56,21 +56,21 @@
         #flat_id="ngModel">
         <div *ngIf= "flat_id.errors && (flat_id.dirty || flat_id.touched) "
         class="alert alert-danger">
-        <div [hidden]="!flat_id.hasError('required')">Flat_id is required</div>
-        <div [hidden]="!flat_id.hasError('pattern')">Only numbers allowed</div>
+        <small [hidden]="!flat_id.hasError('required')">Flat_id is required</small>
+        <small [hidden]="!flat_id.hasError('pattern')">Only numbers allowed</small>
         </div>
         </div>
 
         <!-- phone no -->
     <div class="form-group">
         <label for="phone_no">Phone No.</label>
-        <input type="text" [(ngModel)]="model.phone_no" class="form-control" pattern="[0-9]*" id="phone_no" required name="phone_no" #phone_no="ngModel" minlength="10"
-        maxlength="10">
+        <input type="text"  class="form-control"  id="phone_no" required  pattern="[0-9]*" name="phone_no" [(ngModel)]="model.phone_no"  
+        maxlength="10"  #phone_no="ngModel">
         <div *ngIf= "phone_no.errors && (phone_no.dirty || phone_no.touched) "
         class="alert alert-danger">
-        <div [hidden]="!phone.hasError('minlength')">phone_no should be 10digit</div>
-        <div [hidden]="!phone_no.hasError('required')"> Phone_No is required</div>
-        <div [hidden]="!phone_no.hasError('pattern')">Phone_No should be only numbers</div>
+          <small [hidden]="!phone_no.hasError('required')"> Phone_No is required</small>
+        <small [hidden]="!phone_no.hasError('pattern')">Phone_No should be only numbers</small>
+        
         </div>
         </div>
     
@@ -85,8 +85,8 @@
             #user_name="ngModel">
             <div *ngIf= "user_name.errors && (user_name.dirty || user_name.touched) "
             class="alert alert-danger">
-            <div [hidden]="!user_name.hasError('required')">User Name is required</div>
-            <div [hidden]="!user_name.hasError('pattern')">Only alphabets allowed</div>
+            <small [hidden]="!user_name.hasError('required')">User Name is required</small>
+            <small [hidden]="!user_name.hasError('pattern')">Only alphabets allowed</small>
             </div>
             </div>
          
@@ -103,8 +103,8 @@
         pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" #email="ngModel">
         <div *ngIf= "email.errors && (email.dirty || email.touched) "
         class="alert alert-danger">
-        <div [hidden]="!email.hasError('required')">email is required</div>
-        <div [hidden]="!email.hasError('pattern')">should be valid email </div>
+        <small [hidden]="!email.hasError('required')">email is required</small>
+        <small [hidden]="!email.hasError('pattern')">should be valid email </small>
         </div>
         </div>
 
@@ -114,7 +114,7 @@
         <input type="password" class="form-control" id="password" required [(ngModel)]="model.password" name="password" #password="ngModel" >
         <div *ngIf= "password.errors && (password.dirty || password.touched) "
         class="alert alert-danger">
-        <div [hidden]="!password.hasError('required')">Password is required</div>
+        <small [hidden]="!password.hasError('required')">Password is required</small>
         </div>
         </div>
 
@@ -124,10 +124,9 @@
     <label for="aadharcardno">Aadhar Number</label>    
      <input type="text" class="form-control" id="aadharcardno" maxlength="12" 
       pattern="[0-9]*" required [(ngModel)]="model.aadharcardno" name="aadharcardno" #aadharCardNo="ngModel">
-                <div *ngIf= "aadharCardNo.errors && (aadharCardNo.dirty || aadharCardNo.touched) "
-                class="alert alert-danger">
-                <div [hidden]="!aadharCardNo.hasError('required')">aadhar_Card_No is required</div>
-                 <div [hidden]="!aadharCardNo.hasError('pattern')">Aadhar number should be only numbers </div>
+                <div *ngIf= "aadharCardNo.errors && (aadharCardNo.dirty || aadharCardNo.touched) " class="alert alert-danger">
+                <small [hidden]="!aadharCardNo.hasError('required')">aadhar_Card_No is required</small>
+                 <small [hidden]="!aadharCardNo.hasError('pattern')">Aadhar number should be only numbers </small>
                 </div>
                 </div> 
             
@@ -143,17 +142,28 @@
 
         <!-- user_type -->
         <div class="form-group">
-            <label for="user">User</label><br/>
-            <select id="user" name="user_type">
-              <option value="select">Select</option>
-              <option value="admin">Admin</option>
-              <option value="owner">Owner</option>
-              <option value="tenant">Tenant</option>
-            </select>
+            <label>User Type</label>
+            <select required #userControl="ngModel"  class="custom-select" name="user_type" [(ngModel)]="model.user_type" >
+            <option *ngFor="let user of users"  >
+              {{user}}
+            </option>
+          </select>
+          <!-- <div [class.d-none]="userControl.valid || userControl.untouched" class="alert alert-danger">User Type is Required</div> -->
+          <div *ngIf= "userControl.errors && (userControl.dirty || userControl.touched) " class="alert alert-danger">
+            <small [hidden]="!userControl.hasError('required')">User_type is required</small>
+ 
+            </div>
         </div> 
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!registrationForm.valid">Submit</button>
+    <button type="button" class="btn btn-primary" *ngIf="model.first_name!=null" >
+            <i class="fa fa-trash-o"></i>
+            Update</button>
+ <button type="button" class="btn btn-primary" *ngIf="model.id!=null" >
+             <i class="fa fa-trash-o"></i>
+             Delete</button>
   </form>
   Angular Generated Form Model : {{registrationForm.value | json}}
     </div>
+    {{data | json}}
     

@@ -1,0 +1,24 @@
+<div class = "container">
+<button type="button" (click)="refetchUsers()">
+  <i class="fa fa-repeat"></i>
+  Refresh</button>
+<table class="table table-hover" >
+
+  <thead>
+    <tr>
+      <th scope="col">NAME</th>
+      <!-- <th scope="col">GENDER</th> -->
+      <th scope="col">CONTACT NO</th>
+      <th scope="col">USER TYPE</th>
+    </tr>
+  </thead>
+  <tbody> 
+    <tr  (click)="onItemClicked(user)" *ngFor="let user of users" (click)="onItemClick(user)">
+      <td>{{user.first_name}}</td>
+      <!-- <td>{{user.gender}}</td> -->
+      <td>{{user.phone_no}}</td>
+      <td>{{user.user_type}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

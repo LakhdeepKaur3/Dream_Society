@@ -1,4 +1,4 @@
-<div class="container-fluid" id="event-main">
+<!-- <div class="container-fluid" id="event-main">
   <div class="row">
     <div class="col-12 col-md-12">
       <ul class="bg-dark row">
@@ -7,10 +7,20 @@
         </li>
         
       </ul>
-    </div>
+    </div> -->
     <!-- side data -->
-    <div class="col-12 col-md-12" id="event-data">
+    <!-- <div class="col-12 col-md-12" id="event-data">
       <router-outlet></router-outlet>
     </div>
   </div>
+</div> -->
+<div class="container">
+<div class="row">
+  <div class="col-md-6">
+    <app-registration-form [data]="data" ></app-registration-form>
+  </div>
+  <div class="col-md-6">
+    <app-registration-list (itemSelected)="onItemSelected($event)"></app-registration-list>
+  </div>
+</div>
 </div>

@@ -34,6 +34,8 @@ import {VenuesComponent} from './events/venues/venues.component';
 import { SuperAdminProfileComponent } from './super-admin-profile/super-admin-profile.component';
 import { ViewBookedEventsComponent } from './events/view-booked-events/view-booked-events.component';
 import {RegistrationFormComponent} from './society/registration-form/registration-form.component';
+import {RegistrationListComponent} from './society/registration-list/registration-list.component';
+import {RegistrationService} from './society/society-shared/registration.service';
 import { DashboardComponent } from './home-page/dashboard/dashboard.component';
 import { ChartsModule } from 'ng2-charts';
 import { PiechartComponent } from './home-page/dashboard/charts/piechart/piechart.component';
@@ -78,6 +80,7 @@ const routes: Routes = [
       children: [
         { path: '', redirectTo: 'owner', pathMatch: 'full' },
         { path: 'registration', component: RegistrationFormComponent},
+        {path:'registration-list', component:RegistrationListComponent}
     
       ]
     },
@@ -174,7 +177,8 @@ const routes: Routes = [
     PiechartComponent,
     DynamicChartComponent,
     DoughnutChartComponent,
-    CommonViewComponent
+    CommonViewComponent,
+    RegistrationListComponent
 
   ],
   imports: [
