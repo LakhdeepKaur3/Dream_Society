@@ -54,6 +54,7 @@ export class VendorComponent implements OnInit {
     // }
     // this.resetForm(form);
   }
+  
   onUpdate(form: NgForm){
     console.log(form.value);
     this.vendorservice.updateVendor(form.value,form.value.id)

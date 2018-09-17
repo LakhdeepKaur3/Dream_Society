@@ -13,7 +13,7 @@ import {CommonVenuesList} from '../event-shared/common-venueslist.model';
 })
 export class ViewBookedEventsComponent implements OnInit {
 
-  bookingHead=' View BookingDetails';
+  bookingHead='BookingDetails';
 
 
   events:any;

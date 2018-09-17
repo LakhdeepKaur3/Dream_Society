@@ -14,30 +14,16 @@ import { CommonEvent } from '../event-shared/commonEvent.model';
 export class CommonFormComponent implements OnInit {
 
   //Select event type
-  commonEvents = [
-    "Holi",
-    "Diwali",
-    "Durga Puja",
-    "Dussehra",
-    "Christmas",
-    "New Year",
-    "Independence Day",
-    "Republic Day",
-    "Janmashtmi",
-    "Eid",
-    "Baisakhi",
-    "Lohri",
-    "Makar Sankaranti",
-    "other"
-  ];
+  commonEvents = ["Holi" , "Diwali" , "Durga Puja" , "Dussehra" , "Christmas" , "New Year" , "Independence Day" , "Republic Day" , "Janmashtmi" ,
+    "Eid" , "Baisakhi" , "Lohri" , "Makar Sankaranti" , "other" ];
 
   EventsHasError = true;
 
   events: any;
   commonevent:any;
   constructor(private commonEventService: CommonEventService) {
-    this.events = [];
-    this.commonevent=[];
+    // this.events = [];
+    // this.commonevent=[];
   }
 
 
@@ -48,6 +34,15 @@ export class CommonFormComponent implements OnInit {
     dateto: '',
     timestart: '',
     timeend: ''
+  }
+
+  ngOnInit() {
+    this.refetchEvents();
+    this.commonEventService.selectedCommonEvent.subscribe((commonevent)=>{
+      this._form = commonevent;
+     
+    });
+
   }
 
   validateEvent(value) {
@@ -64,9 +59,18 @@ export class CommonFormComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
       })
-    alert(form.value.userName + ' has been added');
+    alert(form.value.commonevents + ' has been added');
     this.resetForm(form);
 
+  }
+
+  onUpdate(form: NgForm) {
+    console.log(form.value);
+    this.commonEventService.updateCommonEvent(form.value,form.value.id)
+      .subscribe((data) => {
+        console.log(data);
+      });
+    alert(form.value.commonevents + ' has been updated');
   }
 
   resetForm(form?: NgForm) {
@@ -84,50 +88,29 @@ export class CommonFormComponent implements OnInit {
     });
   }
 
-
-  ngOnInit() {
-    this.refetchEvents();
-    this.commonEventService.selectedCommonEvent.subscribe((commonevent)=>{
-      this._form = commonevent;
-     
-    });
-
-  }
-
-  onItemClick(commonevent: CommonEvent) {
-    console.log("Event",commonevent);
-    console.log(commonevent);
-    this.commonEventService.selectedCommonEvent.emit(commonevent);
+  onDelete(form:NgForm) {
+    if (confirm('Are you sure to delete this record ?') == true) {
+     console.log(form.value);
+      this.commonEventService.deleteCommonEvent(form.value.id).subscribe(response => {
+        console.log(response);
+        // this.refetchEvents();
+      })
+    }
   }
 
   refetchEvents() {
     this.commonEventService.getCommonEvent()
-      .subscribe((commonevent) => {
-        this.events = (JSON.parse(commonevent["_body"]));
+      .subscribe((data) => {
+        this.events = (JSON.parse(data["_body"]));
         console.log(this.events);
       });
   }
 
-  // onDelete(id) {
-  //   if (confirm('Are you sure to delete this record ?') == true) {
-
-  //     this.commonEventService.deleteCommonEvent(id).subscribe(response => {
-  //       console.log(response);
-  //       this.refetchEvents();
-  //     })
-  //   }
-  // }
-  
-  // onUpdate(form: NgForm) {
-  //   console.log(form.value);
-  //   this.commonEventService.updateCommonEvent(form.value, form.value.id)
-  //     .subscribe((data) => {
-  //       console.log(data);
-  //     });
-  //   alert(form.value.commonevents + ' has been updated');
-
-  // }
-
+  onItemClick(commonevent: CommonEvent) {
+    console.log("Common Events",commonevent);
+    console.log(commonevent);
+    this.commonEventService.selectedCommonEvent.emit(commonevent);
+  }
   
 }
 

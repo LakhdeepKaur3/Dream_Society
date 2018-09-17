@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6 col-lg-6">
   
-      <form id="common-container" name="id" #commonEventForm="ngForm" (ngSubmit)="onSubmit(commonEventForm)">
+      <form id="common-container" name="id"  #commonEventForm="ngForm" (ngSubmit)="onSubmit(commonEventForm)">
           <h4 id="heading">Add Event</h4>
 
         <input type="text" name="id" hidden key="ngModel" [(ngModel)]="_form.id">
@@ -74,10 +74,16 @@
           <button type="reset" class="btn btn-primary btn-md" id="reset-button" value="reset">
             <i class="fa fa-repeat"></i>
             Reset</button>
-          <button type="submit" class="btn btn-success btn-md" id="submit-button">Submit</button>
 
-          <button type="submit" class="btn btn-success btn-md" id="submit-button">
+          <button type="submit" class="btn btn-success btn-md" [disabled]="!commonEventForm.valid" id="submit-button">Submit</button>
+
+          <button type="button" class="btn btn-primary btn-md" *ngIf="_form.id!=null" (click)="onUpdate(commonEventForm)" id="submit-button">
             Update</button>
+
+          <button type="button" class="btn btn-danger btn-md" *ngIf="_form.id!=null" (click)="onDelete(commonEventForm)">
+            <i class="fa fa-trash-o"></i>
+            Delete
+          </button>
 
         </div>
       </form>
