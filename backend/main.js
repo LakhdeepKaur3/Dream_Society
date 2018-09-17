@@ -164,7 +164,7 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
      res.send(commonevents +'Added')
  })
 
- // View Common Booked Events
+ // View Common Booked Events working properly
 
  app.get('/api/getCommonEvent',function(req,res){
     db.query('SELECT * FROM bookcommonevents',function(error,rows){
@@ -188,7 +188,7 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
         })
     })
 
-// Delete Common Event
+// Delete Common Event working properly
     
     app.delete('/api/deleteCommonEvent/:id',function(req,res){
         var id=req.params.id;
@@ -198,6 +198,7 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
     db.query(query,function(error, rows){
         if(error){
             console.log('Error in query');
+            console.log(query)
         }
         else{
             res.send('Record has been deleted');
@@ -208,25 +209,24 @@ app.post('/api/addCommonEvent',urlencodedParser,function(req,res){
 // Update Common Event    
     
     app.put('/api/updateCommonEvent/:id',urlencodedParser,function(req,res){
-        console.log('hello')
-        var commonEvents=req.body.event.commonevents;
-        var dateFrom=req.body.event.datefrom;
-        var dateTo=req.body.event.dateto;
-        var timeStart=req.body.event.timestart;
-        var timeEnd=req.body.event.timeend;
-        console.log("dfd",req.body);
-        console.log("commonEvents",commonEvents);
-        var sql="update bookcommonevents set commonevents='"+commonEvents+"',datefrom='"+dateFrom+"',dateto='"+dateTo+"',timestart='"+timeStart+"',timeend='"+timeEnd+"' where id="+req.params.id;
-        db.query(sql,function(err,result){
-            if(err){
-                console.log(err);
-                console.log(sql);
-
-                console.log('Error in query');
-                console.log('query galat hai');
-            }
-            else{
-                res.send('Record has been updated');
+    console.log('hello')
+    var commonevents=req.body.commonevent.commonevents;
+    var datefrom=req.body.commonevent.datefrom;
+    var dateto=req.body.commonevent.dateto;
+    var timestart=req.body.commonevent.timestart;
+    var timeend=req.body.commonevent.timeend;
+    console.log("dfd");
+    console.log("commonevents",commonevents);
+    var sql="update bookcommonevents set commonevents='"+commonevents+"',datefrom='"+datefrom+"',dateto='"+dateto+"',timestart='"+timestart+"',timeend='"+timeend+"' where id="+req.params.id;
+    db.query(sql,function(err,result){
+        if(err){
+            console.log(err);
+            console.log(sql);
+            console.log('Error in query');
+            console.log('query galat hai');
+        }
+        else{
+            res.send('Record has been updated');
             }
         });
     })
