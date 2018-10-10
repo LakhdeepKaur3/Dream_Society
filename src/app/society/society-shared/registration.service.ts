@@ -15,17 +15,24 @@ export class RegistrationService {
 
     addUser(user){
       return this._http.post('http://localhost:3001/api/addUser',user)
-
+    }
       
-//       updateUser(user:User,key:number){
-//         console.log(key);
-//         return this._http.put('http://localhost:3001/api/updateVendor/'+key,{
-//           vendor
-//         })
-//       }
-//     deleteUser(key:number){
-//       console.log("key",key)
-//       return this._http.delete('http://localhost:3001/api/deleteUser/'+key);
-//     }
+      updateUser(user:Registration,key:number){
+        console.log(key);
+        return this._http.put('http://localhost:3001/api/updateUser/'+key ,{
+          user
+        })
+      }
+
+      deleteUser(key:number){
+        console.log("key",key);
+        return this._http.delete('http://localhost:3001/api/deleteUser/'+key);
+      }
+
+
+    // deleteUser(key:number){
+    //   console.log("key",key)
+    //   return this._http.delete('http://localhost:3001/api/deleteUser/'+key);
+    // }
   
-    }}
+    }

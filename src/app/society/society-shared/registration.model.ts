@@ -1,14 +1,15 @@
 export  class Registration{
+   public key:number; 
    public first_name:string;
    public last_name:string;
-   public age:number;
-   public flat_id:any;
-   public phone_no:number
+   public age:string;
+   public flat_id:string;
+   public phone_no:string
    public user_name:string;
-   public email:any;
-   public password:any;
-   public aadharcardno:number;
+   public email:string;
+   public password:string;
+   public aadharcardno:string;
    public gender:string;
-   public user_type:any;
+   public user_type:string;
 
 }

@@ -1,0 +1,12 @@
+.tab-control .previous-button, .tab-control .next-button{
+    position: absolute;
+    top: 94%;
+}
+
+.tab-control .previous-button{
+    left: 10%;
+}
+
+.tab-control .next-button{
+    right: 20%;
+}

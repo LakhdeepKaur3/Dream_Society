@@ -23,26 +23,36 @@ import { HeaderContentComponent } from './home-page/header-content/header-conten
 import { LightboxComponent } from './home-page/lightbox/lightbox.component';
 import { LoginComponent } from './login/login.component';
 import { ParkingComponent } from './parking/parking.component';
-import { SocietyComponent } from './society/society.component';
+
 import { AssetsComponent } from './assets/assets/assets.component';
 import { AddAssetComponent } from './assets/add-asset/add-asset.component';
 import { AssetDetailComponent } from './assets/asset-detail/asset-detail.component';
+
 import { MembersListComponent } from './events/members-list/members-list.component';
 import { ViewEventComponent } from './events/view-event/view-event.component';
 import { ViewEventPersonalComponent } from './events/view-event-personal/view-event-personal.component';
 import {VenuesComponent} from './events/venues/venues.component';
+import { CommonViewComponent } from './events/common-view/common-view.component';
+
 import { SuperAdminProfileComponent } from './super-admin-profile/super-admin-profile.component';
+
+import { SocietyComponent } from './society/society.component';
 import { ViewBookedEventsComponent } from './events/view-booked-events/view-booked-events.component';
 import {RegistrationFormComponent} from './society/registration-form/registration-form.component';
-import {RegistrationListComponent} from './society/registration-list/registration-list.component';
+// import {RegistrationListComponent} from './society/registration-list/registration-list.component';
 import {RegistrationService} from './society/society-shared/registration.service';
+import { SearchComponent } from "./society/search/search.component";
+import { FilterpipePipe } from "./society/search/filterpipe.pipe";
+import { PagePipe } from "./society/search/page.pipe";
+
+
 import { DashboardComponent } from './home-page/dashboard/dashboard.component';
 import { ChartsModule } from 'ng2-charts';
 import { PiechartComponent } from './home-page/dashboard/charts/piechart/piechart.component';
 import { DynamicChartComponent } from './home-page/dashboard/charts/dynamic-chart/dynamic-chart.component';
 import { DoughnutChartComponent } from './home-page/dashboard/charts/doughnut-chart/doughnut-chart.component';
 import { DashboardService } from './home-page/dashboard/dashboard.service';
-import { CommonViewComponent } from './events/common-view/common-view.component';
+
  
 const routes: Routes = [
   //   { path: ' ', component: HeaderComponent },
@@ -78,9 +88,9 @@ const routes: Routes = [
       { path: 'parking', component: ParkingComponent},
       { path: 'society', component: SocietyComponent,
       children: [
-        { path: '', redirectTo: 'owner', pathMatch: 'full' },
-        { path: 'registration', component: RegistrationFormComponent},
-        {path:'registration-list', component:RegistrationListComponent}
+        
+        { path: 'registration-form', component: RegistrationFormComponent},
+        
     
       ]
     },
@@ -178,7 +188,10 @@ const routes: Routes = [
     DynamicChartComponent,
     DoughnutChartComponent,
     CommonViewComponent,
-    RegistrationListComponent
+    // RegistrationListComponent,
+    PagePipe,
+    SearchComponent,
+    FilterpipePipe
 
   ],
   imports: [

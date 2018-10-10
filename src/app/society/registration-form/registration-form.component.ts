@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {Http} from '@angular/http'
-import {RegistrationService} from '../society-shared/registration.service';
+import { Registration } from "../society-shared/registration.model";
+import { RegistrationService } from '../society-shared/registration.service';
+import { SearchComponent } from "../search/search.component";
 
 @Component({
   selector: 'app-registration-form',
@@ -10,13 +11,14 @@ import {RegistrationService} from '../society-shared/registration.service';
 })
 export class RegistrationFormComponent implements OnInit {
   users=[ 'Owner','Tenant'];
+  userHasError=true;
 
-  @Input('data') data ;
+  // @Input('data') data ;
   constructor(private registration : RegistrationService){
 
   }
 
-  model = {
+  _form = {
     key:0,
     first_name: '',
     last_name:'',
@@ -32,6 +34,18 @@ export class RegistrationFormComponent implements OnInit {
 
   }
   ngOnInit() {
+    this.resetForm();
+    this.registration.selectedUser.subscribe((data)=>{
+      this._form=data;
+    });
+  }
+
+  validateService(value) {
+    if (value == 'default') {
+      this.userHasError = true;
+    } else {
+      this.userHasError = false;
+    }
   }
 
   onSubmit(form: NgForm) {
@@ -40,24 +54,79 @@ export class RegistrationFormComponent implements OnInit {
     this.registration.addUser(form.value)
       .subscribe((data) => {
         console.log(data);
-     })
+     });
      alert(form.value.user_name+' has been added');
     //  this.resetForm(form);
     // }
-    // this.resetForm(form);
+    this.resetForm(form);
   }
 
-  // onDelete(form:NgForm) {
-  //   if (confirm('Are you sure to delete this record ?') == true) {
-  //     console.log(form.value);
-  //     this.registration.deleteUser(form.value.id).subscribe(response=>{
-  //       console.log(response);
-  //     })
-  //     // this.resetForm(form);
-  //   }
-  // }
-  
+/////////////////////////////////---------------UPDATE FORM--------------------//////////////////////////  
+
+onUpdate(form: NgForm){
+  console.log(form.value);
+  this.registration.updateUser(form.value,form.value.id)
+  .subscribe((data)=>{
+   console.log(data);
+ });
+ alert(form.value.user_name+' has been updated');
 }
+  
+
+  
+////////////////////////////////---------------RESET FORM--------------------///////////////////////////
+
+  resetForm(form?:NgForm){
+    if(form!=null)
+      form.reset();
+    
+      this.registration.selectedUser.emit({
+        key :0,
+        first_name: '',
+        last_name:'',
+        age: '',
+        flat_id:'',
+        phone_no: '',
+        user_name:'',
+        email: '',
+        password: '',
+        aadharcardno: '',
+        gender: '',
+        user_type:''
+      })
+  }
+
+ 
+////////////////////////////////---------------DELETE FORM--------------------///////////////////////////
+
+onDelete(form:NgForm) {
+  if (confirm('Are you sure to delete this record ?') == true) {
+    console.log(form.value);
+    this.registration.deleteUser(form.value.id).subscribe((data)=>{
+      console.log(data);
+    })
+    this.resetForm(form);
+  }
+}
+
+
+
+
+
+
+
+  // onUpdate(form: NgForm){
+  //   console.log(form.value);
+  //   this.vendorservice.updateVendor(form.value,form.value.id)
+  //   .subscribe((data)=>{
+  //    console.log(data);
+  //  });
+  //  alert(form.value.userName+' has been updated');
+  // }
+
+}
+
+
 
 
   //////////////////////////////// ---------- post data to json --------------////////////////////////
