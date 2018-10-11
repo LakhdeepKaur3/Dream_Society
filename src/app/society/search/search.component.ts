@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit {
   users:Registration[];
   filteredRegistration: Registration[];
   private _searchTerm: string;
- 
+  interval:any;
   
   
   get serchTerm(): string{
@@ -52,7 +52,14 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
       this.refetchUsers();
       // this.registrationservice.getUser();
-      this.filteredRegistration= this.users;}
+      this.filteredRegistration= this.users;
+      
+    
+    }
+
+    // ngOnDestroy(){
+    //   clearInterval(this.interval)
+    // }
       // .subscribe((data)=>{
       //   this.registration=(JSON.parse(data["_body"]));
       //   console.log(this.registration);
@@ -79,11 +86,14 @@ export class SearchComponent implements OnInit {
       console.log(this.users);
     });
   }
+  
   onItemClick(registration:Registration){
     console.log("registration",registration);
     console.log(registration);
     this.registrationservice.selectedUser.emit(registration);
   }  
   
+  
+
 }
  

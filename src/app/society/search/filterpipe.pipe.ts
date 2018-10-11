@@ -9,7 +9,7 @@ import {Registration} from '../society-shared/registration.model';
 export class FilterpipePipe implements PipeTransform {
   private counter=0;
   
-  transform(users: Registration[], searchTerm:string): Registration[] {
+  transform(users: any, searchTerm:any): Registration[] {
     this.counter++;
     console.log('filter pipe executed count'+ this.counter);
     if(!users || !searchTerm){

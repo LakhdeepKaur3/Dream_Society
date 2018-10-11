@@ -52,6 +52,7 @@ import { PiechartComponent } from './home-page/dashboard/charts/piechart/piechar
 import { DynamicChartComponent } from './home-page/dashboard/charts/dynamic-chart/dynamic-chart.component';
 import { DoughnutChartComponent } from './home-page/dashboard/charts/doughnut-chart/doughnut-chart.component';
 import { DashboardService } from './home-page/dashboard/dashboard.service';
+import { FilterpipePipes } from './vendors/vendor-list/filterpipes.pipe';
 
  
 const routes: Routes = [
@@ -191,6 +192,7 @@ const routes: Routes = [
     // RegistrationListComponent,
     PagePipe,
     SearchComponent,
+    FilterpipePipes,
     FilterpipePipe
 
   ],

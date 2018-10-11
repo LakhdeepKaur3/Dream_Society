@@ -38,7 +38,10 @@ export class RegistrationFormComponent implements OnInit {
     this.registration.selectedUser.subscribe((data)=>{
       this._form=data;
     });
+  
   }
+
+ 
 
   validateService(value) {
     if (value == 'default') {
@@ -110,19 +113,6 @@ onDelete(form:NgForm) {
 }
 
 
-
-
-
-
-
-  // onUpdate(form: NgForm){
-  //   console.log(form.value);
-  //   this.vendorservice.updateVendor(form.value,form.value.id)
-  //   .subscribe((data)=>{
-  //    console.log(data);
-  //  });
-  //  alert(form.value.userName+' has been updated');
-  // }
 
 }
 

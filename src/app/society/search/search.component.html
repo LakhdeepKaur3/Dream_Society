@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-          <tr *ngFor = "let a of users |filterpipe:_searchTerm" (click)="onItemClick(a)" >
+          <tr *ngFor = "let a of users | filterpipe : _searchTerm" (click)="onItemClick(a)" >
           <td>{{a.first_name}}</td>
           <td>{{a.phone_no}}</td>
           <td>{{a.user_type}}</td>
