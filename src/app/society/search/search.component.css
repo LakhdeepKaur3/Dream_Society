@@ -1,3 +1,7 @@
+.container{
+    box-shadow: 5ch
+}
+
 .tab-control .previous-button, .tab-control .next-button{
     position: absolute;
     top: 94%;
@@ -9,4 +13,14 @@
 
 .tab-control .next-button{
     right: 20%;
+}
+
+button{
+    align-content: center;
+    margin: 5px;
+    align-self: center
+}
+
+#search{
+    margin: 10px;
 }

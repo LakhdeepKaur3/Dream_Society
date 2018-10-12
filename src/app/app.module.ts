@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxPaginationModule} from "ngx-pagination";
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
 import { AppComponent } from './app.component';
@@ -53,6 +54,7 @@ import { DynamicChartComponent } from './home-page/dashboard/charts/dynamic-char
 import { DoughnutChartComponent } from './home-page/dashboard/charts/doughnut-chart/doughnut-chart.component';
 import { DashboardService } from './home-page/dashboard/dashboard.service';
 import { FilterpipePipes } from './vendors/vendor-list/filterpipes.pipe';
+import { LandingPageComponent } from './society/landing-page/landing-page.component';
 
  
 const routes: Routes = [
@@ -89,7 +91,7 @@ const routes: Routes = [
       { path: 'parking', component: ParkingComponent},
       { path: 'society', component: SocietyComponent,
       children: [
-        
+        {path:'landing-page', component:LandingPageComponent},
         { path: 'registration-form', component: RegistrationFormComponent},
         
     
@@ -193,7 +195,9 @@ const routes: Routes = [
     PagePipe,
     SearchComponent,
     FilterpipePipes,
-    FilterpipePipe
+    FilterpipePipe,
+    LandingPageComponent
+  
 
   ],
   imports: [
@@ -201,6 +205,7 @@ const routes: Routes = [
     FormsModule,
     HttpModule,
     ChartsModule,
+    NgxPaginationModule,
     ReactiveFormsModule,
     AngularFontAwesomeModule,
     RouterModule.forRoot(routes),

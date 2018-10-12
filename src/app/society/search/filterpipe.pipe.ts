@@ -4,7 +4,7 @@ import {Registration} from '../society-shared/registration.model';
 
 @Pipe({
   name: 'filterpipe',
-  pure: false
+  
 })
 export class FilterpipePipe implements PipeTransform {
   private counter=0;

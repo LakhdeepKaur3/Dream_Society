@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Registration } from "../society-shared/registration.model";
 import { RegistrationService } from '../society-shared/registration.service';
 import { SearchComponent } from "../search/search.component";
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-registration-form',
@@ -14,7 +15,8 @@ export class RegistrationFormComponent implements OnInit {
   userHasError=true;
 
   // @Input('data') data ;
-  constructor(private registration : RegistrationService){
+  constructor(private registration : RegistrationService,
+  private location:Location){
 
   }
 
@@ -59,9 +61,10 @@ export class RegistrationFormComponent implements OnInit {
         console.log(data);
      });
      alert(form.value.user_name+' has been added');
-    //  this.resetForm(form);
+     this.location.back();
+     this.resetForm(form);
     // }
-    this.resetForm(form);
+    // this.resetForm(form);
   }
 
 /////////////////////////////////---------------UPDATE FORM--------------------//////////////////////////  

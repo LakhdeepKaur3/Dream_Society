@@ -1,8 +1,8 @@
 <div class = "container">
-    <button type="button" (click)="refetchUsers()">
+    <!-- <button type="button" (click)="refetchUsers()">
       <i class="fa fa-repeat"></i>
-      Refresh</button>
-      <input class="form-control form-control-dark" type="text" placeholder="Search" aria-label="Search" [(ngModel)]="searchTerm">
+      Refresh</button> -->
+      <input class="form-control form-control-dark" id = "search" type="text" placeholder="Search" aria-label="Search" [(ngModel)]="searchTerm">
       <div>
     </div>  
       
@@ -16,15 +16,21 @@
         </tr>
       </thead>
       <tbody>
-          <tr *ngFor = "let a of users | filterpipe : _searchTerm" (click)="onItemClick(a)" >
+          <tr *ngFor = "let a of users | filterpipe : _searchTerm| paginate: {itemsPerPage:4,currentPage:p}" (click)="onItemClick(a)" >
           <td>{{a.first_name}}</td>
           <td>{{a.phone_no}}</td>
           <td>{{a.user_type}}</td>
+          <button type="button" class="btn btn-light" routerLink ="./registration-form" >Edit</button>
+          <button type="button" class="btn btn-primary" routerLink ="./registration-form" >Delete</button>
         </tr>
         </tbody>
       </table>
     </div>
     
+   
+    
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
   
     <!-- <div class="tab-control">
       <a class="previous-button" role="button"><i class="fa fa-angle-left fa-3x fa-fw"></i></a>

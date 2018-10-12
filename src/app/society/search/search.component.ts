@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { RegistrationService } from '../society-shared/registration.service';
 import {Registration} from '../society-shared/registration.model';
 import {FilterpipePipe} from './filterpipe.pipe'; 
@@ -14,7 +14,8 @@ export class SearchComponent implements OnInit {
   users:Registration[];
   filteredRegistration: Registration[];
   private _searchTerm: string;
-  interval:any;
+  p:number=1;t
+  dataRefresher:any;
   
   
   get serchTerm(): string{
@@ -24,16 +25,11 @@ export class SearchComponent implements OnInit {
   
   set searchTerm(value: string){
     this._searchTerm =value;
-    this.filteredRegistration=this.filtereRegistration(value);
-  }
+     }
   
 
-  filtereRegistration(searchString:string){
-    return this.users.filter(reg=>
-      reg.first_name.toLowerCase().indexOf(searchString.toLowerCase()) >-1);
-      // registration.user_type.toLowerCase().indexOf(searchString.toLowerCase()) !==-1 );
-      
-  }
+  
+
   
   // first_name:any;
   // email:any;
@@ -53,13 +49,20 @@ export class SearchComponent implements OnInit {
       this.refetchUsers();
       // this.registrationservice.getUser();
       this.filteredRegistration= this.users;
+      this.dataRefresher = setInterval(()=>{
+        this.registrationservice.getUser()
+    .subscribe((data)=>{
+      this.users=(JSON.parse(data["_body"]));
+      console.log(this.users);
+    });
+      },3000)
       
     
     }
 
-    // ngOnDestroy(){
-    //   clearInterval(this.interval)
-    // }
+    ngOnDestroy(){
+      clearInterval(this.dataRefresher);
+    }
       // .subscribe((data)=>{
       //   this.registration=(JSON.parse(data["_body"]));
       //   console.log(this.registration);
@@ -85,15 +88,16 @@ export class SearchComponent implements OnInit {
       this.users=(JSON.parse(data["_body"]));
       console.log(this.users);
     });
+    
   }
-  
+
   onItemClick(registration:Registration){
     console.log("registration",registration);
     console.log(registration);
     this.registrationservice.selectedUser.emit(registration);
   }  
   
-  
+
 
 }
  

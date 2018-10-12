@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+  
+    <div class="col-12">
+      <app-search></app-search>
+    </div>
+    <div class="col-12">
+        <a  *ngIf = isValid routerLink ="./registration-form" [hidden] =true>add society member</a>
+        <a  *ngIf = !isValid routerLink ="./registration-form" (click)=toggle()>add society member</a>
+<router-outlet></router-outlet>
+    </div>
+  </div>
+  </div>
