@@ -10,6 +10,7 @@ import { FilterpipePipes } from "./filterpipes.pipe";
 export class VendorListComponent implements OnInit {
   vendors:Vendor[];
   filteredVendor:Vendor[];
+  p:number=1;
   private _searchTerm:string;
 
 constructor(private vendorService:VendorService) { 
@@ -33,6 +34,7 @@ filterVendor(searchString:string){
 
   ngOnInit() {
     this.refetchVendors();
+  
   }
   refetchVendors(){
     this.vendorService.getVendor()

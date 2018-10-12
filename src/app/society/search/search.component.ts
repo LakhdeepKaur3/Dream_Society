@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit {
   users:Registration[];
   filteredRegistration: Registration[];
   private _searchTerm: string;
-  p:number=1;t
+  p:number=1;
   dataRefresher:any;
   
   
